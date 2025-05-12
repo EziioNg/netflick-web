@@ -1,0 +1,9 @@
+{ // for ctrl + click to go to file destinations
+    "compilerOptions": {
+        "paths": {
+            "~/*": [
+                "./src/*"
+            ],
+        },
+    }
+}
