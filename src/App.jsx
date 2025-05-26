@@ -1,14 +1,33 @@
+import { Routes, Route, Navigate } from 'react-router-dom'
+
+import MainLayout from './layouts/MainLayout'
+import Home from './pages/Home'
 
 function App() {
 
   return (
-    <>
-      <div>
-        <h1 className="text-4xl font-bold underline bg-red-500 text-white-50">
-          Hello world!
-        </h1>
-      </div>
-    </>
+    <Routes>
+      {/* Redirect Routes */}
+      <Route path='/' element={
+        <Navigate to='/home' replace={true} />
+      } />
+
+      {/* Home */}
+      <Route path='/home' element={
+        <MainLayout>
+          <Home />
+        </MainLayout>
+      } />
+
+      {/* Board details */}
+
+
+      {/* Login - Reister */}
+
+
+      {/* 404 page */}
+
+    </Routes>
   )
 }
 
