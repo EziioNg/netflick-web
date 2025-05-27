@@ -33,6 +33,12 @@ section {
   --color-white-1: #ffffff2e;
   --color-nav-menu1-background: #0000000d;
   --color-text-muted: #00000099;
+  --color-white-take: #ffffffcc;
+  --color-text-take: #e5a00d;
+  --color-text-mute: #ffffff99;
+  --color-surface-background-60: #00000099;
+  --color-background-control: #ffffff1a;
+  --color-brand-blue: #15a9fc;
 }
 
 @layer utilities {
@@ -55,18 +61,66 @@ section {
 
 @layer components {
 
-  .main-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  .take-section {
+    @apply flex flex-col justify-normal items-center h-[515.925px] py-8 px-16 min-w-0 w-full flex-1 grow-0 shrink gap-12 bg-grey-100;
+
+    .take-icons {
+      @apply flex flex-row list-none gap-16 h-[265px] w-[min(100%,600px)] justify-center items-center grow-0 shrink flex-wrap;
+    }
+
+    .take-span {
+      @apply text-[16px] font-normal text-text-take cursor-pointer;
+
+      &:hover {
+        @apply text-white underline;
+      }
+    }
   }
 
-  .main-content {
-    flex: 1; /* Đẩy nội dung chính chiếm toàn bộ khoảng trống */
-    padding-top: 60px; /* Đủ chỗ nếu NavBar là fixed */
-    padding-bottom: 100px; /* Đủ chỗ nếu Footer là fixed hoặc to */
-    box-sizing: border-box;
+  .footer-section {
+    @apply relative shrink-0 py-6 px-16 overflow-hidden bg-surface-background-60;
+
+    .footer-icon {
+      @apply w-[105px] h-[48px];
+    }
+
+    .footer-text {
+      @apply text-xs font-normal text-text-mute grow-0 shrink;
+
+      &:hover {
+        @apply text-white underline;
+      }
+    }
+
+    .footer-btn {
+      @apply text-xs font-normal text-text-mute grow-0 shrink;
+
+      &:hover {
+        @apply text-white;
+      }
+    }
+
+    .footer-logos {
+      @apply text-white-take;
+
+      &:hover {
+        @apply bg-white text-black-100;
+      }
+    }
+
+    .footer-dropdown {
+      @apply bg-background-control h-8 rounded-b-sm border-none py-1 pl-3 flex flex-row items-center;
+
+      &:active {
+        @apply bg-white text-black-100;
+      }
+    }
+
+    .footer-dropdown-active {
+      @apply bg-white text-black-100 h-8 rounded-b-sm border-none py-1 pl-3 flex flex-row items-center;
+    }
   }
+
 
   .padding-x {
     @apply px-5 md:px-10;
