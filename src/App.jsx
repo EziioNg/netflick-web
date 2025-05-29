@@ -12,7 +12,7 @@ function App() {
         <Navigate to='/home' replace={true} />
       } />
 
-      {/* Home */}
+      {/* HomeItems */}
       <Route path='/home' element={
         <MainLayout>
           <Home />
