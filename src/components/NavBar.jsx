@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from "react"
-
-import { motion } from "motion/react"
-// import * as motion from "motion/react-client"
+import {
+    useState,
+    // useEffect,
+    useRef
+} from "react"
 
 import SearchIcon from '@mui/icons-material/Search';
 import CastIcon from '@mui/icons-material/Cast';
@@ -23,21 +24,21 @@ import { navLinks } from "~/constants/NavLinks/index.jsx"
 
 const NavBar = () => {
     // Scroll section:
-    const [scrolled, setScrolled] = useState(false)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const isScrolled = window.scrollY > 10 // biến kiểm tra nếu đã scroll trục y hơn 10 pixel
-            if (isScrolled) {
-                setScrolled(true)
-            } else {
-                setScrolled(false)
-            }
-        }
-        window.addEventListener('scroll', handleScroll)
-
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [scrolled])
+    // const [scrolled, setScrolled] = useState(false)
+    //
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         const isScrolled = window.scrollY > 10 // biến kiểm tra nếu đã scroll trục y hơn 10 pixel
+    //         if (isScrolled) {
+    //             setScrolled(true)
+    //         } else {
+    //             setScrolled(false)
+    //         }
+    //     }
+    //     window.addEventListener('scroll', handleScroll)
+    //
+    //     return () => window.removeEventListener('scroll', handleScroll)
+    // }, [scrolled])
 
     // Popper section:
     const arrowRef = useRef(null);
@@ -70,9 +71,9 @@ const NavBar = () => {
         hover
     ]);
 
-
     return (
-        <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
+        // <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
+        <header className='navbar font-semibold scrolled'>
                     <a href="#hero" className="flex flex-1 items-center">
                         <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="home-icon" />
                         <div className="navbar-search rounded-search flex-1">
