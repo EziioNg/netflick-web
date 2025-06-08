@@ -143,10 +143,10 @@ const NavBar = () => {
             <div className="nav-action">
                     <div className="sign-in-wrapper">
                         <a href="" className="nav-category nav-btn rounded-search">
-                            <CastIcon className="w-4 h-4"/>
+                            <CastIcon/>
                         </a>
                         <a href="" className="nav-category nav-btn rounded-search">
-                            <BookmarksIcon className="w-4 h-4"/>
+                            <BookmarksIcon/>
                         </a>
                         <div
                             id="btn-test"
