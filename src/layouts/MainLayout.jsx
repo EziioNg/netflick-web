@@ -7,7 +7,7 @@ import Footer from '~/components/Footer'
 const MainLayout = ({ children }) => {
     return (
         <>
-            <div className="flex flex-col min-h-screen bg-black ub-corner-gradients">
+            <div className="flex flex-col min-h-screen ub-corner-gradients">
                 <NavBar/>
                 <main className="flex flex-col pt-[64px] flex-1 ub-corner-gradients gap-12">
                     {children}
