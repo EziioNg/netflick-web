@@ -4,6 +4,8 @@ import MainLayout from './layouts/MainLayout'
 import MovieLayout from './layouts/MovieLayout'
 import Home from './pages/Home'
 import Movie from './pages/Movie'
+import Watch from './pages/Watch'
+import WatchLayout from "~/layouts/WatchLayout.jsx";
 
 function App() {
 
@@ -33,6 +35,13 @@ function App() {
               <MovieLayout>
                   <Movie/>
               </MovieLayout>
+          }/>
+
+          {/* Watch Page */}
+          <Route path='/movies/watch/:movieId' element={
+              <WatchLayout>
+                  <Watch/>
+              </WatchLayout>
           }/>
 
           {/* Login - Reister */}
