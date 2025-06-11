@@ -17,7 +17,7 @@ import {
     arrow,
     offset,
     flip,
-    shift, autoUpdate
+    shift, autoUpdate, useTransitionStyles,
 } from '@floating-ui/react';
 
 import { navLinks } from "~/constants/NavLinks/index.jsx"
@@ -57,8 +57,9 @@ const NavBar = () => {
             flip(),
             shift()
         ],
-        whileElementsMounted: (reference, floating, update) =>
-            autoUpdate(reference, floating, update)
+        // OPTIONAL để cải thiện transition logic
+        strategy: 'absolute',
+        whileElementsMounted: autoUpdate
     });
 
     const hover = useHover(context, {
@@ -70,6 +71,23 @@ const NavBar = () => {
     const {getReferenceProps, getFloatingProps} = useInteractions([
         hover
     ]);
+
+    const { isMounted, styles } = useTransitionStyles(context, {
+        duration: { open: 350, close: 300 },
+        initial: {
+            transform: 'translateX(-24px)',
+        },
+        open: {
+            transform: 'translateX(0)',
+        },
+        close: {
+            transform: 'translateX(24px)',
+        },
+        common: {
+            transitionProperty: 'transform',
+            transitionTimingFunction: 'ease-in-out',
+        },
+    });
 
     return (
         // <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
@@ -94,12 +112,24 @@ const NavBar = () => {
                             <li
                                 key={name}
                                 className="flex h-10 relative"
-                                ref={hasPopper && isActive ? refs.setReference : null}
+                                // ref={hasPopper && isActive ? refs.setReference : null}
+                                // {...(hasPopper && isActive ? getReferenceProps() : {})}
+                                // onMouseEnter={() => {
+                                //     if (hasPopper) setActiveItem({ name, content });
+                                // }}
+                                // {...(hasPopper && isActive ? {} : { onMouseLeave: () => setActiveItem(null) })}
+                                ref={(el) => {
+                                    // Đảm bảo đúng reference element được set
+                                    if (hasPopper && isActive) refs.setReference(el);
+                                }}
                                 {...(hasPopper && isActive ? getReferenceProps() : {})}
                                 onMouseEnter={() => {
-                                    if (hasPopper) setActiveItem({ name, content });
+                                    if (!hasPopper) return;
+                                    // Delay update activeItem để setReference kịp thời
+                                    requestAnimationFrame(() => {
+                                        setActiveItem({ name, content });
+                                    });
                                 }}
-                                {...(hasPopper && isActive ? {} : { onMouseLeave: () => setActiveItem(null) })}
                             >
                                 <a
                                     href={link}
@@ -110,34 +140,49 @@ const NavBar = () => {
                                 </a>
 
                                 {/* Popper hiển thị khi isActive */}
-                                {hasPopper && isActive && (
-                                    <div
-                                        ref={refs.setFloating}
-                                        style={floatingStyles}
-                                        {...getFloatingProps()}
-                                        className="parent-div absolute top-full left-0 z-50 bg-white shadow-lg rounded"
-                                    >
-                                        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />
-                                        {content}
-                                    </div>
-                                )}
-
-                                {/*{activeItem && (*/}
-                                {/*    <motion.div*/}
+                                {/*{hasPopper && isActive && isMounted && (*/}
+                                {/*    <div*/}
                                 {/*        ref={refs.setFloating}*/}
-                                {/*        style={floatingStyles}*/}
+                                {/*        // style={floatingStyles}*/}
+                                {/*        style={{*/}
+                                {/*            position: floatingStyles.position,*/}
+                                {/*            top: floatingStyles.top,*/}
+                                {/*            left: floatingStyles.left,*/}
+                                {/*            transform: `${floatingStyles.transform} ${styles.transform ?? ''}`,*/}
+                                {/*            transitionProperty: styles.transitionProperty,*/}
+                                {/*            transitionTimingFunction: styles.transitionTimingFunction,*/}
+                                {/*            transitionDuration: styles.transitionDuration,*/}
+                                {/*        }}*/}
                                 {/*        {...getFloatingProps()}*/}
-                                {/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/}
-                                {/*        layout*/}
-                                {/*        transition={{ type: 'spring', damping: 20, stiffness: 300 }}*/}
+                                {/*        className="parent-div absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/}
                                 {/*    >*/}
                                 {/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/}
-                                {/*        {activeItem.content}*/}
-                                {/*    </motion.div>*/}
+                                {/*        {content}*/}
+                                {/*    </div>*/}
                                 {/*)}*/}
                             </li>
                     );
                 })}
+                {/* Popper chỉ render 1 lần, dùng activeItem để hiển thị nội dung */}
+                {activeItem && isMounted && (
+                    <div
+                        ref={refs.setFloating}
+                        style={{
+                            position: floatingStyles.position,
+                            top: floatingStyles.top,
+                            left: floatingStyles.left,
+                            transform: `${floatingStyles.transform} ${styles.transform ?? ''}`,
+                            transitionProperty: styles.transitionProperty,
+                            transitionTimingFunction: styles.transitionTimingFunction,
+                            transitionDuration: styles.transitionDuration,
+                        }}
+                        {...getFloatingProps()}
+                        className="parent-div absolute top-full left-0 z-50 bg-white shadow-lg rounded"
+                    >
+                        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />
+                        {activeItem.content}
+                    </div>
+                )}
             </div>
 
             <div className="nav-action">
@@ -174,4 +219,18 @@ export default NavBar
 {/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/}
 {/*        {content}*/}
 {/*    </div>*/}
+{/*)}*/}
+
+{/*{activeItem && (*/}
+{/*    <motion.div*/}
+{/*        ref={refs.setFloating}*/}
+{/*        style={floatingStyles}*/}
+{/*        {...getFloatingProps()}*/}
+{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/}
+{/*        layout*/}
+{/*        transition={{ type: 'spring', damping: 20, stiffness: 300 }}*/}
+{/*    >*/}
+{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/}
+{/*        {activeItem.content}*/}
+{/*    </motion.div>*/}
 {/*)}*/}
