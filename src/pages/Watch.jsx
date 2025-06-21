@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 
-import { formatTime } from "~/utils/helpers.js";
+import {useParams} from "react-router-dom";
 
 import CastIcon from '@mui/icons-material/Cast';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -9,9 +9,31 @@ import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
-const Watch = () => {
-    const videoRef = useRef(null);
+import { formatTime } from "~/utils/helpers.js";
+import {getMovieAPI} from "~/apis/index.js";
 
+const Watch = () => {
+    // API
+    const { movieId } = useParams();
+    const [movie, setMovie] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        console.log("API calling...")
+        getMovieAPI(movieId)
+            .then(data => {
+                console.log('data received: ', data);
+                setMovie(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error('Error getting movie: ', err);
+                setLoading(false);
+            });
+    }, [movieId]);
+
+    // Handle video functions
+    const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(true);
     const [volume, setVolume] = useState(1);
     const [isMuted, setIsMuted] = useState(false);
@@ -22,7 +44,7 @@ const Watch = () => {
     // Load metadata và update time
     useEffect(() => {
         const video = videoRef.current;
-        if (!video) return;
+        if (!video || !movie) return;
 
         const handleLoadedMetadata = () => setDuration(video.duration);
         const handleTimeUpdate = () => {
@@ -36,7 +58,7 @@ const Watch = () => {
             video.removeEventListener('loadedmetadata', handleLoadedMetadata);
             video.removeEventListener('timeupdate', handleTimeUpdate);
         };
-    }, [isSeeking]);
+    }, [movie, isSeeking]);
 
     // Play / Pause toggle
     const togglePlay = () => {
@@ -91,13 +113,15 @@ const Watch = () => {
         }
     };
 
+    if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
+    if (!movie) return <div className="text-red-500 px-4 items-center justify-self-center text-6xl">Not found.</div>;
     return (
         <div className="relative min-h-screen group">
             <div className="mv-upper">
                 <div className="flex flex-row flex-nowrap items-center justify-between h-8 pl-4">
                     <div className="flex flex-row flex-nowrap grow-0 shrink items-center gap-6">
                         <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="mv-watch-icon" />
-                        <span className="grow-0 shrink overflow-hidden text-base font-normal text-text-default">Zatoichi: The Blind Swordsman - Season 1 Episode 1</span>
+                        <span className="grow-0 shrink overflow-hidden text-base font-normal text-text-default">{movie.title}</span>
                     </div>
                     <div className="flex flex-row flex-nowrap grow-0 shrink">
                         <div className="mv-watch-share-icon rounded-search">
@@ -113,7 +137,8 @@ const Watch = () => {
                 <video
                     ref={videoRef}
                     className="absolute w-full h-full"
-                    src="/movie.mp4"
+                    // src="/movie.mp4"
+                    src={movie.movieURL}
                     autoPlay
                     loop
                     controls={false}

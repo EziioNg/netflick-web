@@ -3,7 +3,8 @@ import {useRef, useState, useEffect} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import mockWhatOns from "~/constants/HomeMockDatas/mockWhatOns.js";
+import { fetchMoviesAPI } from "~/apis/index.js"
+import {useNavigate} from "react-router-dom";
 
 const WhatOnSection = () => {
     const scrollRef = useRef(null);
@@ -43,6 +44,30 @@ const WhatOnSection = () => {
         el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
+    // API
+    const [movies, setMovies] = useState([]);
+    useEffect(() => {
+        fetchMoviesAPI()
+            .then(data => {
+                console.log('Dữ liệu từ API:', data);
+                // setMovies(data);
+                setMovies(data.movies);
+            })
+            .catch(err => console.error('Lỗi khi fetch movies:', err));
+    }, []);
+
+    useEffect(() => {
+        // Delay để chờ React render DOM → đảm bảo scrollWidth đã cập nhật
+        const timeout = setTimeout(() => {
+            checkScroll();
+        }, 100); // 50~100ms là đủ
+
+        return () => clearTimeout(timeout);
+    }, [movies]);
+
+    // Navigate
+    const navigate = useNavigate();
+
     return (
         <div className="what-on-section-container">
             <div className="what-on-text">
@@ -78,28 +103,31 @@ const WhatOnSection = () => {
                     ref={scrollRef}
                     className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
                 >
-                    {mockWhatOns.map((item, idx) => (
+                    {movies.map((item, idx) => (
                         <figure
-                            key={item.id}
+                            // key={item._id}
+                            key={item?._id || idx}
+                            onClick={() => navigate(`/movies/${item._id}`)}
                             className={`what-on-items-section-container what-on-width group shrink-0 snap-start
-                                    ${idx === 0 ? 'ml-16' : ''} ${idx === mockWhatOns.length - 1 ? 'mr-16' : ''}`}
+                                ${idx === 0 ? 'ml-16' : ''} ${idx === movies.length - 1 ? 'mr-16' : ''}`}
                         >
-                            <div className="what-on-items-section what-on-width what-on-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
+                            <div
+                                className="what-on-items-section what-on-width what-on-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
                                 <div className="what-on-items-bg">
                                     <img
                                         className="what-on-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.imageUrl}
+                                        src={item.movieImage}
                                         alt={item.title}
                                     />
                                 </div>
                             </div>
                             <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
-                                  <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
-                                    {item.title}
-                                  </span>
-                                  <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
-                                    {item.timeLeft}
-                                  </span>
+                                <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
+                                  {item.title}
+                                </span>
+                                <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
+                                  {item.description}
+                                </span>
                             </figcaption>
                         </figure>
                     ))}

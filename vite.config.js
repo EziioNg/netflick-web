@@ -12,6 +12,10 @@ export default defineConfig({
   ],
   resolve: { // for absolute imports
     alias: [{ find: '~', replacement: '/src' }]
+  },
+  // cho phép vite sử dụng process.env(nếu không thì phải dùng import.meta.env)
+  define: {
+    'process.env': process.env
   }
   // base: './'
 })
