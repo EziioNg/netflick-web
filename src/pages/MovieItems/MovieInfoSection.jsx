@@ -1,25 +1,52 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import IosShareIcon from '@mui/icons-material/IosShare';
+import {useNavigate, useParams} from 'react-router-dom'
 
-import mockMovie1 from "~/constants/MoviesMockDatas/mockMovie1.js";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
+import BookmarkIcon from '@mui/icons-material/Bookmark'
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
+import IosShareIcon from '@mui/icons-material/IosShare'
+
+// import mockMovie1 from "~/constants/MoviesMockDatas/mockMovie1.js"
+import { getMovieAPI } from "~/apis/index.js"
 
 const MovieInfoSection = () => {
+    const { movieId } = useParams();
+    const [movie, setMovie] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        console.log("API calling...")
+        getMovieAPI(movieId)
+            .then(data => {
+                console.log('data received: ', data);
+                setMovie(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error('Error getting movie: ', err);
+                setLoading(false);
+            });
+    }, [movieId]);
+
+    // Navigate
+    const navigate = useNavigate();
+
+    if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
+    if (!movie) return <div className="text-red-500 px-4 items-center justify-self-center text-6xl">Not found.</div>;
+
     return (
         <div className="flex flex-row flex-nowrap grow-0 shrink items-start justify-start gap-12 w-[1392.800px] h-[450px] z-[999] px-16">
             <div className="relative flex w-[300px] h-[450px] shrink-0 bg-background-card overflow-hidden">
                 <div className="absolute flex items-stretch justify-stretch inset-0">
-                    <img src={mockMovie1.imageUrl} alt="mv-img"/>
+                    <img src={movie.movieImage} alt="mv-img"/>
                 </div>
             </div>
             <div className="flex flex-col grow-0 shrink flex-nowrap gap-8">
                 <div className="flex flex-col grow-0 shrink flex-nowrap gap-4">
                     <div className="items-start grow-0 shrink flex-nowrap">
-                        <h1 className="text-white text-left text-[32px] font-bold">Zatoichi Monogatari</h1>
+                        <h1 className="text-white text-left text-[32px] font-bold">{movie.title}</h1>
                     </div>
                     <div className="flex flex-col grow-0 shrink flex-nowrap gap-1">
                         <div className="flex flex-row grow-0 shrink flex-nowrap items-center justify-start gap-3">
@@ -48,7 +75,10 @@ const MovieInfoSection = () => {
                 </div>
                 <div className="flex flex-row grow-0 shrink flex-nowrap h-12 gap-1">
                     <a href="" className="relative inline-flex grow-0 shrink justify-center px-4 text-text-on-focus bg-background-focus rounded-search">
-                        <div className="flex flex-row grow-0 shrink flex-nowrap justify-center items-center gap-1">
+                        <div
+                            onClick={() => navigate(`/movies/watch/${movie._id}`)}
+                            className="flex flex-row grow-0 shrink flex-nowrap justify-center items-center gap-1"
+                        >
                             <PlayArrowIcon fontSize="large"/>
                             <span className="inline-block overflow-hidden text-base font-semibold">Watch Free</span>
                         </div>
@@ -67,7 +97,7 @@ const MovieInfoSection = () => {
                 </div>
                 <div className="flex grow-0 shrink flex-nowrap items-start max-w-[700px]">
                     <span className="text-base font-normal text-white">
-                        Blind masseur Zatôichi travels from town to town gambling, drinking, and fighting off the local gangs.
+                        {movie.description}
                     </span>
                 </div>
             </div>
