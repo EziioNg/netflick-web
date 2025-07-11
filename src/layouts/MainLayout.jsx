@@ -2,6 +2,7 @@ import React from 'react'
 
 import NavBar from '~/components/NavBar'
 import Take from '~/components/Take'
+// import San from '~/components/San'
 import Footer from '~/components/Footer'
 
 const MainLayout = ({ children }) => {
@@ -13,6 +14,7 @@ const MainLayout = ({ children }) => {
                     {children}
                 </main>
                 <Take/>
+                {/*<San/>*/}
                 <Footer/>
             </div>
         </>

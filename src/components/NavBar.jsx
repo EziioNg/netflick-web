@@ -21,6 +21,7 @@ import {
 } from '@floating-ui/react';
 
 import { navLinks } from "~/constants/NavLinks/index.jsx"
+import {NavigationMenu} from "~/constants/NavLinks/NavigationMenu.jsx";
 
 const NavBar = () => {
     // Scroll section:
@@ -89,6 +90,8 @@ const NavBar = () => {
         },
     });
 
+    // const navLinks = NavigationMenu()
+
     return (
         // <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
         <header className='navbar font-semibold scrolled'>
@@ -138,28 +141,6 @@ const NavBar = () => {
                                     <Icon />
                                     <span>{name}</span>
                                 </a>
-
-                                {/* Popper hiển thị khi isActive */}
-                                {/*{hasPopper && isActive && isMounted && (*/}
-                                {/*    <div*/}
-                                {/*        ref={refs.setFloating}*/}
-                                {/*        // style={floatingStyles}*/}
-                                {/*        style={{*/}
-                                {/*            position: floatingStyles.position,*/}
-                                {/*            top: floatingStyles.top,*/}
-                                {/*            left: floatingStyles.left,*/}
-                                {/*            transform: `${floatingStyles.transform} ${styles.transform ?? ''}`,*/}
-                                {/*            transitionProperty: styles.transitionProperty,*/}
-                                {/*            transitionTimingFunction: styles.transitionTimingFunction,*/}
-                                {/*            transitionDuration: styles.transitionDuration,*/}
-                                {/*        }}*/}
-                                {/*        {...getFloatingProps()}*/}
-                                {/*        className="parent-div absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/}
-                                {/*    >*/}
-                                {/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/}
-                                {/*        {content}*/}
-                                {/*    </div>*/}
-                                {/*)}*/}
                             </li>
                     );
                 })}

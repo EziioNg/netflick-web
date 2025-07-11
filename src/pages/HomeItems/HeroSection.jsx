@@ -7,7 +7,7 @@ const HeroSection = () => {
                 <div className="hero hero-height">
                     <div className="hero-video hero-mask">
                         <video className="video" autoPlay={true} loop={true} playsInline={true} muted={true}
-                               src="https://res.cloudinary.com/doam999z1/video/upload/v1750505241/NINJA_GAIDEN_2_Black_2025.06.21_-_16.47.15.17_jymisx.mp4">
+                               src="https://netflick-movies.b-cdn.net/NG.mp4">
                         </video>
                     </div>
 

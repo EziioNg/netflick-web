@@ -2,7 +2,7 @@ import React from 'react'
 
 const Take = () => {
     return (
-        <div className="take-section">
+        <div className="take-section bg-[url('https://res.cloudinary.com/doam999z1/image/upload/v1752048346/eddy-gonzalez-davila-1111_c49zvs.jpg')] bg-cover bg-center bg-no-repeat">
             <div className="flex flex-col min-w-0 items-center gap-3">
                 <h2 className="text-white text-[20.6px] font-bold">Take Plex everywhere</h2>
                 <span className="text-white-take">Watch free anytime, anywhere, on almost any device.</span>

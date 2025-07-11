@@ -15,16 +15,10 @@ const Home = () => {
     return (
         <>
             <HeroSection />
-            <WhatOnSection />
-            <TuneInSection />
             <WorthyShowSection />
             <MostPopularSection />
             <CrimeTimeSection />
-            <TilDeathSection />
-            <TrueCrimeTimeSection />
-            <RecentlySection />
-            <MostWatchSection />
-            <TrendingTrailerSection />
+            <WhatOnSection />
             <ComingSoonSection />
         </>
     )

@@ -3,7 +3,7 @@ import {useRef, useState, useEffect} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import { fetchMoviesAPI } from "~/apis/index.js"
+import { fetchMoviesAPI, getMoviesByCategoryId } from "~/apis/index.js"
 import {useNavigate} from "react-router-dom";
 
 const WhatOnSection = () => {
@@ -126,7 +126,7 @@ const WhatOnSection = () => {
                                   {item.title}
                                 </span>
                                 <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
-                                  {item.description}
+                                  {item.review}
                                 </span>
                             </figcaption>
                         </figure>

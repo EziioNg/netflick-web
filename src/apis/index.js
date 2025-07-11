@@ -10,13 +10,28 @@ export const fetchMoviesAPI = async () => {
 
 export const getMovieAPI = async (movieId) => {
   const response = await axios.get(`${API_ROOT}/v1/movies/${movieId}`)
-  return response.data // axios trả về kết quả qua property là data
+  return response.data
 }
+
+
+// Category
+export const getMoviesByCategoryId = async (categoryId) => {
+  const response = await axios.get(`${API_ROOT}/v1/category/${categoryId}/movies`)
+  return response.data
+}
+
+export const getCategoryById = async (categoryId) => {
+  const response = await axios.get(`${API_ROOT}/v1/category/${categoryId}`)
+  return response.data
+}
+
+export const getCategories = async () => {
+  const response = await axios.get(`${API_ROOT}/v1/category/`)
+  return response.data
+}
+
 
 // export const fetchMoviesAPI = async (searchPath) => {
 //     const response = await authorizedAxiosInstance.get(`${API_ROOT}/v1/movies${searchPath}`)
 //     return response.data
 // }
-
-
-

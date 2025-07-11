@@ -41,6 +41,7 @@ section {
   --color-white-take: #ffffffcc;
   --color-text-take: #e5a00d;
   --color-text-mute: #ffffff99;
+  --color-text-color-muted: #00000099;
   --color-brand-accent: #e5a00d;
   --color-static-perrywinkle: #8af;
   --color-static-yellow: #e5a00d;
@@ -240,7 +241,8 @@ section {
 
   /*Take section*/
   .take-section {
-    @apply flex flex-col justify-normal items-center h-[515.925px] py-8 px-16 min-w-0 w-full flex-1 grow-0 shrink gap-12;
+    @apply flex flex-col justify-normal items-center h-[515.925px] py-8 px-16 min-w-0 w-full flex-1 grow-0 shrink gap-12
+    bg-[radial-gradient(circle,_rgba(255,0,0,0.8)_0%,_rgba(50,0,0,0.6)_30%,_rgba(0,0,0,0.9)_60%,_black_100%)];
 
     .take-icons {
       @apply flex flex-row list-none gap-16 h-[265px] w-[min(100%,600px)] justify-center items-center grow-0 shrink flex-wrap;

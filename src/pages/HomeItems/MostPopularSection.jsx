@@ -3,7 +3,8 @@ import {useRef, useState, useEffect} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import mockWorthyShows from "~/constants/HomeMockDatas/mockWorthyShows.js";
+import { getCategoryById, getMoviesByCategoryId } from "~/apis/index.js"
+import {useNavigate} from "react-router-dom";
 
 const MostPopularSection = () => {
     const scrollRef = useRef(null);
@@ -43,12 +44,43 @@ const MostPopularSection = () => {
         el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
+    const [movies, setMovies] = useState([])
+    const [categoryName, setCategoryName] = useState("")
+
+    const CATEGORY_ID = "686b736f2b65be5c804297f0" // Fix cứng ID category bạn muốn
+    useEffect(() => {
+        // Call APIs
+        Promise.all([
+            getCategoryById(CATEGORY_ID),
+            getMoviesByCategoryId(CATEGORY_ID)
+        ])
+            .then(([categoryData, moviesData]) => {
+                setCategoryName(categoryData.name || "Category")
+                // setMovies(Array.isArray(moviesData.movies) ? moviesData.movies : [])
+                setMovies(moviesData.movies?.movies || [])
+            })
+
+            .catch(err => console.error("Lỗi khi fetch category/movies:", err))
+    }, [])
+
+    useEffect(() => {
+        // Delay để chờ React render DOM → đảm bảo scrollWidth đã cập nhật
+        const timeout = setTimeout(() => {
+            checkScroll();
+        }, 100); // 50~100ms là đủ
+
+        return () => clearTimeout(timeout);
+    }, [movies]);
+
+    // Navigate
+    const navigate = useNavigate();
+
     return (
         <div className="worthy-section-container">
             <div className="worthy-text">
                 <a className="worthy-title">
                     <span className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
-                        Most Popular in Viet Nam
+                        {categoryName}
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
@@ -78,27 +110,29 @@ const MostPopularSection = () => {
                     ref={scrollRef}
                     className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
                 >
-                    {mockWorthyShows.map((item, idx) => (
+                    {movies.map((item, idx) => (
                         <figure
-                            key={item.id}
+                            // key={item.id}
+                            key={item?._id || idx}
+                            onClick={() => navigate(`/movies/${item._id}`)}
                             className={`worthy-items-section-container worthy-width group shrink-0 snap-start
-                                    ${idx === 0 ? 'ml-16' : ''} ${idx === mockWorthyShows.length - 1 ? 'mr-16' : ''}`}
+                                    ${idx === 0 ? 'ml-16' : ''} ${idx === movies.length - 1 ? 'mr-16' : ''}`}
                         >
                             <div className="worthy-items-section flex-1 worthy-width worthy-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
                                 <div className="worthy-items-bg max-h-[332px]">
                                     <img
                                         className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.imageUrl}
+                                        src={item.movieImage}
                                         alt={item.title}
                                     />
                                 </div>
                             </div>
                             <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
-                                  <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
+                                  <span className="inline-flex overflow-hidden overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
                                     {item.title}
                                   </span>
-                                <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
-                                    {item.timeLeft}
+                                <span className="inline-flex overflow-hidden overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
+                                    {item.review}
                                   </span>
                             </figcaption>
                         </figure>

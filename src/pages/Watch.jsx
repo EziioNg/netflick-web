@@ -137,11 +137,11 @@ const Watch = () => {
                 <video
                     ref={videoRef}
                     className="absolute w-full h-full"
-                    // src="/movie.mp4"
                     src={movie.movieURL}
                     autoPlay
                     loop
                     controls={false}
+                    preload="metadata"
                     muted={isMuted}
                     volume={volume}
                 />

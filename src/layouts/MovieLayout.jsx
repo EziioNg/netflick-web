@@ -3,6 +3,7 @@ import React from 'react'
 import NavBar from "~/components/NavBar.jsx";
 import Take from "~/components/Take.jsx";
 import Footer from "~/components/Footer.jsx";
+// import San from "~/components/San.jsx";
 
 const MovieLayout = ({ children }) => {
     return (
@@ -13,6 +14,7 @@ const MovieLayout = ({ children }) => {
                     {children}
                 </main>
                 <Take/>
+                {/*<San/>*/}
                 <Footer/>
             </div>
         </>
