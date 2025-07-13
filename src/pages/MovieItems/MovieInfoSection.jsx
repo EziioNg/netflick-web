@@ -8,7 +8,6 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import IosShareIcon from '@mui/icons-material/IosShare'
 
-// import mockMovie1 from "~/constants/MoviesMockDatas/mockMovie1.js"
 import { getMovieAPI } from "~/apis/index.js"
 
 const MovieInfoSection = () => {

@@ -5,6 +5,7 @@
   --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
   --nav-menu-card-m-width: repeat(auto-fill, minmax(200px, 1fr));
   --rounded-search: 624.938rem;
+  --rounded-max: 624.938rem;
   --hero-height: calc(100vw / 2.5);
   --duration-slow: 300ms;
   --color-ub-tl: var(--color-ultrablur-tl);
@@ -171,7 +172,9 @@ section {
   }
 
   .bg-movie {
-    background-image: linear-gradient(to right top, #343233, #2d2b2c, #252525, #1e1e1f, #181818, #181818, #171717, #171717, #1d1d1d, #232323, #29292a, #2f2f30);
+    background-image: linear-gradient(to right, #1b195f, #1b1951, #1b1943, #1b1835, #191727, #191727, #191727, #191727, #1b1835, #1b1943, #1b1951, #1b195f);
+    /*background-image: linear-gradient(to right, #0c0a71, #101060, #14134f, #16143d, #17152c, #17152c, #17152c, #17152c, #16143d, #14134f, #101060, #0c0a71);*/
+    /*background-image: linear-gradient(to right top, #343233, #2d2b2c, #252525, #1e1e1f, #181818, #181818, #171717, #171717, #1d1d1d, #232323, #29292a, #2f2f30);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -206,6 +209,10 @@ section {
 
   .rounded-search {
     @apply rounded-[var(--rounded-search)];
+  }
+
+  .rounded-max {
+    @apply rounded-[var(--rounded-max)];
   }
 
   .rounded-sign-in {
@@ -388,7 +395,7 @@ section {
     @apply flex flex-col flex-nowrap gap-4;
 
     .what-on-text {
-      @apply flex flex-col flex-nowrap grow-0 shrink max-w-[700px] px-16;
+      @apply flex flex-col flex-nowrap grow-0 shrink max-w-[850px] px-16;
 
       .what-on-title {
         @apply text-white h-[32px] max-w-full overflow-hidden text-xl font-bold cursor-pointer;
@@ -400,10 +407,10 @@ section {
     }
 
     .what-on-items-section-container {
-      @apply flex flex-col flex-nowrap gap-2 cursor-pointer;
+      @apply flex flex-col flex-nowrap gap-2 cursor-pointer w-[162px];
 
       .what-on-items-section {
-        @apply relative flex shrink-0 m-auto bg-background-card shadow-none overflow-hidden;
+        @apply relative flex shrink-0 m-auto bg-background-card shadow-none overflow-hidden w-[162px];
 
         .what-on-items-bg {
           @apply absolute inset-0 grow;
