@@ -47,7 +47,7 @@ const MostPopularSection = () => {
     const [movies, setMovies] = useState([])
     const [categoryName, setCategoryName] = useState("")
 
-    const CATEGORY_ID = "686b736f2b65be5c804297f0" // Fix cứng ID category bạn muốn
+    const CATEGORY_ID = "6874c84d346bbf62467bee89" // Fix cứng ID category bạn muốn
     useEffect(() => {
         // Call APIs
         Promise.all([

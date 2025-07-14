@@ -48,7 +48,7 @@ const WorthyShowSection = () => {
     const [movies, setMovies] = useState([])
     const [categoryName, setCategoryName] = useState("")
 
-    const CATEGORY_ID = "686b73c02b65be5c804297f1" // Fix cứng ID category bạn muốn
+    const CATEGORY_ID = "686b74eb2b65be5c804297f2" // Fix cứng ID category bạn muốn
     useEffect(() => {
         // Call APIs
         Promise.all([
