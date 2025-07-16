@@ -9,11 +9,9 @@ import RatingSection from "~/pages/MovieItems/RatingSection.jsx";
 import {getMovieAPI} from "~/apis/index.js";
 
 const Movie = () => {
-
     //API here....
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         console.log("API calling...")
@@ -21,11 +19,9 @@ const Movie = () => {
             .then(data => {
                 console.log('data received: ', data);
                 setMovie(data);
-                setLoading(false);
             })
             .catch(err => {
                 console.error('Error getting movie: ', err);
-                setLoading(false);
             });
     }, [movieId]);
 

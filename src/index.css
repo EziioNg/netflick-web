@@ -151,7 +151,7 @@ section {
   );
 
   --layout-worthy-width: calc((var(--layout-page-content-width) - var(--layout-list-gap) * (var(--layout-column-m-standard) - 1)) / var(--layout-column-m-standard));
-
+  --layout-worthy-height: calc(calc((var(--layout-page-content-width) - var(--layout-list-gap) * (var(--layout-column-m-standard) - 1)) / var(--layout-column-m-standard)) / 0.6666666666666666);
 }
 
 @layer utilities {
@@ -237,6 +237,10 @@ section {
 
   .worthy-height {
     @apply h-[var(--layout-item-height)];
+  }
+
+  .action-height {
+    @apply h-[var(--layout-worthy-height)];
   }
 
   .rounded-full {
