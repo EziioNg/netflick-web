@@ -35,12 +35,12 @@ const Cast = ({ movie }) => {
 
     const scrollLeft = () => {
         const el = scrollRef.current;
-        el.scrollBy({ left: -el.clientWidth * 1.5, behavior: "smooth" });
+        el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
     };
 
     const scrollRight = () => {
         const el = scrollRef.current;
-        el.scrollBy({ left: el.clientWidth * 1.5, behavior: "smooth" });
+        el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
 

@@ -10,7 +10,7 @@ const MainLayout = ({ children }) => {
         <>
             <div className="flex flex-col min-h-screen ub-corner-gradients">
                 <NavBar/>
-                <main className="flex flex-col pt-[64px] flex-1 ub-corner-gradients gap-12">
+                <main className="flex flex-col pt-16 pb-14 flex-1 ub-corner-gradients gap-12">
                     {children}
                 </main>
                 <Take/>
