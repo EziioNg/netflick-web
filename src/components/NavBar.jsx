@@ -7,6 +7,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import CastIcon from '@mui/icons-material/Cast';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import SearchBox from "~/components/SearchBox.jsx";
 
 import {
     safePolygon,
@@ -20,7 +21,7 @@ import {
     shift, autoUpdate, useTransitionStyles,
 } from '@floating-ui/react';
 
-import { navLinks } from "~/constants/NavLinks/index.jsx"
+import {navLinks} from "~/constants/NavLinks/index.jsx"
 import {NavigationMenu} from "~/constants/NavLinks/NavigationMenu.jsx";
 
 const NavBar = () => {
@@ -73,8 +74,8 @@ const NavBar = () => {
         hover
     ]);
 
-    const { isMounted, styles } = useTransitionStyles(context, {
-        duration: { open: 350, close: 300 },
+    const {isMounted, styles} = useTransitionStyles(context, {
+        duration: {open: 350, close: 300},
         initial: {
             transform: 'translateX(-24px)',
         },
@@ -95,53 +96,56 @@ const NavBar = () => {
     return (
         // <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
         <header className='navbar font-semibold scrolled'>
-                    <a href="#hero" className="flex flex-1 items-center">
-                        <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="home-icon" />
-                        <div className="navbar-search rounded-search flex-1">
-                            <input type="text" placeholder="Search" className="search-input"/>
-                            <div className="search-btn-wrapper">
-                                <SearchIcon/>
-                            </div>
-                        </div>
-                    </a>
+            <div className="flex flex-1 items-center">
+                <a href="/home">
+                    <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="home-icon"/>
+                </a>
+                <div className="navbar-search rounded-search">
+                    <SearchBox className="navbar-search rounded-search"/>
+                    {/*<input type="text" placeholder="Search" className="search-input"/>*/}
+                    {/*<div className="search-btn-wrapper">*/}
+                    {/*    <SearchIcon/>*/}
+                    {/*</div>*/}
+                </div>
+            </div>
 
             <div className="flex flex-row flex-1 justify-between items-center list-none gap-2">
-                {navLinks.map(({ name, link, icon, content }) => {
+                {navLinks.map(({name, link, icon, content}) => {
                     const Icon = icon;
                     const hasPopper = !!content;
                     const isActive = activeItem?.name === name;
 
                     return (
-                            <li
-                                key={name}
-                                className="flex h-10 relative"
-                                // ref={hasPopper && isActive ? refs.setReference : null}
-                                // {...(hasPopper && isActive ? getReferenceProps() : {})}
-                                // onMouseEnter={() => {
-                                //     if (hasPopper) setActiveItem({ name, content });
-                                // }}
-                                // {...(hasPopper && isActive ? {} : { onMouseLeave: () => setActiveItem(null) })}
-                                ref={(el) => {
-                                    // Đảm bảo đúng reference element được set
-                                    if (hasPopper && isActive) refs.setReference(el);
-                                }}
-                                {...(hasPopper && isActive ? getReferenceProps() : {})}
-                                onMouseEnter={() => {
-                                    if (!hasPopper) return;
-                                    // Delay update activeItem để setReference kịp thời
-                                    requestAnimationFrame(() => {
-                                        setActiveItem({ name, content });
-                                    });
-                                }}
+                        <li
+                            key={name}
+                            className="flex h-10 relative"
+                            // ref={hasPopper && isActive ? refs.setReference : null}
+                            // {...(hasPopper && isActive ? getReferenceProps() : {})}
+                            // onMouseEnter={() => {
+                            //     if (hasPopper) setActiveItem({ name, content });
+                            // }}
+                            // {...(hasPopper && isActive ? {} : { onMouseLeave: () => setActiveItem(null) })}
+                            ref={(el) => {
+                                // Đảm bảo đúng reference element được set
+                                if (hasPopper && isActive) refs.setReference(el);
+                            }}
+                            {...(hasPopper && isActive ? getReferenceProps() : {})}
+                            onMouseEnter={() => {
+                                if (!hasPopper) return;
+                                // Delay update activeItem để setReference kịp thời
+                                requestAnimationFrame(() => {
+                                    setActiveItem({name, content});
+                                });
+                            }}
+                        >
+                            <a
+                                href={link}
+                                className="nav-category relative rounded-search flex items-center gap-1"
                             >
-                                <a
-                                    href={link}
-                                    className="nav-category relative rounded-search flex items-center gap-1"
-                                >
-                                    <Icon />
-                                    <span>{name}</span>
-                                </a>
-                            </li>
+                                <Icon/>
+                                <span>{name}</span>
+                            </a>
+                        </li>
                     );
                 })}
                 {/* Popper chỉ render 1 lần, dùng activeItem để hiển thị nội dung */}
@@ -160,28 +164,28 @@ const NavBar = () => {
                         {...getFloatingProps()}
                         className="parent-div absolute top-full left-0 z-50 bg-white shadow-lg rounded"
                     >
-                        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />
+                        <FloatingArrow ref={arrowRef} context={context} fill="#fff"/>
                         {activeItem.content}
                     </div>
                 )}
             </div>
 
             <div className="nav-action">
-                    <div className="sign-in-wrapper">
-                        <a href="" className="nav-category nav-btn rounded-search">
-                            <CastIcon/>
-                        </a>
-                        <a href="" className="nav-category nav-btn rounded-search">
-                            <BookmarksIcon/>
-                        </a>
-                        <div
-                            id="btn-test"
-                            className="sign-in-btn h-10 rounded-sign-in"
-                        >
-                            Sign In
-                        </div>
+                <div className="sign-in-wrapper">
+                    <a href="" className="nav-category nav-btn rounded-search">
+                        <CastIcon/>
+                    </a>
+                    <a href="" className="nav-category nav-btn rounded-search">
+                        <BookmarksIcon/>
+                    </a>
+                    <div
+                        id="btn-test"
+                        className="sign-in-btn h-10 rounded-sign-in"
+                    >
+                        Sign In
                     </div>
                 </div>
+            </div>
         </header>
     )
 }
@@ -189,29 +193,54 @@ const NavBar = () => {
 export default NavBar
 
 
-{/* Popper hiển thị khi isActive */}
-{/*{hasPopper && isActive && (*/}
-{/*    <div*/}
-{/*        ref={refs.setFloating}*/}
-{/*        style={floatingStyles}*/}
-{/*        {...getFloatingProps()}*/}
-{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/}
-{/*    >*/}
-{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/}
-{/*        {content}*/}
-{/*    </div>*/}
-{/*)}*/}
+{/* Popper hiển thị khi isActive */
+}
+{/*{hasPopper && isActive && (*/
+}
+{/*    <div*/
+}
+{/*        ref={refs.setFloating}*/
+}
+{/*        style={floatingStyles}*/
+}
+{/*        {...getFloatingProps()}*/
+}
+{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/
+}
+{/*    >*/
+}
+{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/
+}
+{/*        {content}*/
+}
+{/*    </div>*/
+}
+{/*)}*/
+}
 
-{/*{activeItem && (*/}
-{/*    <motion.div*/}
-{/*        ref={refs.setFloating}*/}
-{/*        style={floatingStyles}*/}
-{/*        {...getFloatingProps()}*/}
-{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/}
-{/*        layout*/}
-{/*        transition={{ type: 'spring', damping: 20, stiffness: 300 }}*/}
-{/*    >*/}
-{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/}
-{/*        {activeItem.content}*/}
-{/*    </motion.div>*/}
-{/*)}*/}
+{/*{activeItem && (*/
+}
+{/*    <motion.div*/
+}
+{/*        ref={refs.setFloating}*/
+}
+{/*        style={floatingStyles}*/
+}
+{/*        {...getFloatingProps()}*/
+}
+{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/
+}
+{/*        layout*/
+}
+{/*        transition={{ type: 'spring', damping: 20, stiffness: 300 }}*/
+}
+{/*    >*/
+}
+{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/
+}
+{/*        {activeItem.content}*/
+}
+{/*    </motion.div>*/
+}
+{/*)}*/
+}

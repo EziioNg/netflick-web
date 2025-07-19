@@ -13,6 +13,12 @@ export const getMovieAPI = async (movieId) => {
   return response.data
 }
 
+export const searchMoviesAPI = async (query) => {
+  const response = await axios.get(`${API_ROOT}/v1/movies/search`, {
+    params: { query } // axios sẽ tự encode query string
+  })
+  return response.data
+}
 
 // Category
 export const getMoviesByCategoryId = async (categoryId) => {

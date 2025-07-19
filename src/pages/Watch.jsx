@@ -144,7 +144,16 @@ const Watch = () => {
                     preload="metadata"
                     muted={isMuted}
                     volume={volume}
-                />
+                >
+                    <track
+                        kind="subtitles"
+                        srcLang="en"
+                        label="English"
+                        src={movie.movieSub}
+                        // src="https://netflick1.b-cdn.net/Hobbit1.vtt"
+                        default
+                    />
+                </video>
             </div>
 
             <div className="mv-lower">
