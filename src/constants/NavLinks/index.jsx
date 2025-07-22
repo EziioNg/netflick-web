@@ -7,7 +7,7 @@ import ExploreIcon from '@mui/icons-material/Explore';
 const navLinks = [
     {
         name: "Home",
-        link: "#home",
+        link: "/home",
         icon: HomeIcon
     },
     {

@@ -39,7 +39,7 @@ const MovieInfoSection = () => {
         <div className="flex flex-row flex-nowrap grow-0 shrink items-start justify-start gap-12 w-[1392.800px] h-[450px] z-[999] px-16">
             <div className="relative flex w-[300px] h-[450px] shrink-0 bg-background-card overflow-hidden">
                 <div className="absolute flex items-stretch justify-stretch inset-0">
-                    <img src={movie.movieImage} alt="mv-img"/>
+                    <img className="w-full object-cover" src={movie.movieImage} alt="mv-img"/>
                 </div>
             </div>
             <div className="flex flex-col grow-0 shrink flex-nowrap gap-8">
