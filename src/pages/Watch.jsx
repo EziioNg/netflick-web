@@ -158,8 +158,8 @@ const Watch = () => {
                         kind="subtitles"
                         srcLang="en"
                         label="English"
-                        src={movie.movieSub}
-                        // src="https://netflick1.b-cdn.net/Hobbit1.vtt"
+                        // src={movie.movieSub}
+                        src={`/subtitles/${movie._id}.vtt`}
                         default
                     />
                 </video>
