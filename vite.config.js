@@ -16,6 +16,6 @@ export default defineConfig({
   // cho phép vite sử dụng process.env(nếu không thì phải dùng import.meta.env)
   define: {
     'process.env': process.env
-  }
-  // base: './'
+  },
+  base: '/'
 })
