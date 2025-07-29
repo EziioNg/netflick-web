@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/',
   plugins: [
     react(),
     svgr(),
@@ -16,6 +17,5 @@ export default defineConfig({
   // cho phép vite sử dụng process.env(nếu không thì phải dùng import.meta.env)
   define: {
     'process.env': process.env
-  },
-  base: '/'
+  }
 })
