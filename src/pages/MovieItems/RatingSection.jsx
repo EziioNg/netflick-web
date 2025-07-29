@@ -4,7 +4,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import mockRatings from "~/constants/MovieMockDatas/mockRatings.js";
-import Modal from "../Modal.jsx";
+import Modal1 from "../Modal1.jsx";
 
 const RatingSection = ({movie}) => {
     // Scroll
@@ -45,7 +45,7 @@ const RatingSection = ({movie}) => {
         el.scrollBy({left: el.clientWidth, behavior: "smooth"});
     };
 
-    // Modal
+    // Modal1
     const [selectedItem, setSelectedItem] = useState(null);
 
     useEffect(() => {
@@ -80,7 +80,7 @@ const RatingSection = ({movie}) => {
                     <div
                         className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
                         <button onClick={scrollLeft}
-                                className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                                className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowBackIosIcon className="translate-x-[3.5px]" fontSize="small"/>
                         </button>
                     </div>
@@ -89,7 +89,7 @@ const RatingSection = ({movie}) => {
                     <div
                         className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
                         <button onClick={scrollRight}
-                                className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                                className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowForwardIosIcon fontSize="small"/>
                         </button>
                     </div>
@@ -125,9 +125,9 @@ const RatingSection = ({movie}) => {
                         </figure>
                     ))}
                 </div>
-                {/* Modal */}
+                {/* Modal1 */}
                 {selectedItem && (
-                    <Modal onClose={() => setSelectedItem(null)}>
+                    <Modal1 onClose={() => setSelectedItem(null)}>
                         <div className="flex flex-col grow shrink flex-nowrap items-start gap-6">
                             <div className="flex flex-row grow-0 shrink flex-nowrap items-center gap-4">
                                 <img className="max-w-12"
@@ -143,7 +143,7 @@ const RatingSection = ({movie}) => {
                                     {selectedItem.battleCry}
                                 </span>
                         </div>
-                    </Modal>
+                    </Modal1>
                 )}
             </div>
         </div>

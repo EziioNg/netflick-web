@@ -59,7 +59,7 @@ const Cast = ({ movie }) => {
                 {showLeft && (
                     <div
                         className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollLeft} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollLeft} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowBackIosIcon className="translate-x-[3.5px]" fontSize="small"/>
                         </button>
                     </div>
@@ -67,7 +67,7 @@ const Cast = ({ movie }) => {
                 {showRight && (
                     <div
                         className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollRight} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollRight} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowForwardIosIcon fontSize="small"/>
                         </button>
                     </div>

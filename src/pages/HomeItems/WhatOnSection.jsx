@@ -1,10 +1,13 @@
 import {useRef, useState, useEffect} from "react";
 
+import {useNavigate} from "react-router-dom";
+
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 import { fetchMoviesAPI, getMoviesByCategoryId } from "~/apis/index.js"
-import {useNavigate} from "react-router-dom";
+import mockWhatOns from "~/constants/HomeMockDatas/mockWhatOns.js";
+import Modal2 from "~/pages/Modal2.jsx";
 
 const WhatOnSection = () => {
     const scrollRef = useRef(null);
@@ -68,6 +71,23 @@ const WhatOnSection = () => {
     // Navigate
     const navigate = useNavigate();
 
+    // Modal2
+    const [selectedItem, setSelectedItem] = useState(null);
+    useEffect(() => {
+        if (selectedItem) {
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+            document.documentElement.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+            document.documentElement.style.overflow = "auto";
+        };
+    }, [selectedItem]);
+
     return (
         <div className="what-on-section-container">
             <div className="what-on-text">
@@ -84,7 +104,7 @@ const WhatOnSection = () => {
                 {showLeft && (
                     <div
                         className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollLeft} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollLeft} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowBackIosIcon className="translate-x-[3.5px]" fontSize="small"/>
                         </button>
                     </div>
@@ -92,7 +112,7 @@ const WhatOnSection = () => {
                 {showRight && (
                     <div
                         className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollRight} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollRight} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowForwardIosIcon fontSize="small"/>
                         </button>
                     </div>
@@ -103,20 +123,19 @@ const WhatOnSection = () => {
                     ref={scrollRef}
                     className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
                 >
-                    {movies.map((item, idx) => (
+                    {mockWhatOns.map((item, idx) => (
                         <figure
-                            // key={item._id}
-                            key={item?._id || idx}
-                            onClick={() => navigate(`/movies/${item._id}`)}
+                            key={item.id}
+                            onClick={() => setSelectedItem(item)}
                             className={`what-on-items-section-container what-on-width group shrink-0 snap-start
-                                ${idx === 0 ? 'ml-16' : ''} ${idx === movies.length - 1 ? 'mr-16' : ''}`}
+                                ${idx === 0 ? 'ml-16' : ''} ${idx === mockWhatOns.length - 1 ? 'mr-16' : ''}`}
                         >
                             <div
                                 className="what-on-items-section what-on-width what-on-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
                                 <div className="what-on-items-bg">
                                     <img
                                         className="what-on-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.movieImage}
+                                        src={item.imageUrl}
                                         alt={item.title}
                                     />
                                 </div>
@@ -126,11 +145,30 @@ const WhatOnSection = () => {
                                   {item.title}
                                 </span>
                                 <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
-                                  {item.review}
+                                  {item.timeLeft}
                                 </span>
                             </figcaption>
                         </figure>
                     ))}
+                    {/* Modal2 */}
+                    {selectedItem && (
+                        <Modal2 onClose={() => setSelectedItem(null)}>
+                            <div>
+                                {/* Hình ảnh */}
+                                <div className="max-w-[1279px] max-h-[718px]">
+                                    <img
+                                        className="w-full h-full object-cover rounded"
+                                        src={selectedItem.imageUrl}
+                                        alt="image"
+                                    />
+                                </div>
+                                {/* Mô tả bên dưới hình */}
+                                <span className="block mt-4 justify-self-center italic text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">
+                                        {selectedItem.quote}
+                                </span>
+                            </div>
+                        </Modal2>
+                    )}
                 </div>
             </div>
         </div>
