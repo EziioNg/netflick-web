@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
-import CastIcon from '@mui/icons-material/Cast';
+import ReplayIcon from '@mui/icons-material/Replay';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
@@ -113,20 +113,29 @@ const Watch = () => {
         }
     };
 
+    // Navigate
+    const navigate = useNavigate();
+
     if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
     if (!movie) return <div className="text-red-500 px-4 items-center justify-self-center text-6xl">Not found.</div>;
+
     return (
         <div className="relative min-h-screen group">
             <div className="mv-upper">
                 <div className="flex flex-row flex-nowrap items-center justify-between h-8 pl-4">
                     <div className="flex flex-row flex-nowrap grow-0 shrink items-center gap-6">
-                        <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="mv-watch-icon" />
+                        <img
+                            src="/assets/images/89y6neiw2h121.png"
+                            alt="HomeIcon"
+                            className="mv-watch-icon"
+                            onClick={() => navigate(`/home`)}
+                        />
                         <span className="grow-0 shrink overflow-hidden text-base font-normal text-text-default">{movie.title}</span>
                     </div>
                     <div className="flex flex-row flex-nowrap grow-0 shrink">
                         <div className="mv-watch-share-icon rounded-search">
                             <a href="" className="flex flex-row flex-nowrap grow-0 shrink items-center justify-center">
-                                <CastIcon fontSize="medium"/>
+                                <ReplayIcon fontSize="medium"/>
                             </a>
                         </div>
                     </div>

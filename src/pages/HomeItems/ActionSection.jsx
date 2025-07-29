@@ -3,11 +3,10 @@ import {useRef, useState, useEffect} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-// import mockWorthyShows from "~/constants/HomeMockDatas/mockWorthyShows.js";
-import { getCategoryById, getMoviesByCategoryId } from "~/apis/index.js"
+import {getCategoryById, getMoviesByCategoryId} from "~/apis/index.js";
 import {useNavigate} from "react-router-dom";
 
-const WorthyShowSection = () => {
+const ActionSection = () => {
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -45,10 +44,11 @@ const WorthyShowSection = () => {
         el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
+    // API
     const [movies, setMovies] = useState([])
     const [categoryName, setCategoryName] = useState("")
 
-    const CATEGORY_ID = "686b74eb2b65be5c804297f2"
+    const CATEGORY_ID = "6874ca16346bbf62467bee98"
     useEffect(() => {
         // Call APIs
         Promise.all([
@@ -80,7 +80,7 @@ const WorthyShowSection = () => {
         <div className="worthy-section-container">
             <div className="worthy-text">
                 <a className="worthy-title">
-                    <span className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
+                    <span onClick={() => navigate(`/category/${CATEGORY_ID}`)} className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
                         {categoryName}
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
@@ -92,7 +92,7 @@ const WorthyShowSection = () => {
                 {showLeft && (
                     <div
                         className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollLeft} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollLeft} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowBackIosIcon className="translate-x-[3.5px]" fontSize="small"/>
                         </button>
                     </div>
@@ -100,7 +100,7 @@ const WorthyShowSection = () => {
                 {showRight && (
                     <div
                         className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollRight} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollRight} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowForwardIosIcon fontSize="small"/>
                         </button>
                     </div>
@@ -129,10 +129,10 @@ const WorthyShowSection = () => {
                                 </div>
                             </div>
                             <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
-                                  <span className="inline-flex overflow-hidden overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
+                                  <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-white text-sm font-normal">
                                     {item.title}
                                   </span>
-                                  <span className="inline-flex overflow-hidden overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
+                                <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-text-muted text-xs font-semibold min-h-4">
                                     {item.review}
                                   </span>
                             </figcaption>
@@ -144,4 +144,4 @@ const WorthyShowSection = () => {
     );
 };
 
-export default WorthyShowSection;
+export default ActionSection;

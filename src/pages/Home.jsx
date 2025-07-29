@@ -1,13 +1,16 @@
 import HeroSection from "~/pages/HomeItems/HeroSection.jsx";
 import WhatOnSection from "~/pages/HomeItems/WhatOnSection.jsx";
-import WorthyShowSection from "~/pages/HomeItems/WorthyShowSection.jsx";
-import MostPopularSection from "~/pages/HomeItems/MostPopularSection.jsx";
-import CrimeTimeSection from "~/pages/HomeItems/CrimeTimeSection.jsx";
+import FeatureSection from "~/pages/HomeItems/FeatureSection.jsx";
+import AdventureSection from "~/pages/HomeItems/AdventureSection.jsx";
+import XenosSection from "~/pages/HomeItems/XenosSection.jsx";
 import ComingSoonSection from "~/pages/HomeItems/ComingSoonSection.jsx";
 import Categories from "~/pages/HomeItems/Categories.jsx";
 import {useEffect, useState} from "react";
 import {getCategories} from "~/apis/index.js";
 import PageLoader from "~/pages/PageLoader.jsx";
+import ScifiSection from "~/pages/HomeItems/ScifiSection.jsx";
+import FantasySection from "~/pages/HomeItems/FantasySection.jsx";
+import ActionSection from "~/pages/HomeItems/ActionSection.jsx";
 
 const Home = () => {
     const [categories, setCategories] = useState();
@@ -35,10 +38,13 @@ const Home = () => {
     return (
         <>
             <HeroSection />
-            <WorthyShowSection />
+            <FeatureSection />
             <Categories categories={categories} loading={loadingCategories}/>
-            <MostPopularSection />
-            <CrimeTimeSection />
+            <AdventureSection />
+            <XenosSection />
+            <ScifiSection />
+            <FantasySection />
+            <ActionSection />
             <WhatOnSection />
             <ComingSoonSection />
         </>

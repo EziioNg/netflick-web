@@ -42,7 +42,7 @@ const MoviesSection = () => {
                         </div>
                         <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
                             <span
-                                className="inline-flex overflow-hidden overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
+                                className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-white text-sm font-normal">
                                 {item.title}
                             </span>
                             <span

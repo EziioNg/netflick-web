@@ -481,7 +481,7 @@ section {
 
   /*Watch Section*/
   .mv-upper {
-    @apply absolute top-0 left-1/2 z-[999] -translate-x-1/2 w-full px-4 pt-4 pb-16 hidden group-hover:block bg-white text-text-default shadow;
+    @apply absolute top-0 left-1/2 z-[999] -translate-x-1/2 w-full px-4 pt-4 pb-16 hidden group-hover:block bg-white text-text-default;
     background: linear-gradient(rgba(0, 0, 0, .8), transparent);
     transition: all 0.1s;
   }
@@ -516,7 +516,7 @@ section {
   }
 
   .mv-watch-icon {
-    @apply w-18 h-8;
+    @apply w-18 h-8 cursor-pointer;
   }
 
   .mv-watch-share-icon {

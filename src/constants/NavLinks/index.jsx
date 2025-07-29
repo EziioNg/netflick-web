@@ -54,46 +54,46 @@ const navLinks = [
                             gap-1"
                         >
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Action</a>
+                                <a href="/category/6874ca16346bbf62467bee98" className="py-1">Action</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Adventure</a>
+                                <a href="/category/6874c84d346bbf62467bee89" className="py-1">Adventure</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Fantasy</a>
+                                <a href="/category/6874c98d346bbf62467bee97" className="py-1">Fantasy</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Horror</a>
+                                <a href="/category/6874c95c346bbf62467bee95" className="py-1">Xenos</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Sci-fi</a>
+                                <a href="/category/6874c96d346bbf62467bee96" className="py-1">Sci-fi</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Mystery</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Mystery</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Historical</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Historical</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Apocalypse</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Apocalypse</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Martial arts</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Martial arts</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Drama</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Drama</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Comedy</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Comedy</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Romance</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Romance</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Western</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Western</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Sports</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Sports</a>
                             </li>
                         </ul>
                     </div>
@@ -142,46 +142,46 @@ const navLinks = [
                             gap-1"
                         >
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Action</a>
+                                <a href="/category/6874ca16346bbf62467bee98" className="py-1">Action</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Adventure</a>
+                                <a href="/category/6874c84d346bbf62467bee89" className="py-1">Adventure</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Fantasy</a>
+                                <a href="/category/6874c98d346bbf62467bee97" className="py-1">Fantasy</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Horror</a>
+                                <a href="/category/6874c95c346bbf62467bee95" className="py-1">Xenos</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Sci-fi</a>
+                                <a href="/category/6874c96d346bbf62467bee96" className="py-1">Sci-fi</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Mystery</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Mystery</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Historical</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Historical</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Apocalypse</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Apocalypse</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Martial arts</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Martial arts</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Drama</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Drama</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Comedy</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Comedy</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Romance</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Romance</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Western</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Western</a>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="" className="py-1">Sports</a>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Sports</a>
                             </li>
                         </ul>
                     </div>
@@ -191,7 +191,7 @@ const navLinks = [
     },
     {
         name: "Discover",
-        link: "#discover",
+        link: "/category/686b74eb2b65be5c804297f2",
         icon: ExploreIcon
     },
 ];
