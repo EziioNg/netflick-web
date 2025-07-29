@@ -10,7 +10,7 @@ if (process.env.BUILD_MODE === 'dev') { // process.env.BUILD_MODE === 'dev' / im
 }
 // môi trường production
 if (process.env.BUILD_MODE === 'production') {
-    apiRoot = 'https://trello-api-c6ra.onrender.com' // endpoint api đã deploy bằng Render
+    apiRoot = 'https://netflick-api.onrender.com' // endpoint api đã deploy bằng Render
 }
 
 export const API_ROOT = apiRoot
