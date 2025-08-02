@@ -13,10 +13,10 @@ const Category = () => {
     const [category, setCategory] = useState(null);
 
     useEffect(() => {
-        console.log("API calling...")
+        // console.log("API calling...")
         getCategoryById(categoryId)
             .then(data => {
-                console.log('data received: ', data);
+                // console.log('data received: ', data);
                 setCategory(data);
             })
             .catch(err => {

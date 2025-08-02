@@ -516,7 +516,7 @@ section {
   }
 
   .mv-watch-icon {
-    @apply w-18 h-8 cursor-pointer;
+    @apply w-18 h-full cursor-pointer;
   }
 
   .mv-watch-share-icon {

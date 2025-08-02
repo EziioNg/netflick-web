@@ -1,10 +1,8 @@
 import {
     useState,
-    // useEffect,
     useRef
 } from "react"
 
-import SearchIcon from '@mui/icons-material/Search';
 import CastIcon from '@mui/icons-material/Cast';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import SearchBox from "~/components/SearchBox.jsx";
@@ -22,26 +20,8 @@ import {
 } from '@floating-ui/react';
 
 import {navLinks} from "~/constants/NavLinks/index.jsx"
-import {NavigationMenu} from "~/constants/NavLinks/NavigationMenu.jsx";
 
 const NavBar = () => {
-    // Scroll section:
-    // const [scrolled, setScrolled] = useState(false)
-    //
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const isScrolled = window.scrollY > 10 // biến kiểm tra nếu đã scroll trục y hơn 10 pixel
-    //         if (isScrolled) {
-    //             setScrolled(true)
-    //         } else {
-    //             setScrolled(false)
-    //         }
-    //     }
-    //     window.addEventListener('scroll', handleScroll)
-    //
-    //     return () => window.removeEventListener('scroll', handleScroll)
-    // }, [scrolled])
-
     // Popper section:
     const arrowRef = useRef(null);
     const [activeItem, setActiveItem] = useState(null); // tên item đang hover
@@ -91,10 +71,7 @@ const NavBar = () => {
         },
     });
 
-    // const navLinks = NavigationMenu()
-
     return (
-        // <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
         <header className='navbar font-semibold scrolled'>
             <div className="flex flex-1 items-center">
                 <a href="/home">
@@ -102,10 +79,6 @@ const NavBar = () => {
                 </a>
                 <div className="navbar-search rounded-search">
                     <SearchBox className="navbar-search rounded-search"/>
-                    {/*<input type="text" placeholder="Search" className="search-input"/>*/}
-                    {/*<div className="search-btn-wrapper">*/}
-                    {/*    <SearchIcon/>*/}
-                    {/*</div>*/}
                 </div>
             </div>
 
@@ -119,12 +92,6 @@ const NavBar = () => {
                         <li
                             key={name}
                             className="flex h-10 relative"
-                            // ref={hasPopper && isActive ? refs.setReference : null}
-                            // {...(hasPopper && isActive ? getReferenceProps() : {})}
-                            // onMouseEnter={() => {
-                            //     if (hasPopper) setActiveItem({ name, content });
-                            // }}
-                            // {...(hasPopper && isActive ? {} : { onMouseLeave: () => setActiveItem(null) })}
                             ref={(el) => {
                                 // Đảm bảo đúng reference element được set
                                 if (hasPopper && isActive) refs.setReference(el);
@@ -178,12 +145,13 @@ const NavBar = () => {
                     <a href="" className="nav-category nav-btn rounded-search">
                         <BookmarksIcon/>
                     </a>
-                    <div
+                    <a
                         id="btn-test"
+                        href="/404"
                         className="sign-in-btn h-10 rounded-sign-in"
                     >
                         Sign In
-                    </div>
+                    </a>
                 </div>
             </div>
         </header>
@@ -191,56 +159,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-
-{/* Popper hiển thị khi isActive */
-}
-{/*{hasPopper && isActive && (*/
-}
-{/*    <div*/
-}
-{/*        ref={refs.setFloating}*/
-}
-{/*        style={floatingStyles}*/
-}
-{/*        {...getFloatingProps()}*/
-}
-{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/
-}
-{/*    >*/
-}
-{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/
-}
-{/*        {content}*/
-}
-{/*    </div>*/
-}
-{/*)}*/
-}
-
-{/*{activeItem && (*/
-}
-{/*    <motion.div*/
-}
-{/*        ref={refs.setFloating}*/
-}
-{/*        style={floatingStyles}*/
-}
-{/*        {...getFloatingProps()}*/
-}
-{/*        className="absolute top-full left-0 z-50 bg-white shadow-lg rounded"*/
-}
-{/*        layout*/
-}
-{/*        transition={{ type: 'spring', damping: 20, stiffness: 300 }}*/
-}
-{/*    >*/
-}
-{/*        <FloatingArrow ref={arrowRef} context={context} fill="#fff" />*/
-}
-{/*        {activeItem.content}*/
-}
-{/*    </motion.div>*/
-}
-{/*)}*/
-}

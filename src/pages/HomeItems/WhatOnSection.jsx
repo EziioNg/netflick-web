@@ -52,7 +52,7 @@ const WhatOnSection = () => {
     useEffect(() => {
         fetchMoviesAPI()
             .then(data => {
-                console.log('Dữ liệu từ API:', data);
+                // console.log('Dữ liệu từ API:', data);
                 // setMovies(data);
                 setMovies(data.movies);
             })

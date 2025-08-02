@@ -1,11 +1,11 @@
 import {useRef, useState, useEffect} from "react";
 
+import {useNavigate} from "react-router-dom";
+
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-// import mockWorthyShows from "~/constants/HomeMockDatas/mockWorthyShows.js";
 import { getCategoryById, getMoviesByCategoryId } from "~/apis/index.js"
-import {useNavigate} from "react-router-dom";
 
 const FeatureSection = () => {
     const scrollRef = useRef(null);

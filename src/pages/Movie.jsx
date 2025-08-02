@@ -18,10 +18,10 @@ const Movie = () => {
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {
-        console.log("API calling...")
+        // console.log("API calling...")
         getMovieAPI(movieId)
             .then(data => {
-                console.log('data received: ', data);
+                // console.log('data received: ', data);
                 setMovie(data);
             })
             .catch(err => {

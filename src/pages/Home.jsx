@@ -18,10 +18,10 @@ const Home = () => {
 
     useEffect(() => {
         setLoadingCategories(true);
-        console.log("API calling...")
+        // console.log("API calling...")
         getCategories()
             .then(data => {
-                console.log('data received: ', data);
+                // console.log('data received: ', data);
                 setCategories(data.categories);
             })
             .catch(err => {

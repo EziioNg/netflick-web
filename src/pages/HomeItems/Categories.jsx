@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 
 const Categories = ({categories, loading}) => {
-    console.log(categories)
+    // console.log(categories)
 
     // Scroll
     const scrollRef = useRef(null);

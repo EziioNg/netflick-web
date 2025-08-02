@@ -19,15 +19,15 @@ const Watch = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log("API calling...")
+        // console.log("API calling...")
         getMovieAPI(movieId)
             .then(data => {
-                console.log('data received: ', data);
+                // console.log('data received: ', data);
                 setMovie(data);
                 setLoading(false);
             })
             .catch(err => {
-                console.error('Error getting movie: ', err);
+                // console.error('Error getting movie: ', err);
                 setLoading(false);
             });
     }, [movieId]);
@@ -122,8 +122,8 @@ const Watch = () => {
     return (
         <div className="relative min-h-screen group">
             <div className="mv-upper">
-                <div className="flex flex-row flex-nowrap items-center justify-between h-8 pl-4">
-                    <div className="flex flex-row flex-nowrap grow-0 shrink items-center gap-6">
+                <div className="flex flex-row flex-nowrap items-center justify-between h-12 pl-4">
+                    <div className="flex flex-row flex-nowrap grow-0 shrink items-center h-full gap-6">
                         <img
                             src="/assets/images/89y6neiw2h121.png"
                             alt="HomeIcon"
@@ -134,7 +134,7 @@ const Watch = () => {
                     </div>
                     <div className="flex flex-row flex-nowrap grow-0 shrink">
                         <div className="mv-watch-share-icon rounded-search">
-                            <a href="" className="flex flex-row flex-nowrap grow-0 shrink items-center justify-center">
+                            <a onClick={() => navigate(`/movies/${movieId}`)} className="flex flex-row flex-nowrap grow-0 shrink items-center justify-center">
                                 <ReplayIcon fontSize="medium"/>
                             </a>
                         </div>

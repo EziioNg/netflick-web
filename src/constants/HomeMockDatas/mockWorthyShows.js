@@ -40,49 +40,91 @@ const mockWorthyShows = [
         title: "͡° ͜ʖ ͡°",
         timeLeft: "80m left",
         imageUrl:
-            "https://res.cloudinary.com/doam999z1/image/upload/v1753541325/StellarBlade_250725_23375300000_xwdlte.png",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018493/StellarBlade_250731_18491500000_mgh58a.png",
     },
     {
         id: 7,
         title: "͡° ͜ʖ ͡°",
         timeLeft: "70m left",
         imageUrl:
-            "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F3%2Fplex%2F366d0e1f-d29e-460a-a63c-d58c11996cd9.jpg",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1753810528/StellarBlade_250729_20340700000_wkd4mj.png",
     },
     {
         id: 8,
         title: "͡° ͜ʖ ͡°",
         timeLeft: "88m left",
         imageUrl:
-            "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F3%2Fplex%2F366d0e1f-d29e-460a-a63c-d58c11996cd9.jpg",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1753810528/StellarBlade_250729_20084900000_pcy7d4.png",
     },
     {
         id: 9,
         title: "͡° ͜ʖ ͡°",
         timeLeft: "88m left",
         imageUrl:
-            "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F3%2Fplex%2F366d0e1f-d29e-460a-a63c-d58c11996cd9.jpg",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018493/StellarBlade_250731_18381800000_gxf867.png",
     },
     {
         id: 10,
         title: "͡° ͜ʖ ͡°",
         timeLeft: "88m left",
         imageUrl:
-            "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F3%2Fplex%2F366d0e1f-d29e-460a-a63c-d58c11996cd9.jpg",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1753810537/StellarBlade_250729_20343200000_c0onmw.png",
     },
     {
         id: 11,
         title: "͡° ͜ʖ ͡°",
         timeLeft: "88m left",
         imageUrl:
-            "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F3%2Fplex%2F366d0e1f-d29e-460a-a63c-d58c11996cd9.jpg",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018499/StellarBlade_250731_20003100000_c2mmnk.png",
     },
     {
         id: 12,
         title: "͡° ͜ʖ ͡°",
         timeLeft: "88m left",
         imageUrl:
-            "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F3%2Fplex%2F366d0e1f-d29e-460a-a63c-d58c11996cd9.jpg",
+            "https://res.cloudinary.com/doam999z1/image/upload/v1753810528/StellarBlade_250729_20315800000_vssnff.png",
+    },
+    {
+        id: 13,
+        title: "͡° ͜ʖ ͡°",
+        timeLeft: "88m left",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018493/StellarBlade_250731_19035700000_j3zjqs.png",
+    },
+    {
+        id: 14,
+        title: "͡° ͜ʖ ͡°",
+        timeLeft: "88m left",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1753810528/StellarBlade_250729_20332200000_sjbfje.png",
+    },
+    {
+        id: 15,
+        title: "͡° ͜ʖ ͡°",
+        timeLeft: "88m left",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018494/StellarBlade_250731_19263400000_c5fae3.png",
+    },
+    {
+        id: 16,
+        title: "͡° ͜ʖ ͡°",
+        timeLeft: "88m left",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018492/StellarBlade_250731_19405000000_iezj4a.png",
+    },
+    {
+        id: 17,
+        title: "͡° ͜ʖ ͡°",
+        timeLeft: "88m left",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018494/StellarBlade_250731_18595500000_lp5dwc.png",
+    },
+    {
+        id: 18,
+        title: "͡° ͜ʖ ͡°",
+        timeLeft: "88m left",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754018493/StellarBlade_250731_20045200000_ghszky.png",
     },
 ];
 

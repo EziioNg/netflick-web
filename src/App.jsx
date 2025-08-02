@@ -8,6 +8,7 @@ import Movie from './pages/Movie'
 import Watch from './pages/Watch'
 import Category from './pages/Category'
 import ScrollToTop from "~/components/ScrollToTop.jsx";
+import NotFound from "~/pages/404/NotFound.jsx";
 
 function App() {
     return (
@@ -33,13 +34,6 @@ function App() {
                     </MainLayout>
                 }/>
 
-                {/* Movies */}
-                <Route path='/movies' element={
-                    <MainLayout>
-                        {/*<Home/>*/}
-                    </MainLayout>
-                }/>
-
                 {/* Movie Details */}
                 <Route path='/movies/:movieId' element={
                     <MovieLayout>
@@ -53,8 +47,11 @@ function App() {
                         <Watch/>
                     </WatchLayout>
                 }/>
-                {/* Login - Reister */}
+
                 {/* 404 page */}
+                <Route path='*' element={<NotFound />} />
+
+                {/* Login - Reister */}
             </Routes>
         </>
     )
