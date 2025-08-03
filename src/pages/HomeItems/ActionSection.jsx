@@ -57,8 +57,8 @@ const ActionSection = () => {
         ])
             .then(([categoryData, moviesData]) => {
                 setCategoryName(categoryData.name || "Category")
-                // setMovies(Array.isArray(moviesData.movies) ? moviesData.movies : [])
-                setMovies(moviesData.movies?.movies || [])
+                // setMovies(moviesData.movies?.movies || [])
+                setMovies(moviesData.movies || [])
             })
 
             .catch(err => console.error("Lỗi khi fetch category/movies:", err))

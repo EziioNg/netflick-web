@@ -3,31 +3,46 @@ import React, {useEffect, useState} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import BookmarkIcon from '@mui/icons-material/Bookmark'
+// import BookmarkIcon from '@mui/icons-material/Bookmark'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import IosShareIcon from '@mui/icons-material/IosShare'
 
-import { getMovieAPI } from "~/apis/index.js"
+import { getMovieAPI, getCategoriesByMovieId } from "~/apis/index.js"
 
 const MovieInfoSection = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [categories, setCategories] = useState([])
+
+    // useEffect(() => {
+    //     // console.log("API calling...")
+    //     getMovieAPI(movieId)
+    //         .then(data => {
+    //             // console.log('data received: ', data);
+    //             setMovie(data);
+    //             setLoading(false);
+    //         })
+    //         .catch(err => {
+    //             console.error('Error getting movie: ', err);
+    //             setLoading(false);
+    //         });
+    // }, [movieId]);
 
     useEffect(() => {
-        // console.log("API calling...")
-        getMovieAPI(movieId)
-            .then(data => {
-                // console.log('data received: ', data);
-                setMovie(data);
+        Promise.all([getMovieAPI(movieId), getCategoriesByMovieId(movieId)])
+            .then(([movieData, categoriesData]) => {
+                setMovie(movieData);
                 setLoading(false);
+                setCategories(categoriesData.categories || [])
             })
+
             .catch(err => {
-                console.error('Error getting movie: ', err);
+                console.error("Lỗi khi fetch category/movies: ", err);
                 setLoading(false);
             });
-    }, [movieId]);
+    }, [movieId])
 
     // Navigate
     const navigate = useNavigate();
@@ -54,15 +69,27 @@ const MovieInfoSection = () => {
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <span>45m</span>
                             </span>
+                            {/*<span className="text-white-take text-left grow-0 shrink text-sm font-normal">*/}
+                            {/*    <a href="">Action,</a>*/}
+                            {/*    &nbsp;&nbsp;*/}
+                            {/*    <a href="">Adventure,</a>*/}
+                            {/*    &nbsp;&nbsp;*/}
+                            {/*    <button className="movie-more-btn">*/}
+                            {/*        <span>and more</span>*/}
+                            {/*    </button>*/}
+                            {/*</span>*/}
                             <span className="text-white-take text-left grow-0 shrink text-sm font-normal">
-                                <a href="">Action,</a>
-                                &nbsp;&nbsp;
-                                <a href="">Adventure,</a>
-                                &nbsp;&nbsp;
-                                <button className="movie-more-btn">
-                                    <span>and more</span>
-                                </button>
+                              {categories.slice(0, 2).map((cat, index) => (<a href="#" key={cat._id}>
+                                  {cat.name}{index < 1 && categories.length > 1 ? ', ' : ''}
+                              </a>))}
+                                {categories.length > 2 && (<>
+                                    &nbsp;&nbsp;
+                                    <button className="movie-more-btn">
+                                        <span>and more</span>
+                                    </button>
+                                </>)}
                             </span>
+
                         </div>
                         <div className="inline-flex flex-row h-[16px] w-[44.89x]">
                             <div className="w-[24.66px]">
