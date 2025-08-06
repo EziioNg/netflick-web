@@ -97,7 +97,7 @@ const WhatOnSection = () => {
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
-                <span className="what-on-desc">Live TV</span>
+                <span className="what-on-desc">Every man has 2 fantasies...</span>
             </div>
             <div className="relative w-full h-[199.2px] what-on-mask group/scroll">
                 {/* Buttons scroll */}

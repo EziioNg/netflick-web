@@ -51,10 +51,10 @@ const RatingSection = ({movie}) => {
     useEffect(() => {
         if (selectedItem) {
             document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden"; // 👈 thêm dòng này
+            document.documentElement.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "auto";
-            document.documentElement.style.overflow = "auto"; // 👈 thêm dòng này
+            document.documentElement.style.overflow = "auto";
         }
 
         return () => {

@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { searchMoviesAPI } from "~/apis/index.js";
+import { useNavigate } from "react-router-dom"
+
 import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from '@mui/icons-material/Clear';
+
+import { searchMoviesAPI } from "~/apis/index.js";
 
 function SearchBox() {
     const [query, setQuery] = useState("");
@@ -26,19 +29,21 @@ function SearchBox() {
     }, [query]);
 
     return (
-        <div className="relative flex flex-row w-full max-w-md"> {/* container có position: relative */}
+        <div className="relative flex flex-row w-full max-w-md">
             <input
                 type="text"
-                placeholder="Tìm phim..."
+                // placeholder="Tìm phim..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                // className="px-4 py-2 rounded bg-gray-800 text-white w-full"
                 className="search-input"
             />
             <div className="search-btn-wrapper">
-                <SearchIcon/>
+                {query.length > 0 ? (
+                    <ClearIcon className="rounded-search hover:bg-white hover:text-black-100" onClick={() => setQuery("")} />
+                ) : (
+                    <SearchIcon />
+                )}
             </div>
-
             {results.length > 0 && (
                 <ul
                     className="absolute top-full left-0 z-50 bg-menu rounded-b-sm text-text-default text-sm font-normal mt-1 shadow-lg w-[400px] max-h-[380px] overflow-y-auto"

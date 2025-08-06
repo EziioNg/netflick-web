@@ -605,7 +605,7 @@ section {
     }
 
     .navbar-search {
-      @apply max-w-full bg-grey-100 relative flex items-center h-8;
+      @apply w-full max-w-full bg-grey-100 relative flex items-center h-8;
     }
 
     .search-input {
@@ -617,7 +617,7 @@ section {
     }
 
     .search-btn-wrapper {
-      @apply relative w-8 h-full inline-flex items-center pr-2;
+      @apply relative w-8 h-full inline-flex items-center pr-2 cursor-pointer;
     }
 
     .nav-action {

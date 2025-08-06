@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 
 import {Navigate, useNavigate, useParams} from 'react-router-dom'
 
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 // import BookmarkIcon from '@mui/icons-material/Bookmark'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import IosShareIcon from '@mui/icons-material/IosShare'
@@ -56,17 +56,20 @@ const MovieInfoSection = () => {
                                 <span>69m</span>
                             </span>
                             <span className="text-white-take text-left grow-0 shrink text-sm font-normal">
-                              {categories.slice(0, 2).map((cat, index) => (<a href="#" key={cat._id}>
-                                  {cat.name}{index < 1 && categories.length > 1 ? ',  ' : ''}
-                              </a>))}
-                                {categories.length > 2 && (<>
-                                    &nbsp;&nbsp;
-                                    <button className="movie-more-btn">
-                                        <span>and more</span>
-                                    </button>
-                                </>)}
+                              {categories.slice(0, 10).map((cat, index, arr) => (
+                                  <a
+                                      href="#"
+                                      key={cat._id}
+                                      onClick={(e) => {
+                                          e.preventDefault();
+                                          navigate(`/category/${cat._id}`);
+                                      }}
+                                  >
+                                      {cat.name}
+                                      {index < arr.length - 1 ? ',  ' : ''}
+                                  </a>
+                              ))}
                             </span>
-
                         </div>
                         <div className="inline-flex flex-row h-[16px] w-[44.89x]">
                             <div className="w-[24.66px]">
