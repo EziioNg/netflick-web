@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-import {useNavigate, useParams} from 'react-router-dom'
+import {Navigate, useNavigate, useParams} from 'react-router-dom'
 
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 // import BookmarkIcon from '@mui/icons-material/Bookmark'
@@ -15,20 +15,6 @@ const MovieInfoSection = () => {
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
     const [categories, setCategories] = useState([])
-
-    // useEffect(() => {
-    //     // console.log("API calling...")
-    //     getMovieAPI(movieId)
-    //         .then(data => {
-    //             // console.log('data received: ', data);
-    //             setMovie(data);
-    //             setLoading(false);
-    //         })
-    //         .catch(err => {
-    //             console.error('Error getting movie: ', err);
-    //             setLoading(false);
-    //         });
-    // }, [movieId]);
 
     useEffect(() => {
         Promise.all([getMovieAPI(movieId), getCategoriesByMovieId(movieId)])
@@ -48,7 +34,7 @@ const MovieInfoSection = () => {
     const navigate = useNavigate();
 
     if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
-    if (!movie) return <div className="text-red-500 px-4 items-center justify-self-center text-6xl">Not found.</div>;
+    if (!movie) return <Navigate to='/404' replace={true} />
 
     return (
         <div className="flex flex-row flex-nowrap grow-0 shrink items-start justify-start gap-12 w-[1392.800px] h-[450px] z-[999] px-16">
@@ -65,22 +51,13 @@ const MovieInfoSection = () => {
                     <div className="flex flex-col grow-0 shrink flex-nowrap gap-1">
                         <div className="flex flex-row grow-0 shrink flex-nowrap items-center justify-start gap-3">
                             <span className="text-white-take text-left grow-0 shrink text-sm font-normal">
-                                <span>1974</span>
+                                <span>2025</span>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <span>45m</span>
+                                <span>69m</span>
                             </span>
-                            {/*<span className="text-white-take text-left grow-0 shrink text-sm font-normal">*/}
-                            {/*    <a href="">Action,</a>*/}
-                            {/*    &nbsp;&nbsp;*/}
-                            {/*    <a href="">Adventure,</a>*/}
-                            {/*    &nbsp;&nbsp;*/}
-                            {/*    <button className="movie-more-btn">*/}
-                            {/*        <span>and more</span>*/}
-                            {/*    </button>*/}
-                            {/*</span>*/}
                             <span className="text-white-take text-left grow-0 shrink text-sm font-normal">
                               {categories.slice(0, 2).map((cat, index) => (<a href="#" key={cat._id}>
-                                  {cat.name}{index < 1 && categories.length > 1 ? ', ' : ''}
+                                  {cat.name}{index < 1 && categories.length > 1 ? ',  ' : ''}
                               </a>))}
                                 {categories.length > 2 && (<>
                                     &nbsp;&nbsp;
@@ -93,7 +70,7 @@ const MovieInfoSection = () => {
                         </div>
                         <div className="inline-flex flex-row h-[16px] w-[44.89x]">
                             <div className="w-[24.66px]">
-                                <img className="w-auto h-[16px]" src="/imdb-icon.svg" alt=""/>
+                                <img className="w-auto h-[16px]" src="/imdb-icon.svg" alt="imdb"/>
                             </div>
                             <span className="text-xs font-semibold text-white">8.0</span>
                         </div>

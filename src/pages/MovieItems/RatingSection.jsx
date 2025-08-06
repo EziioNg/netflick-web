@@ -118,8 +118,8 @@ const RatingSection = ({movie}) => {
                                     </div>
                                     <span
                                         className="max-w-full h-[80px] text-ellipsis overflow-hidden line-clamp-4 text-sm font-normal">
-                                    {item.battleCry}
-                                </span>
+                                            {item.battleCry}
+                                    </span>
                                 </div>
                             </div>
                         </figure>
@@ -139,9 +139,9 @@ const RatingSection = ({movie}) => {
                                 </div>
                             </div>
                             <span
-                                className="max-w-full h-[80px] text-ellipsis overflow-hidden line-clamp-4 text-sm font-normal text-text-default">
+                                className="max-w-full whitespace-pre-line overflow-auto text-sm font-normal text-text-default">
                                     {selectedItem.battleCry}
-                                </span>
+                            </span>
                         </div>
                     </Modal1>
                 )}

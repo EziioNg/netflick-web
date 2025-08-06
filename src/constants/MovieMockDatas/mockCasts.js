@@ -6,7 +6,6 @@ const mockCasts = [
         character: "character",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1752231737/Resonator_Male_Rover_z3pfyh.webp",
-        //link: ""
     },
     {
         id: 2,
@@ -23,11 +22,25 @@ const mockCasts = [
             "https://res.cloudinary.com/doam999z1/image/upload/v1752231737/Resonator_Lupa_uticqf.webp",
     },
     {
-        id: 4,
+        id: 4.1,
         actor: "Actor",
         character: "character",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1752231737/Resonator_Cartethyia_bqt2qq.webp",
+    },
+    {
+        id: 4.2,
+        actor: "Actor",
+        character: "character",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754396700/Resonator_Phrolova_pzcytn.webp",
+    },
+    {
+        id: 4.3,
+        actor: "Actor",
+        character: "character",
+        imageUrl:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754398180/Resonator_Brant_gtygfg.webp",
     },
     {
         id: 5,

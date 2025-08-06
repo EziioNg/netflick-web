@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 
-import {useNavigate, useParams} from "react-router-dom";
+import {Navigate, useNavigate, useParams} from "react-router-dom";
 
 import ReplayIcon from '@mui/icons-material/Replay';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -83,11 +83,23 @@ const Watch = () => {
             videoRef.current.volume = vol;
         }
     };
+    const [previousVolume, setPreviousVolume] = useState(1);
     const toggleMute = () => {
-        if (volume !== 1) setVolume(1)
-        if (volume === 1) setVolume(0)
-        setIsMuted(!isMuted)
-    }
+        if (!isMuted) {
+            setPreviousVolume(volume); // nhớ volume hiện tại
+            setIsMuted(true);
+            setVolume(0);
+            if (videoRef.current) {
+                videoRef.current.volume = 0;
+            }
+        } else {
+            setIsMuted(false);
+            setVolume(previousVolume);
+            if (videoRef.current) {
+                videoRef.current.volume = previousVolume;
+            }
+        }
+    };
 
     // Seek timeline
     const handleSeekStart = () => setIsSeeking(true);
@@ -117,7 +129,7 @@ const Watch = () => {
     const navigate = useNavigate();
 
     if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
-    if (!movie) return <div className="text-red-500 px-4 items-center justify-self-center text-6xl">Not found.</div>;
+    if (!movie) return <Navigate to='/404' replace={true} />
 
     return (
         <div className="relative min-h-screen group">
