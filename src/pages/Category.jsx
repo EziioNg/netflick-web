@@ -5,7 +5,7 @@ import {getCategoryById} from "~/apis/index.js";
 import MoviesSection from "~/pages/CategoryItems/MoviesSection.jsx";
 import XenoSection from "~/pages/HomeItems/XenoSection.jsx";
 import HeroSection from "~/pages/HomeItems/HeroSection.jsx";
-import FantasySection from "~/pages/HomeItems/FantasySection.jsx";
+import FantasySection from "~/pages/HomeItems/FantasySection/FantasySection.jsx";
 
 const Category = () => {
     //API here....

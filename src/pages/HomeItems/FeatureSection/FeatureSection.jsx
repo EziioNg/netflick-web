@@ -1,12 +1,11 @@
 import {useRef, useState, useEffect} from "react";
 
+import {useNavigate} from "react-router-dom";
+
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import {getCategoryById, getMoviesByCategoryId} from "~/apis/index.js";
-import {useNavigate} from "react-router-dom";
-
-const XenosSection = () => {
+const FeatureSection = ({data}) => {
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -44,26 +43,7 @@ const XenosSection = () => {
         el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
-    // API
-    const [movies, setMovies] = useState([])
-    const [categoryName, setCategoryName] = useState("")
-
-    const CATEGORY_ID = "6874c95c346bbf62467bee95"
-    useEffect(() => {
-        // Call APIs
-        Promise.all([
-            getCategoryById(CATEGORY_ID),
-            getMoviesByCategoryId(CATEGORY_ID)
-        ])
-            .then(([categoryData, moviesData]) => {
-                setCategoryName(categoryData.name || "Category")
-                // setMovies(moviesData.movies?.movies || [])
-                setMovies(moviesData.movies || [])
-            })
-
-            .catch(err => console.error("Lỗi khi fetch category/movies:", err))
-    }, [])
-
+    const { categoryName = "Feature", movies = [] } = data || {};
     useEffect(() => {
         // Delay để chờ React render DOM → đảm bảo scrollWidth đã cập nhật
         const timeout = setTimeout(() => {
@@ -132,7 +112,7 @@ const XenosSection = () => {
                                   <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-white text-sm font-normal">
                                     {item.title}
                                   </span>
-                                <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-text-muted text-xs font-semibold min-h-4">
+                                  <span className="inline-flex overflow-hidden overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
                                     {item.review}
                                   </span>
                             </figcaption>
@@ -144,4 +124,4 @@ const XenosSection = () => {
     );
 };
 
-export default XenosSection;
+export default FeatureSection;

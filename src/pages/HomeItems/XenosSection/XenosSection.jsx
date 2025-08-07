@@ -3,9 +3,10 @@ import {useRef, useState, useEffect} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import mockWorthyShows from "~/constants/HomeMockDatas/mockWorthyShows.js";
+import {getCategoryById, getMoviesByCategoryId} from "~/apis/index.js";
+import {useNavigate} from "react-router-dom";
 
-const TrueCrimeTimeSection = () => {
+const XenosSection = ({data}) => {
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -43,12 +44,25 @@ const TrueCrimeTimeSection = () => {
         el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
+    const { categoryName = "Xenos", movies = [] } = data || {};
+    useEffect(() => {
+        // Delay để chờ React render DOM → đảm bảo scrollWidth đã cập nhật
+        const timeout = setTimeout(() => {
+            checkScroll();
+        }, 100); // 50~100ms là đủ
+
+        return () => clearTimeout(timeout);
+    }, [movies]);
+
+    // Navigate
+    const navigate = useNavigate();
+
     return (
         <div className="worthy-section-container">
             <div className="worthy-text">
                 <a className="worthy-title">
-                    <span className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
-                        True Crime Time
+                    <span onClick={() => navigate(`/category/${CATEGORY_ID}`)} className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
+                        {categoryName}
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
@@ -59,7 +73,7 @@ const TrueCrimeTimeSection = () => {
                 {showLeft && (
                     <div
                         className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollLeft} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollLeft} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowBackIosIcon className="translate-x-[3.5px]" fontSize="small"/>
                         </button>
                     </div>
@@ -67,7 +81,7 @@ const TrueCrimeTimeSection = () => {
                 {showRight && (
                     <div
                         className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollRight} className="p-2 inline-block rounded-full bg-static-grey-5 cursor-pointer">
+                        <button onClick={scrollRight} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
                             <ArrowForwardIosIcon fontSize="small"/>
                         </button>
                     </div>
@@ -78,27 +92,29 @@ const TrueCrimeTimeSection = () => {
                     ref={scrollRef}
                     className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
                 >
-                    {mockWorthyShows.map((item, idx) => (
+                    {movies.map((item, idx) => (
                         <figure
-                            key={item.id}
+                            // key={item.id}
+                            key={item?._id || idx}
+                            onClick={() => navigate(`/movies/${item._id}`)}
                             className={`worthy-items-section-container worthy-width group shrink-0 snap-start
-                                    ${idx === 0 ? 'ml-16' : ''} ${idx === mockWorthyShows.length - 1 ? 'mr-16' : ''}`}
+                                    ${idx === 0 ? 'ml-16' : ''} ${idx === movies.length - 1 ? 'mr-16' : ''}`}
                         >
                             <div className="worthy-items-section flex-1 worthy-width worthy-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
                                 <div className="worthy-items-bg max-h-[332px]">
                                     <img
                                         className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.imageUrl}
+                                        src={item.movieImage}
                                         alt={item.title}
                                     />
                                 </div>
                             </div>
                             <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
-                                  <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
+                                  <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-white text-sm font-normal">
                                     {item.title}
                                   </span>
-                                <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
-                                    {item.timeLeft}
+                                <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-text-muted text-xs font-semibold min-h-4">
+                                    {item.review}
                                   </span>
                             </figcaption>
                         </figure>
@@ -109,4 +125,4 @@ const TrueCrimeTimeSection = () => {
     );
 };
 
-export default TrueCrimeTimeSection;
+export default XenosSection;
