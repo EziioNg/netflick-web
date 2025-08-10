@@ -32,7 +32,8 @@ function SearchBox() {
         <div className="relative flex flex-row w-full max-w-md">
             <input
                 type="text"
-                // placeholder="Tìm phim..."
+                placeholder="Search..."
+                // placeholder="Coi được coi đéo được thì cút 🐧..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className="search-input"

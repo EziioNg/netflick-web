@@ -50,15 +50,7 @@ function NotFound() {
                     &nbsp;<Typography variant="span" sx={{ color: '#fdba26', fontWeight: 500 }}>Bro</Typography>?<br />Hmm, looks like that page doesn&apos;t exist.
                 </Typography>
                 <Box sx={{ width: '390px', height: '390px', position: 'relative' }}>
-                    {/*<SvgIcon component={AstronautSvg} inheritViewBox sx={{*/}
-                    {/*    width: '50px', height: '50px', position: 'absolute', top: '20px', right: '25px',*/}
-                    {/*    '@keyframes spinAround': {*/}
-                    {/*        from: { transform: 'rotate(0deg)' },*/}
-                    {/*        to: { transform: 'rotate(360deg)' }*/}
-                    {/*    },*/}
-                    {/*    animation: 'spinAround 5s linear 0s infinite'*/}
-                    {/*}} />*/}
-                    <img src="/assets/404/astronaut.svg" alt="astronaut" className="absolute size-[50px] top-[20px] right-[25px]" />
+                    <img src="/assets/404/astronaut.svg" alt="astronaut" className="w-[50px] h-[50px] absolute top-[20px] right-[25px] animate-spin"/>
                     <img src="/assets/404/planet.svg" alt="planet"/>
                 </Box>
                 <Link to="/" style={{ textDecoration: 'none' }}>

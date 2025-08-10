@@ -83,7 +83,7 @@ const mockRatings = [
     {
         id: 11,
         name: "Tyberos",
-        quote: "Carcharodons",
+        quote: "Carcharodons Astra",
         symbol:
             "https://res.cloudinary.com/doam999z1/image/upload/v1752402190/1325757315953070193_khhmww.png",
         battleCry: "YOU!...DO NOT SEE TYBEROS!!!"
@@ -98,6 +98,14 @@ const mockRatings = [
     },
     {
         id: 13,
+        name: "Deathwatch",
+        quote: "Suffer not the alien to live",
+        symbol:
+            "https://res.cloudinary.com/doam999z1/image/upload/v1752402190/1290090939947421696_z1mc7e.png",
+        battleCry: "He who allows the alien to live shares its crime of existence."
+    },
+    {
+        id: 14,
         name: "Adeptus Mechanicus",
         quote: "Praise the Omnissiah",
         symbol:
@@ -108,12 +116,12 @@ const mockRatings = [
             "\nThere is no certainty in flesh but death."
     },
     {
-        id: 14,
-        name: "Inquisition",
-        quote: "Suffer not the alien to live",
+        id: 15,
+        name: "Inquisitor",
+        quote: "Dị giáo 🤨💀?",
         symbol:
-            "https://res.cloudinary.com/doam999z1/image/upload/v1752402190/1290090939947421696_z1mc7e.png",
-        battleCry: "He who allows the alien to live shares its crime of existence."
+            "https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png",
+        battleCry: "I come to set straight that which is twisted; to cleanse that which is unclean; to judge he who is guilty; to punish he who has sinned. These things I do in the name of the most holy God-Emperor of Mankind, and I do them gladly."
     },
 ];
 

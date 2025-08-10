@@ -41,6 +41,22 @@ export const getCategories = async () => {
   return response.data
 }
 
+// Series
+export const getSeriesById = async (seriesId) => {
+  const response = await axios.get(`${API_ROOT}/v1/series/${seriesId}`)
+  return response.data
+}
+
+export const getAllSeries = async () => {
+  const response = await axios.get(`${API_ROOT}/v1/series/`)
+  return response.data
+}
+
+export const getMoviesBySeriesId = async (seriesId) => {
+  const response = await axios.get(`${API_ROOT}/v1/series/${seriesId}/movies`)
+  return response.data
+}
+
 
 // export const fetchMoviesAPI = async (searchPath) => {
 //     const response = await authorizedAxiosInstance.get(`${API_ROOT}/v1/movies${searchPath}`)

@@ -1,39 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import {Navigate, useNavigate } from 'react-router-dom'
 
-import {Navigate, useNavigate, useParams} from 'react-router-dom'
-
-// import BookmarkIcon from '@mui/icons-material/Bookmark'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import IosShareIcon from '@mui/icons-material/IosShare'
 
-import { getMovieAPI, getCategoriesByMovieId } from "~/apis/index.js"
-
-const MovieInfoSection = () => {
-    const { movieId } = useParams();
-    const [movie, setMovie] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [categories, setCategories] = useState([])
-
-    useEffect(() => {
-        Promise.all([getMovieAPI(movieId), getCategoriesByMovieId(movieId)])
-            .then(([movieData, categoriesData]) => {
-                setMovie(movieData);
-                setLoading(false);
-                setCategories(categoriesData.categories || [])
-            })
-
-            .catch(err => {
-                console.error("Lỗi khi fetch category/movies: ", err);
-                setLoading(false);
-            });
-    }, [movieId])
-
+const MovieInfoSection = ({movie, categories}) => {
     // Navigate
     const navigate = useNavigate();
 
-    if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
     if (!movie) return <Navigate to='/404' replace={true} />
 
     return (

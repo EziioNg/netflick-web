@@ -7,8 +7,8 @@ import Home from './pages/Home'
 import Movie from './pages/Movie'
 import Watch from './pages/Watch'
 import Category from './pages/Category'
-import ScrollToTop from "~/components/ScrollToTop.jsx";
 import NotFound from "~/pages/404/NotFound.jsx";
+import ScrollToTop from "~/components/ScrollToTop.jsx";
 
 function App() {
     return (

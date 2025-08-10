@@ -1,25 +1,6 @@
-import React, {useEffect, useState} from 'react'
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-import {getCategoryById, getMoviesByCategoryId} from "~/apis/index.js";
-
-const MoviesSection = () => {
-    const [movies, setMovies] = useState([])
-    const [categoryName, setCategoryName] = useState("")
-
-    const { categoryId } = useParams();
-    useEffect(() => {
-        // Call APIs
-        Promise.all([getCategoryById(categoryId), getMoviesByCategoryId(categoryId)])
-            .then(([categoryData, moviesData]) => {
-                setCategoryName(categoryData.name || "Category")
-                // setMovies(moviesData.movies?.movies || [])
-                setMovies(moviesData.movies || [])
-            })
-
-            .catch(err => console.error("Lỗi khi fetch category/movies:", err))
-    }, [])
-
+const MoviesSection = ({movies, category}) => {
     // Navigate
     const navigate = useNavigate();
 

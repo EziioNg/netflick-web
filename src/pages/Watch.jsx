@@ -17,17 +17,28 @@ const Watch = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+    // Hàm kiểm tra ObjectId hợp lệ (MongoDB 24 ký tự hex)
+    const isValidObjectId = (id) => /^[0-9a-fA-F]{24}$/.test(id);
 
     useEffect(() => {
-        // console.log("API calling...")
+        // Nếu ID không hợp lệ -> chuyển sang trang 404
+        if (!isValidObjectId(movieId)) {
+            navigate("/404", { replace: true });
+            return;
+        }
         getMovieAPI(movieId)
             .then(data => {
-                // console.log('data received: ', data);
+                if (!data) {
+                    navigate("/404", { replace: true });
+                    return;
+                }
                 setMovie(data);
                 setLoading(false);
             })
             .catch(err => {
-                // console.error('Error getting movie: ', err);
+                console.error('Error getting movie: ', err);
                 setLoading(false);
             });
     }, [movieId]);
@@ -124,9 +135,6 @@ const Watch = () => {
             console.error('Failed to toggle fullscreen:', err);
         }
     };
-
-    // Navigate
-    const navigate = useNavigate();
 
     if (loading) return <div className="text-white px-4 items-center justify-self-center text-6xl">Loading...</div>;
     if (!movie) return <Navigate to='/404' replace={true} />
