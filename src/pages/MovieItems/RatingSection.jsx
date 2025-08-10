@@ -113,7 +113,11 @@ const RatingSection = ({movie}) => {
                                              alt="symbol"/>
                                         <div className="flex flex-col grow-0 shrink flex-nowrap">
                                             <span className="text-sm font-normal">{item.name}</span>
-                                            <span className="text-xs italic font-normal text-text-mute">{item.quote}</span>
+                                            <span
+                                                className={`text-xs font-normal text-text-mute noto-color-emoji-regular ${item.name !== 'Inquisitor' ? 'italic' : ''}`}
+                                            >
+                                              {item.quote}
+                                            </span>
                                         </div>
                                     </div>
                                     <span
@@ -135,7 +139,11 @@ const RatingSection = ({movie}) => {
                                      alt="symbol"/>
                                 <div className="flex flex-col grow-0 shrink flex-nowrap">
                                     <span className="text-base font-bold text-text-default">{selectedItem.name}</span>
-                                    <span className="text-xs italic font-normal text-text-mute">{selectedItem.quote}</span>
+                                    <span
+                                        className={`text-xs font-normal text-text-mute noto-color-emoji-regular ${selectedItem.name !== 'Inquisitor' ? 'italic' : ''}`}
+                                    >
+                                        {selectedItem.quote}
+                                    </span>
                                 </div>
                             </div>
                             <span

@@ -3,10 +3,9 @@ import {useRef, useState, useEffect} from "react";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-import mockWorthyShows from "~/constants/HomeMockDatas/mockWorthyShows.js";
-import Modal2 from "~/pages/Modal2.jsx";
+import {useNavigate} from "react-router-dom";
 
-const ComingSoonSection = () => {
+const HobbitSection = ({data}) => {
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -44,32 +43,29 @@ const ComingSoonSection = () => {
         el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
     };
 
-    // Modal2
-    const [selectedItem, setSelectedItem] = useState(null);
+    const { seriesName = "Action", movies = [] } = data || {};
     useEffect(() => {
-        if (selectedItem) {
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-            document.documentElement.style.overflow = "auto";
-        }
+        // Delay để chờ React render DOM → đảm bảo scrollWidth đã cập nhật
+        const timeout = setTimeout(() => {
+            checkScroll();
+        }, 100); // 50~100ms là đủ
 
-        return () => {
-            document.body.style.overflow = "auto";
-            document.documentElement.style.overflow = "auto";
-        };
-    }, [selectedItem]);
+        return () => clearTimeout(timeout);
+    }, [movies]);
+
+    // Navigate
+    const navigate = useNavigate();
 
     return (
         <div className="worthy-section-container">
-            <div className="flex flex-col max-h-[36px] flex-nowrap grow-0 shrink max-w-[700px] px-16">
-                <a className="text-white h-full max-w-full overflow-hidden text-xl font-bold cursor-pointer">
-                    <span className="inline-flex h-full text-3xl font-bold flex-nowrap items-center flex-row gap-2">
-                       ͡° ͜ʖ ͡° 🐧🐧
+            <div className="worthy-text">
+                <a className="worthy-title">
+                    <span onClick={() => navigate(`/category/${CATEGORY_ID}`)} className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
+                        {seriesName}
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
+                <span className="worthy-desc">On Demand</span>
             </div>
             <div className="relative w-full h-[376px] what-on-mask group/scroll">
                 {/* Buttons scroll */}
@@ -95,46 +91,37 @@ const ComingSoonSection = () => {
                     ref={scrollRef}
                     className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
                 >
-                    {mockWorthyShows.map((item, idx) => (
+                    {movies.map((item, idx) => (
                         <figure
-                            key={item.id}
-                            onClick={() => setSelectedItem(item)}
-                            className={`worthy-items-section-container worthy-width group shrink-0 snap-start mb-1
-                                    ${idx === 0 ? 'ml-16' : ''} ${idx === mockWorthyShows.length - 1 ? 'mr-16' : ''}`}
+                            // key={item.id}
+                            key={item?._id || idx}
+                            onClick={() => navigate(`/movies/${item._id}`)}
+                            className={`worthy-items-section-container worthy-width group shrink-0 snap-start
+                                    ${idx === 0 ? 'ml-16' : ''} ${idx === movies.length - 1 ? 'mr-16' : ''}`}
                         >
                             <div className="worthy-items-section flex-1 worthy-width worthy-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
-                                <div className="worthy-items-bg max-h-full">
+                                <div className="worthy-items-bg max-h-[332px]">
                                     <img
                                         className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.imageUrl}
+                                        src={item.movieImage}
                                         alt={item.title}
                                     />
                                 </div>
                             </div>
+                            <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
+                                  <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-white text-sm font-normal">
+                                    {item.title}
+                                  </span>
+                                <span className="inline-block overflow-hidden text-ellipsis whitespace-nowrap w-[221.33px] text-text-muted text-xs font-semibold min-h-4">
+                                    {item.review}
+                                  </span>
+                            </figcaption>
                         </figure>
                     ))}
-                    {/* Modal2 */}
-                    {selectedItem && (
-                        <Modal2 onClose={() => setSelectedItem(null)}>
-                            <div>
-                                <div className="max-w-[1279px] max-h-[718px]">
-                                    <img
-                                        className="w-full h-full object-cover rounded"
-                                        src={selectedItem.imageUrl}
-                                        alt="image"
-                                    />
-                                </div>
-                                <span
-                                    className="block mt-4 justify-self-center text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">
-                                    {selectedItem.title}
-                                </span>
-                            </div>
-                        </Modal2>
-                    )}
                 </div>
             </div>
         </div>
     );
 };
 
-export default ComingSoonSection;
+export default HobbitSection;
