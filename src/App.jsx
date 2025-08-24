@@ -1,5 +1,8 @@
-import {Routes, Route, Navigate} from 'react-router-dom'
+import {Routes, Route, Navigate, Outlet} from 'react-router-dom'
 
+import {useSelector} from "react-redux";
+
+import ScrollToTop from "~/components/ScrollToTop.jsx";
 import MainLayout from './layouts/MainLayout'
 import MovieLayout from './layouts/MovieLayout'
 import WatchLayout from "~/layouts/WatchLayout.jsx";
@@ -8,9 +11,19 @@ import Movie from './pages/Movie'
 import Watch from './pages/Watch'
 import Category from './pages/Category'
 import NotFound from "~/pages/404/NotFound.jsx";
-import ScrollToTop from "~/components/ScrollToTop.jsx";
+import Auth from "~/pages/Auth/Auth.jsx";
+import User from "~/pages/User/User.jsx";
+import {selectCurrentUser} from "~/redux/user/userSlice.js";
+
+const ProtectedRoute = ({user}) => {
+    // console.log('user: ', user)
+    if (!user) return <Navigate to='/login' replace={true}/> // nếu user không tồn tại(chưa login) thì đá về trang login
+    return <Outlet/> // đến route children
+}
 
 function App() {
+    const currentUser = useSelector(selectCurrentUser) // lấy thông tin user từ kho dữ liệu redux
+
     return (
         <>
             <ScrollToTop/>
@@ -48,10 +61,25 @@ function App() {
                     </WatchLayout>
                 }/>
 
-                {/* 404 page */}
-                <Route path='*' element={<NotFound />} />
-
                 {/* Login - Reister */}
+                <Route path='/login' element={<Auth/>}/>
+                <Route path='/register' element={<Auth/>}/>
+                {/*<Route path='/account/verification' element={<AccountVerification />} />*/}
+
+                {/* User Page */}
+                <Route element={<ProtectedRoute user={currentUser} />}>
+                    <Route
+                        path="/user/:tab?"
+                        element={
+                            <MainLayout>
+                                <User/>
+                            </MainLayout>
+                        }
+                    />
+                </Route>
+
+                {/* 404 page */}
+                <Route path='*' element={<NotFound/>}/>
             </Routes>
         </>
     )

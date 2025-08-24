@@ -1,6 +1,6 @@
-// import authorizedAxiosInstance from '~/utils/authorizeAxios'
 import { API_ROOT } from '~/utils/constants'
 import axios from 'axios'
+import {toast} from "react-toastify";
 
 // Movie
 export const fetchMoviesAPI = async () => {
@@ -56,6 +56,24 @@ export const getMoviesBySeriesId = async (seriesId) => {
   const response = await axios.get(`${API_ROOT}/v1/series/${seriesId}/movies`)
   return response.data
 }
+
+// User
+export const registerUserApi = async (data) => {
+  const response = await axios.post(`${API_ROOT}/v1/users/register`, data)
+  toast.success('Account Created Successfuly', { theme: 'colored' })
+  return response.data
+}
+
+// export const verifyUserApi = async (data) => {
+//   const response = await axios.put(`${API_ROOT}/v1/users/verify`, data)
+//   toast.success('Account Verfified Successfuly', { theme: 'colored' })
+//   return response.data
+// }
+//
+// export const refreshTokenApi = async () => {
+//   const response = await axios.get(`${API_ROOT}/v1/users/refresh_token`)
+//   return response.data
+// }
 
 
 // export const fetchMoviesAPI = async (searchPath) => {
