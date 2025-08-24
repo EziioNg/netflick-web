@@ -39,7 +39,10 @@ section {
 @theme {
   --font-sans: "Mona Sans", sans-serif;
   --color-white-50: #d9ecff;
+  --color-white-51: #ffffff05;
   --color-black-50: #1c1c21;
+  --color-black-user: #2e313a;
+  --color-black-user-2: #282B3A;
   --color-black-100: #0e0e10;
   --color-black-200: #282732;
   --color-blue-50: #839cb5;
@@ -62,6 +65,7 @@ section {
   --color-static-grey-6: #e0e3e6;
   --color-static-grey-7: #f2f3f4;
   --color-static-grey-8: #f9f9f9;
+  --color-static-grey-9: #aaa;
   --color-static-white: #fff;
   --color-static-red: #c72c05;
   --color-static-green: #4db288;
@@ -98,6 +102,9 @@ section {
   --color-background-alert-muted: #190501;
   --color-background-confirm: #366350;
   --color-background-success: #08120e;
+  --color-background-user-black: #282B3A;
+  --color-background-user-bookmark: #2F3346;
+  --color-background-user-bookmark-grey: #00000033;
   --color-background-informative: #0a0f19;
   --color-background-accent-focus: #f3b125;
   --color-background-alert-focus: #a12303;
@@ -114,6 +121,8 @@ section {
   --color-primary-background-30: #ffffff4d;
   --color-primary-background-10: #ffffff1a;
   --color-primary-background-5: #ffffff0d;
+  --color-user-background-1: #25272f;
+  --color-user-background-white: #ffffff05;
   --color-primary-foreground-100: #fff;
   --color-primary-foreground-80: #ffffffcc;
   --color-primary-foreground-60: #ffffff99;
@@ -172,7 +181,10 @@ section {
   /*  background-blend-mode: screen;*/
   /*}*/
   .ub-corner-gradients {
-    background-image: linear-gradient(to right top, #181617, #1f1d1e, #262526, #2d2c2d, #353435, #343334, #333333, #323232, #282828, #1f1f1f, #161616, #09090a);
+    /*background-image: linear-gradient(to right top, #181617, #1f1d1e, #262526, #2d2c2d, #353435, #343334, #333333, #323232, #282828, #1f1f1f, #161616, #09090a);*/
+    /*background-image: linear-gradient(to bottom, #1d1e1e, #232626, #2a2d2e, #313537, #393d40, #393d40, #393d40, #393d40, #313537, #2a2d2e, #232626, #1d1e1e);*/
+    /*background-image: linear-gradient(to bottom, #121212, #131314, #151515, #161617, #171718, #181819, #19191a, #1a1a1b, #1b1b1c, #1b1c1d, #1c1d1d, #1d1e1e);*/
+    background-image: linear-gradient(to bottom, #121212, #181818, #1e1e1e, #232324, #29292a, #2a2a2b, #2a2b2d, #2b2c2e, #27292a, #232526, #202222, #1d1e1e);
     /*background-blend-mode: screen;*/
     background-size: cover;
     background-repeat: no-repeat;
@@ -257,6 +269,129 @@ section {
 }
 
 @layer components {
+
+  /*User section*/
+  .user-section {
+    @apply relative flex max-w-[1520px] px-5 items-start justify-between gap-10;
+
+    .user-side {
+      @apply flex-shrink-0 w-[300px] p-10 rounded-2xl bg-user-background-1;
+
+      .side-menu {
+        @apply flex flex-col gap-4;
+
+        .side-menu-text {
+          @apply text-[19.6px] text-white font-semibold mb-2;
+        }
+
+        .menus {
+          @apply flex flex-col grow w-full mb-16;
+
+          .menu-item {
+            @apply w-full py-4 border-b border-b-black-user;
+
+            .text-center {
+              @apply inline-flex items-center w-full gap-4;
+            }
+          }
+        }
+        .infos {
+          @apply flex flex-col gap-4;
+
+          .info-avatar {
+            @apply relative w-[60px] h-[60px] border-2 shrink-0 overflow-hidden bg-background-user-black;
+
+            .avatar {
+              @apply absolute w-full h-full object-cover;
+            }
+          }
+
+          .info-texts {
+            @apply block;
+
+            .user-name {
+              @apply inline-flex items-center gap-2;
+            }
+
+            .user-subname {
+              @apply text-sm font-normal text-static-grey-9 mb-[16px];
+            }
+
+            .user-logout {
+              @apply inline-flex justify-center items-center text-sm font-medium gap-1.5 py-2 text-white cursor-pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .user-main {
+      @apply grow max-h-full;
+    }
+  }
+
+  /*User BookMark section*/
+  .bm-header {
+    @apply flex flex-col items-start gap-4 justify-between mb-6;
+
+    .header-title {
+      @apply text-xl font-semibold text-white;
+    }
+
+    .tab-item {
+      @apply inline-flex items-center justify-center min-w-[100px] h-10 opacity-80 gap-1.5 text-sm font-normal cursor-pointer;
+    }
+  }
+
+  .bm-body {
+    /*@apply transition-opacity duration-150 ease-linear;*/
+    @apply relative min-h-[150px];
+
+    .body-none-text {
+      @apply flex flex-col items-center justify-center py-12 px-8 bg-background-user-bookmark-grey text-static-grey-9 gap-4 text-sm font-normal rounded-2xl;
+    }
+  }
+
+  /*User Account section*/
+  .account-header {
+    @apply flex flex-col justify-between gap-2 items-start mb-6;
+
+    .title {
+      @apply font-semibold text-xl text-white;
+    }
+
+    .desc {
+      @apply text-sm font-normal text-static-grey-9;
+    }
+  }
+
+  .account-body {
+    @apply flex flex-row max-w-[640px] items-start justify-center gap-12;
+
+    .body-section {
+      @apply grow;
+
+      .email-input {
+        @apply w-full h-[42px] py-2 px-4 text-white border border-[#ffffff10] rounded-[0.4rem]  text-sm bg-user-background-white cursor-not-allowed;
+      }
+
+      .name-input {
+        @apply w-full h-[42px] py-2 px-4 text-white border border-[#ffffff10] rounded-[0.4rem]  text-sm bg-transparent cursor-pointer;
+      }
+
+      .form-check {
+        @apply inline-block mr-4 pl-5 min-h-6;
+      }
+
+      .body-btn {
+        @apply inline-flex items-center gap-4;
+
+        .button {
+          @apply inline-flex rounded-[0.4rem] text-sm font-medium items-center justify-center gap-2 py-2 px-6 min-h-10 bg-yellow-200 text-black-user cursor-pointer opacity-100 hover:opacity-90;
+        }
+      }
+    }
+  }
 
   /*Take section*/
   .take-section {
@@ -667,9 +802,9 @@ section {
       @apply top-0 bg-black;
     }
 
-    /*&.not-scrolled {*/
-    /*  @apply top-0 bg-transparent;*/
-    /*}*/
+    &.not-scrolled {
+      @apply top-0 bg-transparent;
+    }
 
     .inner {
       @apply mx-auto h-[64px] flex items-center justify-between;
@@ -769,7 +904,7 @@ section {
   }
 
   .sign-in-btn {
-    @apply relative inline-flex rounded-lg items-center px-4 py-4 bg-black-200 justify-center overflow-hidden;
+    @apply relative inline-flex rounded-lg items-center px-4 py-4 bg-black-200 justify-center overflow-hidden cursor-pointer;
     &:hover {
       @apply bg-white-1 text-white;
     }

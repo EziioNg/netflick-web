@@ -1,11 +1,7 @@
-import {
-    useState,
-    useRef
-} from "react"
+import { useState,  useRef, useEffect } from "react"
 
 import CastIcon from '@mui/icons-material/Cast';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
-import SearchBox from "~/components/SearchBox.jsx";
 
 import {
     safePolygon,
@@ -19,7 +15,11 @@ import {
     shift, autoUpdate, useTransitionStyles,
 } from '@floating-ui/react';
 
+import {useDispatch, useSelector} from "react-redux";
+
 import {navLinks} from "~/constants/NavLinks/index.jsx"
+import SearchBox from "~/components/SearchBox.jsx";
+import {logoutUserAPI, selectCurrentUser} from '~/redux/user/userSlice'
 
 const NavBar = () => {
     // Popper section:
@@ -71,8 +71,30 @@ const NavBar = () => {
         },
     });
 
+    // Log out button:
+    const currentUser = useSelector(selectCurrentUser)
+    const dispatch = useDispatch()
+    const handleLogout = () => {
+        dispatch(logoutUserAPI())
+    }
+
+    const [scrolled, setScrolled] = useState(false)
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 10 // biến kiểm tra nếu đã scroll trục y hơn 10 pixel
+            if (isScrolled) {
+                setScrolled(true)
+            } else {
+                setScrolled(false)
+            }
+        }
+        window.addEventListener('scroll', handleScroll)
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    },[scrolled])
+
     return (
-        <header className='navbar font-semibold scrolled'>
+        <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
             <div className="flex flex-1 items-center">
                 <a href="/home">
                     <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="home-icon"/>
@@ -145,13 +167,29 @@ const NavBar = () => {
                     <a href="" className="nav-category nav-btn rounded-search">
                         <BookmarksIcon/>
                     </a>
-                    <a
-                        id="btn-test"
-                        href="/404"
-                        className="sign-in-btn h-10 rounded-sign-in"
-                    >
-                        Sign In
-                    </a>
+                    {/*<a*/}
+                    {/*    id="btn-test"*/}
+                    {/*    href="/404"*/}
+                    {/*    className="sign-in-btn h-10 rounded-sign-in"*/}
+                    {/*    onClick={handleLogout}*/}
+                    {/*>*/}
+                    {/*    Log out*/}
+                    {/*</a>*/}
+                    {currentUser ? (
+                        <button
+                            className="sign-in-btn h-10 rounded-sign-in"
+                            onClick={handleLogout}
+                        >
+                            Log out
+                        </button>
+                    ) : (
+                        <a
+                            href="/login"
+                            className="sign-in-btn h-10 rounded-sign-in"
+                        >
+                            Sign in
+                        </a>
+                    )}
                 </div>
             </div>
         </header>

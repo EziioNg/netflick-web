@@ -5,6 +5,8 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 import { interceptorLoadingElements } from './formatters'
+// import { refreshTokenApi } from '~/apis'
+import { logoutUserAPI } from '~/redux/user/userSlice'
 
 // Không thể import store từ redux/store vì đây không phải file component(.jsx)
 // Dùng injectStore thay thế
@@ -29,7 +31,7 @@ authorizedAxiosInstance.interceptors.request.use((config) => {
 })
 
 // Khởi tạo 1 promise để gọi api refresh_token
-let refreshTokenPromise = null
+// let refreshTokenPromise = null
 
 // Interceptor Response: can thiệp vào giữa các response nhận về
 authorizedAxiosInstance.interceptors.response.use((response) => {
@@ -45,9 +47,9 @@ authorizedAxiosInstance.interceptors.response.use((response) => {
     interceptorLoadingElements(false)
 
     // Xử lý refresh token tự động
-    // if (error.response?.status === 401) { // Nếu nhận mã 401 từ BE
-    //     axiosReduxStore.dispatch(logoutUserAPI(false)) // dùng dispatch gọi logoutUserAPI từ redux
-    // }
+    if (error.response?.status === 401) { // Nếu nhận mã 401 từ BE
+        axiosReduxStore.dispatch(logoutUserAPI(false)) // dùng dispatch gọi logoutUserAPI từ redux
+    }
 
     // Lấy các api đang bị lỗi thông qua error.config
     const originalRequests = error.config
@@ -73,16 +75,15 @@ authorizedAxiosInstance.interceptors.response.use((response) => {
         //             refreshTokenPromise = null
         //         })
         // }
-
-        // return trường hợp refreshTokenPromise chạy thành công và xử lý thêm
-        return refreshTokenPromise.then(accessToken => {
-            // Lưu acctessToken vào đâu đó nếu cần
-            //...
-
-            // return lại axiosInstance để gọi lại các originalRequests ban đầu bị lỗi
-            console.log('refresh token thành công!')
-            return authorizedAxiosInstance(originalRequests)
-        })
+        // // return trường hợp refreshTokenPromise chạy thành công và xử lý thêm
+        // return refreshTokenPromise.then(accessToken => {
+        //     // Lưu acctessToken vào đâu đó nếu cần
+        //     //...
+        //
+        //     // return lại axiosInstance để gọi lại các originalRequests ban đầu bị lỗi
+        //     console.log('refresh token thành công!')
+        //     return authorizedAxiosInstance(originalRequests)
+        // })
     }
 
     // Xử lý tập trung phần hiển thị thông báo lỗi trả về từ mọi api ở đây:
