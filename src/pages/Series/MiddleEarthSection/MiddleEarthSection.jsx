@@ -5,7 +5,9 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 import {useNavigate} from "react-router-dom";
 
-const HobbitSection = ({data}) => {
+const MiddleEarthSection = ({data}) => {
+    // console.log('data: ', data)
+
     const scrollRef = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
@@ -124,4 +126,4 @@ const HobbitSection = ({data}) => {
     );
 };
 
-export default HobbitSection;
+export default MiddleEarthSection;

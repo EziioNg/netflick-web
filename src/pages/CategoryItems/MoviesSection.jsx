@@ -4,7 +4,8 @@ const MoviesSection = ({movies, category}) => {
     // Navigate
     const navigate = useNavigate();
 
-    return (<div className="px-16">
+    return (
+        <div className="px-16">
             <div className="grid grid-cols-5 gap-8">
                 {movies.map((item, idx) => (
                     <figure
@@ -33,7 +34,7 @@ const MoviesSection = ({movies, category}) => {
                         </figcaption>
                     </figure>))}
             </div>
-        </div>);
-
+        </div>
+    );
 }
 export default MoviesSection

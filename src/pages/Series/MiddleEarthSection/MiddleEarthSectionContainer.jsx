@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-import HobbitSection from "./HobbitSection.jsx";
+import MiddleEarthSection from "./MiddleEarthSection.jsx";
 
 import { getSeriesById, getMoviesBySeriesId } from "~/apis/index.js"
 
-const SERIES_ID = "68970a27fe13b2ce71e90c0d";
+const SERIES_ID = "689709d4fe13b2ce71e90c0c";
 
-const HobbitSectionContainer = () => {
+const MiddleEarthSectionContainer = () => {
     const [data, setData] = useState({ seriesName: "", movies: [] });
     const [loading, setLoading] = useState(true);
 
@@ -27,7 +27,7 @@ const HobbitSectionContainer = () => {
 
     if (loading) return null;
 
-    return <HobbitSection data={data} />;
+    return <MiddleEarthSection data={data} />;
 };
 
-export default HobbitSectionContainer;
+export default MiddleEarthSectionContainer;
