@@ -1,13 +1,37 @@
 import {Navigate, useNavigate } from 'react-router-dom'
 
+import {useSelector} from "react-redux";
+
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import IosShareIcon from '@mui/icons-material/IosShare'
 
+import {selectCurrentUser} from '~/redux/user/userSlice'
+import {addFavoriteAPI} from "~/apis/index.js";
+
 const MovieInfoSection = ({movie, categories}) => {
     // Navigate
     const navigate = useNavigate();
+    const currentUser = useSelector(selectCurrentUser)
+
+    const handleAddFavorite = async () => {
+        if (!currentUser) {
+            // chưa login → điều hướng sang login
+            navigate('/login')
+            return
+        }
+
+        try {
+            console.log('userId and movieId: ', currentUser._id, movie._id)
+            await addFavoriteAPI(currentUser._id, movie._id)
+            console.log('Added to favorites')
+            // ở đây bạn có thể dispatch redux action để cập nhật state favorites
+        } catch (err) {
+            console.error('Failed to add favorite:', err)
+        }
+    }
+
 
     if (!movie) return <Navigate to='/404' replace={true} />
 
@@ -65,7 +89,7 @@ const MovieInfoSection = ({movie, categories}) => {
                         </div>
                     </a>
                     <div className="flex flex-row grow-0 shrink flex-nowrap gap-2 justify-center items-center max-h-12">
-                        <div className="p-3 movie-btn rounded-search max-h-12">
+                        <div className="p-3 movie-btn rounded-search max-h-12" onClick={handleAddFavorite}>
                             <BookmarkBorderIcon />
                         </div>
                         <div className="p-3 movie-btn rounded-search max-h-12">

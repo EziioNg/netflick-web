@@ -13,8 +13,7 @@ import FantasySectionContainer from "~/pages/HomeItems/FantasySection/FantasySec
 import ScifiSectionContainer from "~/pages/HomeItems/ScifiSection/ScifiSectionContainer.jsx";
 import ActionSectionContainer from "~/pages/HomeItems/ActionSection/ActionSectionContainer.jsx";
 import PageLoader from "~/pages/PageLoader.jsx";
-import LoTRSectionContainer from "~/pages/Series/LoTRSection/LoTRSectionContainer.jsx";
-import HobbitSectionContainer from "~/pages/Series/HobbitSection/HobbitSectionContainer.jsx";
+import MiddleEarthSectionContainer from "~/pages/Series/MiddleEarthSection/MiddleEarthSectionContainer.jsx";
 
 import {getCategoriesByMovieId, getMovieAPI} from "~/apis/index.js";
 
@@ -62,8 +61,7 @@ const Movie = () => {
             <MovieInfoSection movie={movie} categories={categories} />
             <Cast movie={movie}/>
             <RatingSection movie={movie}/>
-            <LoTRSectionContainer />
-            <HobbitSectionContainer />
+            <MiddleEarthSectionContainer />
             <FeatureSectionContainer />
             <AdventureSectionContainer />
             <XenosSectionContainer />

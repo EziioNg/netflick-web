@@ -64,6 +64,27 @@ export const registerUserApi = async (data) => {
   return response.data
 }
 
+// Favorite
+export const getFavoritesAPI = async (userId) => {
+  const response = await axios.get(`${API_ROOT}/v1/users/${userId}/favorites`, { withCredentials: true })
+  return response.data
+}
+
+export const addFavoriteAPI = async (userId, movieId) => {
+  const response = await axios.post(
+      `${API_ROOT}/v1/users/${userId}/favorites`,
+      { movieId },
+      { withCredentials: true }
+  )
+  return response.data
+}
+
+export const removeFavoriteAPI = async (userId, movieId) => {
+  const response = await axios.delete(`${API_ROOT}/v1/users/${userId}/favorites/${movieId}`)
+  return response.data
+}
+
+
 // export const verifyUserApi = async (data) => {
 //   const response = await axios.put(`${API_ROOT}/v1/users/verify`, data)
 //   toast.success('Account Verfified Successfuly', { theme: 'colored' })

@@ -326,7 +326,7 @@ section {
     }
 
     .user-main {
-      @apply grow max-h-full;
+      @apply grow h-full max-h-full;
     }
   }
 
