@@ -80,7 +80,13 @@ export const addFavoriteAPI = async (userId, movieId) => {
 }
 
 export const removeFavoriteAPI = async (userId, movieId) => {
-  const response = await axios.delete(`${API_ROOT}/v1/users/${userId}/favorites/${movieId}`)
+  const response = await axios.delete(
+      `${API_ROOT}/v1/users/${userId}/favorites`,
+      {
+        withCredentials: true,
+        data: { movieId }
+      }
+  )
   return response.data
 }
 

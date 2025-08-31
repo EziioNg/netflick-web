@@ -6,9 +6,11 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import IosShareIcon from '@mui/icons-material/IosShare'
+import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
 
 import {selectCurrentUser} from '~/redux/user/userSlice'
-import {addFavoriteAPI} from "~/apis/index.js";
+import {addFavoriteAPI, removeFavoriteAPI} from "~/apis/index.js";
+import {toast} from "react-toastify";
 
 const MovieInfoSection = ({movie, categories}) => {
     // Navigate
@@ -23,15 +25,35 @@ const MovieInfoSection = ({movie, categories}) => {
         }
 
         try {
-            console.log('userId and movieId: ', currentUser._id, movie._id)
-            await addFavoriteAPI(currentUser._id, movie._id)
-            console.log('Added to favorites')
-            // ở đây bạn có thể dispatch redux action để cập nhật state favorites
+            const res = await addFavoriteAPI(currentUser._id, movie._id)
+            toast.success(res.message)
         } catch (err) {
-            console.error('Failed to add favorite:', err)
+            if (err.response?.status === 409) {
+                toast.info('This movie is already in your favorites')
+            } else {
+                toast.error('Failed to add favorite')
+            }
         }
     }
 
+    const handleDeleteFavorite = async () => {
+        if (!currentUser) {
+            // chưa login → điều hướng sang login
+            navigate('/login')
+            return
+        }
+
+        try {
+            const res = await removeFavoriteAPI(currentUser._id, movie._id)
+            toast.success(res.message)
+        } catch (err) {
+            if (err.response?.status === 404) {
+                toast.info('This movie is not in your favorites')
+            } else {
+                toast.error('Failed to remove favorite')
+            }
+        }
+    }
 
     if (!movie) return <Navigate to='/404' replace={true} />
 
@@ -92,8 +114,8 @@ const MovieInfoSection = ({movie, categories}) => {
                         <div className="p-3 movie-btn rounded-search max-h-12" onClick={handleAddFavorite}>
                             <BookmarkBorderIcon />
                         </div>
-                        <div className="p-3 movie-btn rounded-search max-h-12">
-                            <CheckCircleOutlineIcon className="translate-y-[-0.5px]"/>
+                        <div className="p-3 movie-btn rounded-search max-h-12" onClick={handleDeleteFavorite}>
+                            <BookmarkRemoveIcon className="translate-y-[-0.5px]"/>
                         </div>
                         <div className="p-3 movie-btn rounded-search max-h-12">
                             <IosShareIcon className="translate-y-[-1.5px]"/>
