@@ -50,7 +50,10 @@ function LoginForm() {
         ).then(res => {
             console.log(res)
             // nếu không có lỗi (login thành công) thì navigate về route /
-            if (!res.error) navigate('/user')
+            if (!res.error) {
+                toast.success('Logged in successfully.')
+                navigate('/user')
+            }
         })
     }
 
