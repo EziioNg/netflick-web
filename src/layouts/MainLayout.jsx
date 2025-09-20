@@ -2,8 +2,8 @@ import React from 'react'
 
 import NavBar from '~/components/NavBar'
 import Take from '~/components/Take'
-// import San from '~/components/San'
 import Footer from '~/components/Footer'
+import ChatBox from '~/components/ChatBox'
 
 const MainLayout = ({ children }) => {
     return (
@@ -13,6 +13,8 @@ const MainLayout = ({ children }) => {
                 <main className="flex flex-col pt-16 pb-14 flex-1 ub-corner-gradients gap-12">
                     {children}
                 </main>
+                <ChatBox />
+
                 <Take/>
                 {/*<San/>*/}
                 <Footer/>

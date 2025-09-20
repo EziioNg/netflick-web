@@ -90,6 +90,16 @@ export const removeFavoriteAPI = async (userId, movieId) => {
   return response.data
 }
 
+// Chatbox
+export const sendMessageAPI = async (message) => {
+  const response = await axios.post(
+      `${API_ROOT}/v1/chatbox`,
+      { message },
+      { withCredentials: true }
+  )
+  return response.data
+}
+
 
 // export const verifyUserApi = async (data) => {
 //   const response = await axios.put(`${API_ROOT}/v1/users/verify`, data)

@@ -266,6 +266,10 @@ section {
   .rounded-full {
     @apply rounded-[var(--border-radius-max)]
   }
+
+  .background-none {
+    @apply bg-none;
+  }
 }
 
 @layer components {

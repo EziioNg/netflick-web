@@ -60,7 +60,20 @@ function LoginForm() {
     return (
         <form onSubmit={handleSubmit(submitLogIn)}>
             <Zoom in={true} style={{ transitionDelay: '200ms' }}>
-                <MuiCard sx={{ minWidth: 380, maxWidth: 380, marginTop: '6em' }}>
+                <MuiCard
+                    // sx={{ minWidth: 380, maxWidth: 380, marginTop: '6em' }
+                    sx={{
+                        minWidth: 380,
+                        maxWidth: 380,
+                        marginTop: '6em',
+                        borderRadius: '20px',
+                        background: 'rgba(255, 255, 255, 0.15)', // lớp nền mờ trong suốt
+                        backdropFilter: 'blur(2px)',            // làm mờ nền phía sau
+                        WebkitBackdropFilter: 'blur(3px)',      // cho Safari
+                        border: '1px solid rgba(255, 255, 255, 0.3)', // viền mờ
+                        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)' // đổ bóng nhẹ
+                    }}
+                >
                     <Box sx={{
                         margin: '1em',
                         display: 'flex',
@@ -71,7 +84,7 @@ function LoginForm() {
                         {/*<Avatar sx={{ bgcolor: 'primary.main' }}><TrelloIcon /></Avatar>*/}
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Author: TrungQuanDev
+                        Author
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', flexDirection: 'column', padding: '0 1em' }}>
                         {verifiedEmail &&
@@ -93,6 +106,29 @@ function LoginForm() {
                         <Box sx={{ marginTop: '1em' }}>
                             <TextField
                                 // autoComplete="nope"
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        background: 'rgba(255,255,255,0.1)', // giữ trong suốt
+                                        '& fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.3)',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.5)',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#fdba26', // border khi focus
+                                        }
+                                    },
+                                    '& .MuiInputBase-input': {
+                                        color: 'rgba(255,255,255,0.9)' // màu chữ
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: 'rgba(255,255,255,0.7)' // màu label
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#fdba26' // màu label khi focus
+                                    }
+                                }}
                                 autoFocus
                                 fullWidth
                                 label="Enter Email..."
@@ -112,6 +148,29 @@ function LoginForm() {
                         </Box>
                         <Box sx={{ marginTop: '1em' }}>
                             <TextField
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        background: 'rgba(255,255,255,0.1)', // giữ trong suốt
+                                        '& fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.3)',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.5)',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#fdba26', // border khi focus
+                                        }
+                                    },
+                                    '& .MuiInputBase-input': {
+                                        color: 'rgba(255,255,255,0.9)' // màu chữ
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: 'rgba(255,255,255,0.7)' // màu label
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#fdba26' // màu label khi focus
+                                    }
+                                }}
                                 fullWidth
                                 label="Enter Password..."
                                 type="password"
@@ -137,14 +196,33 @@ function LoginForm() {
                             color="primary"
                             size="large"
                             fullWidth
+                            sx={{
+                                background: 'rgba(0,0,0,0.6)',
+                                color: '#fff',
+                                textTransform: 'none',
+                                fontWeight: 'bold',
+                                borderRadius: '12px',
+                                '&:hover': {
+                                    background: 'rgba(0,0,0,0.8)'
+                                }
+                            }}
                         >
                             Login
                         </Button>
                     </CardActions>
                     <Box sx={{ padding: '0 1em 1em 1em', textAlign: 'center' }}>
-                        <Typography>New to Trello MERN Stack Advanced?</Typography>
-                        <Link to="/register" style={{ textDecoration: 'none' }}>
-                            <Typography sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}>Create account!</Typography>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>New to Trello MERN Stack Advanced?</Typography>
+                        <Link to="/register" style={{ textDecoration: 'none', background: 'none' }}>
+                            <Typography
+                                // sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}
+                                sx={{
+                                    fontWeight: 'bold',
+                                    color: 'rgba(0,0,0,0.6)',
+                                    '&:hover': { color: 'rgba(0,0,0,0.8)' }
+                                }}
+                            >
+                                Create account!
+                            </Typography>
                         </Link>
                     </Box>
                 </MuiCard>
