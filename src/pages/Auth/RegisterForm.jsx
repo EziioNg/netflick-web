@@ -47,7 +47,20 @@ function RegisterForm() {
     return (
         <form onSubmit={handleSubmit(submitRegister)}>
             <Zoom in={true} style={{ transitionDelay: '200ms' }}>
-                <MuiCard sx={{ minWidth: 380, maxWidth: 380, marginTop: '6em' }}>
+                <MuiCard
+                    // sx={{ minWidth: 380, maxWidth: 380, marginTop: '6em' }}
+                    sx={{
+                        minWidth: 380,
+                        maxWidth: 380,
+                        marginTop: '6em',
+                        borderRadius: '20px',
+                        background: 'rgba(255, 255, 255, 0.15)',
+                        backdropFilter: 'blur(2px)',
+                        WebkitBackdropFilter: 'blur(3px)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+                    }}
+                >
                     <Box sx={{
                         margin: '1em',
                         display: 'flex',
@@ -58,12 +71,35 @@ function RegisterForm() {
                         {/*<Avatar sx={{ bgcolor: 'primary.main' }}><TrelloIcon /></Avatar>*/}
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Author: TrungQuanDev
+                        Author
                     </Box>
                     <Box sx={{ padding: '0 1em 1em 1em' }}>
                         <Box sx={{ marginTop: '1em' }}>
                             <TextField
                                 // autoComplete="nope"
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        background: 'rgba(255,255,255,0.1)', // giữ trong suốt
+                                        '& fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.3)',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.5)',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#fdba26', // border khi focus
+                                        }
+                                    },
+                                    '& .MuiInputBase-input': {
+                                        color: 'rgba(255,255,255,0.9)' // màu chữ
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: 'rgba(255,255,255,0.7)' // màu label
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#fdba26' // màu label khi focus
+                                    }
+                                }}
                                 autoFocus
                                 fullWidth
                                 label="Enter Email..."
@@ -83,6 +119,29 @@ function RegisterForm() {
                         </Box>
                         <Box sx={{ marginTop: '1em' }}>
                             <TextField
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        background: 'rgba(255,255,255,0.1)', // giữ trong suốt
+                                        '& fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.3)',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.5)',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#fdba26', // border khi focus
+                                        }
+                                    },
+                                    '& .MuiInputBase-input': {
+                                        color: 'rgba(255,255,255,0.9)' // màu chữ
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: 'rgba(255,255,255,0.7)' // màu label
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#fdba26' // màu label khi focus
+                                    }
+                                }}
                                 fullWidth
                                 label="Enter Password..."
                                 type="password"
@@ -101,6 +160,29 @@ function RegisterForm() {
                         </Box>
                         <Box sx={{ marginTop: '1em' }}>
                             <TextField
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        background: 'rgba(255,255,255,0.1)', // giữ trong suốt
+                                        '& fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.3)',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: 'rgba(255,255,255,0.5)',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#fdba26', // border khi focus
+                                        }
+                                    },
+                                    '& .MuiInputBase-input': {
+                                        color: 'rgba(255,255,255,0.9)' // màu chữ
+                                    },
+                                    '& .MuiInputLabel-root': {
+                                        color: 'rgba(255,255,255,0.7)' // màu label
+                                    },
+                                    '& .MuiInputLabel-root.Mui-focused': {
+                                        color: '#fdba26' // màu label khi focus
+                                    }
+                                }}
                                 fullWidth
                                 label="Enter Password Confirmation..."
                                 type="password"
@@ -125,14 +207,33 @@ function RegisterForm() {
                             color="primary"
                             size="large"
                             fullWidth
+                            sx={{
+                                background: 'rgba(0,0,0,0.6)',
+                                color: '#fff',
+                                textTransform: 'none',
+                                fontWeight: 'bold',
+                                borderRadius: '12px',
+                                '&:hover': {
+                                    background: 'rgba(0,0,0,0.8)'
+                                }
+                            }}
                         >
                             Register
                         </Button>
                     </CardActions>
                     <Box sx={{ padding: '0 1em 1em 1em', textAlign: 'center' }}>
                         <Typography>Already have an account?</Typography>
-                        <Link to="/login" style={{ textDecoration: 'none' }}>
-                            <Typography sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}>Log in!</Typography>
+                        <Link to="/login" style={{ textDecoration: 'none', background: 'none' }}>
+                            <Typography
+                                // sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}
+                                sx={{
+                                    fontWeight: 'bold',
+                                    color: 'rgba(0,0,0,0.6)',
+                                    '&:hover': { color: 'rgba(0,0,0,0.8)' }
+                                }}
+                            >
+                                Log in!
+                            </Typography>
                         </Link>
                     </Box>
                 </MuiCard>

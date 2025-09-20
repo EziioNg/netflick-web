@@ -3,7 +3,7 @@ import React from 'react'
 import NavBar from "~/components/NavBar.jsx";
 import Take from "~/components/Take.jsx";
 import Footer from "~/components/Footer.jsx";
-// import San from "~/components/San.jsx";
+import ChatBox from "~/components/ChatBox.jsx";
 
 const MovieLayout = ({ children }) => {
     return (
@@ -13,6 +13,8 @@ const MovieLayout = ({ children }) => {
                 <main className="flex flex-col pt-[64px] flex-1 bg-movie gap-12">
                     {children}
                 </main>
+                <ChatBox />
+
                 <Take/>
                 {/*<San/>*/}
                 <Footer/>
