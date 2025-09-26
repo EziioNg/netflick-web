@@ -36,9 +36,11 @@ function NotFound() {
             }}>
                 <Typography variant="h1" sx={{ fontSize: '100px', fontWeight: 800 }}>404</Typography>
                 <Typography sx={{ fontSize: '18px !important', lineHeight: '25px', fontWeight: 400, maxWidth: '350px', textAlign: 'center' }}>
-                    Lost In&nbsp;
-                    <Typography variant="span" sx={{
-                        position: 'relative',
+                    Yo Bro Wtf&nbsp;<br />
+                    <Typography
+                        variant="span"
+                        // sx={{
+                        // position: 'relative',
                         // '&:after': {
                         //     position: 'absolute',
                         //     content: '""',
@@ -47,11 +49,12 @@ function NotFound() {
                         //     top: '43%',
                         //     width: '100%'
                         // }
-                    }}>
+                        //}}
+                    >
                         {/*&nbsp;SPACE&nbsp;*/}
-                        The Warp
+                        Lost in the <Typography variant="span" sx={{ color: '#E90239', fontWeight: 500 }}>Warp</Typography>
                     </Typography>
-                    &nbsp;<Typography variant="span" sx={{ color: '#fdba26', fontWeight: 500 }}>Bro</Typography>?<br />Hmm, looks like that page doesn&apos;t exist.
+                    &nbsp;<Typography variant="span" sx={{ fontWeight: 500 }}>Bro</Typography>?<br />Better go back...
                 </Typography>
                 <Box sx={{ width: '390px', height: '390px', position: 'relative' }}>
                     <img src="/assets/404/astronaut.svg" alt="astronaut" className="w-[50px] h-[50px] absolute top-[20px] right-[25px] animate-spin"/>
