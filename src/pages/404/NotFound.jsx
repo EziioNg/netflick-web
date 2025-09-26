@@ -14,16 +14,19 @@ function NotFound() {
             color: 'white'
         }}>
             <Box sx={{
-                '@keyframes stars': {
-                    '0%': { backgroundPosition: '-100% 100%' },
-                    '100%': { backgroundPosition: '0 0 ' }
-                },
-                animation: 'stars 12s linear infinite alternate',
+                // '@keyframes stars': {
+                //     '0%': { backgroundPosition: '-100% 100%' },
+                //     '100%': { backgroundPosition: '0 0 ' }
+                // },
+                // animation: 'stars 12s linear infinite alternate',
                 width: '100%',
                 height: '100%',
-                backgroundImage: 'url("src/assets/404/particles.png")',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'repeat',
+                // backgroundImage: 'url("src/assets/404/particles.png")',
+                backgroundImage: 'url("https://res.cloudinary.com/doam999z1/image/upload/v1758882862/warp_ckbdri.jpg")',
+                // backgroundSize: 'contain',
+                backgroundSize: 'cover',
+                // backgroundRepeat: 'repeat',
+                backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 // boxShadow: 'inset 0 0 0 2000px rgba(0, 0, 0, 0.2)',
                 display: 'flex',
@@ -33,19 +36,20 @@ function NotFound() {
             }}>
                 <Typography variant="h1" sx={{ fontSize: '100px', fontWeight: 800 }}>404</Typography>
                 <Typography sx={{ fontSize: '18px !important', lineHeight: '25px', fontWeight: 400, maxWidth: '350px', textAlign: 'center' }}>
-                    LOST IN&nbsp;
+                    Lost In&nbsp;
                     <Typography variant="span" sx={{
                         position: 'relative',
-                        '&:after': {
-                            position: 'absolute',
-                            content: '""',
-                            borderBottom: '3px solid #fdba26',
-                            left: 0,
-                            top: '43%',
-                            width: '100%'
-                        }
+                        // '&:after': {
+                        //     position: 'absolute',
+                        //     content: '""',
+                        //     borderBottom: '3px solid #fdba26',
+                        //     left: 0,
+                        //     top: '43%',
+                        //     width: '100%'
+                        // }
                     }}>
-                        &nbsp;SPACE&nbsp;
+                        {/*&nbsp;SPACE&nbsp;*/}
+                        The Warp
                     </Typography>
                     &nbsp;<Typography variant="span" sx={{ color: '#fdba26', fontWeight: 500 }}>Bro</Typography>?<br />Hmm, looks like that page doesn&apos;t exist.
                 </Typography>
