@@ -67,11 +67,11 @@ function RegisterForm() {
                         justifyContent: 'center',
                         gap: 1
                     }}>
-                        <Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>
-                        {/*<Avatar sx={{ bgcolor: 'primary.main' }}><TrelloIcon /></Avatar>*/}
+                        {/*<Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>*/}
+                        <img src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png" alt="lock-icon"/>
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Author
+                        Inquisitor
                     </Box>
                     <Box sx={{ padding: '0 1em 1em 1em' }}>
                         <Box sx={{ marginTop: '1em' }}>

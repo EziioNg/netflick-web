@@ -80,27 +80,27 @@ function LoginForm() {
                         justifyContent: 'center',
                         gap: 1
                     }}>
-                        <Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>
-                        {/*<Avatar sx={{ bgcolor: 'primary.main' }}><TrelloIcon /></Avatar>*/}
+                        {/*<Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>*/}
+                        <img src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png" alt="lock-icon"/>
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Author
+                        Inquisitor
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', flexDirection: 'column', padding: '0 1em' }}>
-                        {verifiedEmail &&
-                            <Alert severity="success" sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}>
-                                Your email&nbsp;
-                                <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{verifiedEmail}</Typography>
-                                &nbsp;has been verified.<br />Now you can login to enjoy our services! Have a good day!
-                            </Alert>
-                        }
-                        {registeredEmail &&
-                            <Alert severity="info" sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}>
-                                An email has been sent to&nbsp;
-                                <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{registeredEmail}</Typography>
-                                <br />Please check and verify your account before logging in!
-                            </Alert>
-                        }
+                        {/*{verifiedEmail &&*/}
+                        {/*    <Alert severity="success" sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}>*/}
+                        {/*        Your email&nbsp;*/}
+                        {/*        <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{verifiedEmail}</Typography>*/}
+                        {/*        &nbsp;has been verified.<br />Now you can login to enjoy our services! Have a good day!*/}
+                        {/*    </Alert>*/}
+                        {/*}*/}
+                        {/*{registeredEmail &&*/}
+                        {/*    <Alert severity="info" sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}>*/}
+                        {/*        An email has been sent to&nbsp;*/}
+                        {/*        <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{registeredEmail}</Typography>*/}
+                        {/*        <br />Please check and verify your account before logging in!*/}
+                        {/*    </Alert>*/}
+                        {/*}*/}
                     </Box>
                     <Box sx={{ padding: '0 1em 1em 1em' }}>
                         <Box sx={{ marginTop: '1em' }}>
