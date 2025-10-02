@@ -211,7 +211,7 @@ function LoginForm() {
                         </Button>
                     </CardActions>
                     <Box sx={{ padding: '0 1em 1em 1em', textAlign: 'center' }}>
-                        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>New to Trello MERN Stack Advanced?</Typography>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>No Account?</Typography>
                         <Link to="/register" style={{ textDecoration: 'none', background: 'none' }}>
                             <Typography
                                 // sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}
@@ -221,7 +221,7 @@ function LoginForm() {
                                     '&:hover': { color: 'rgba(0,0,0,0.8)' }
                                 }}
                             >
-                                Create account!
+                                Create one!
                             </Typography>
                         </Link>
                     </Box>

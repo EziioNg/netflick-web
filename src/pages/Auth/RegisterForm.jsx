@@ -222,7 +222,7 @@ function RegisterForm() {
                         </Button>
                     </CardActions>
                     <Box sx={{ padding: '0 1em 1em 1em', textAlign: 'center' }}>
-                        <Typography>Already have an account?</Typography>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>Already have an account?</Typography>
                         <Link to="/login" style={{ textDecoration: 'none', background: 'none' }}>
                             <Typography
                                 // sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}

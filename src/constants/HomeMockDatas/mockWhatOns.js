@@ -6,7 +6,8 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1745977871/card-covers/jxluhpl3hgxjktfx8r9t.png",
-        quote: "~DevilMayCry~"
+        // quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 2,
@@ -14,7 +15,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1745978254/card-covers/dvgv12amqmyrzctqevnr.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 3,
@@ -22,7 +23,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427022/20250630224313_bgiafg.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 4,
@@ -30,7 +31,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427022/20250724165918_xkjeia.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 5,
@@ -38,7 +39,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427022/20250724160318_mtkq2m.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 6,
@@ -46,7 +47,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427021/20250724165940_fb76yk.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 7,
@@ -54,7 +55,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427027/20250724154612_ib1p2p.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 8,
@@ -62,7 +63,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427022/20250623225257_b04cfw.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 9,
@@ -70,7 +71,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427020/20250619163719_ytnxgv.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 10,
@@ -78,7 +79,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427022/20250426232420_pjkxf6.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 11,
@@ -86,7 +87,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427021/20250218224257_idtkul.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 12,
@@ -94,7 +95,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427021/20250426232300_o5xrov.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 13,
@@ -102,7 +103,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1753427021/20250218224241_gyykpc.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 14,
@@ -110,7 +111,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1754477127/Screenshot_2025-08-04_140233_hdel6g.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
     {
         id: 15,
@@ -118,7 +119,7 @@ const mockWhatOns = [
         timeLeft: "something...",
         imageUrl:
             "https://res.cloudinary.com/doam999z1/image/upload/v1754477119/Screenshot_2025-08-04_140112_rpchi3.png",
-        quote: "~DevilMayCry~"
+        quote: "anh vẫn thường hay mơ thứ không có trên đời..."
     },
 ];
 

@@ -163,7 +163,7 @@ const WhatOnSection = () => {
                                     />
                                 </div>
                                 {/* Mô tả bên dưới hình */}
-                                <span className="block mt-4 justify-self-center italic text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">
+                                <span className="block mt-4 justify-self-center italic text-base font-normal text-text-default text-ellipsis overflow-hidden line-clamp-4">
                                         {selectedItem.quote}
                                 </span>
                             </div>

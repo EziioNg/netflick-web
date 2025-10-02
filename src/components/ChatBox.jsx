@@ -6,7 +6,7 @@ const ChatBox = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [loading, setLoading] = useState(false)
     const [messages, setMessages] = useState([
-        { sender: "bot", text: "hi this is chatbox" }
+        { sender: "bot", text: "hỏi gì đó đi..." }
     ])
     const [input, setInput] = useState("")
 
@@ -35,7 +35,7 @@ const ChatBox = () => {
             {/* Nút toggle */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700"
+                className="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 cursor-pointer"
             >
                 {isOpen ? "Đóng Chat" : "Chat"}
             </button>
@@ -81,7 +81,7 @@ const ChatBox = () => {
                         />
                         <button
                             onClick={sendMessage}
-                            className="bg-blue-600 text-white px-3 rounded hover:bg-blue-700"
+                            className="bg-blue-600 text-white px-3 rounded hover:bg-blue-700 cursor-pointer"
                             disabled={loading} // chặn spam khi đang load
                         >
                             Gửi
