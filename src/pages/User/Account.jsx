@@ -120,7 +120,7 @@ const Account = () => {
                                 checked={gender === "other"}
                                 onChange={() => setGender("other")}
                             />
-                            <label className="inline-block text-sm font-normal text-static-grey-9" htmlFor="">???</label>
+                            <label className="inline-block text-sm font-normal text-static-grey-9" htmlFor="">🤨🔥?</label>
                         </div>
                     </div>
                     <div className="body-btn">
