@@ -14,6 +14,7 @@ import NotFound from "~/pages/404/NotFound.jsx";
 import Auth from "~/pages/Auth/Auth.jsx";
 import User from "~/pages/User/User.jsx";
 import {selectCurrentUser} from "~/redux/user/userSlice.js";
+import AccountVerification from "~/pages/Auth/AccountVerification.jsx";
 
 const ProtectedRoute = ({user}) => {
     // console.log('user: ', user)
@@ -64,7 +65,7 @@ function App() {
                 {/* Login - Reister */}
                 <Route path='/login' element={<Auth/>}/>
                 <Route path='/register' element={<Auth/>}/>
-                {/*<Route path='/account/verification' element={<AccountVerification />} />*/}
+                <Route path='/account/verification' element={<AccountVerification />} />
 
                 {/* User Page */}
                 <Route element={<ProtectedRoute user={currentUser} />}>

@@ -86,7 +86,7 @@ const User = () => {
                             <img
                                 className="avatar"
                                 // src="https://res.cloudinary.com/doam999z1/image/upload/v1752230418/3vjpg_aemnc5.jpg"
-                                src={currentUser?.avatar}
+                                src={currentUser?.avatar || "https://res.cloudinary.com/doam999z1/image/upload/v1752230418/3vjpg_aemnc5.jpg"}
                                 alt="avatar"
                             />
                         </div>

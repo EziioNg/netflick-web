@@ -87,20 +87,41 @@ function LoginForm() {
                         Inquisitor
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', flexDirection: 'column', padding: '0 1em' }}>
-                        {/*{verifiedEmail &&*/}
-                        {/*    <Alert severity="success" sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}>*/}
-                        {/*        Your email&nbsp;*/}
-                        {/*        <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{verifiedEmail}</Typography>*/}
-                        {/*        &nbsp;has been verified.<br />Now you can login to enjoy our services! Have a good day!*/}
-                        {/*    </Alert>*/}
-                        {/*}*/}
-                        {/*{registeredEmail &&*/}
-                        {/*    <Alert severity="info" sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}>*/}
-                        {/*        An email has been sent to&nbsp;*/}
-                        {/*        <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{registeredEmail}</Typography>*/}
-                        {/*        <br />Please check and verify your account before logging in!*/}
-                        {/*    </Alert>*/}
-                        {/*}*/}
+                        {verifiedEmail &&
+                            <Alert
+                                severity="success"
+                                // sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}
+                                sx={{
+                                    background: 'rgba(255, 255, 255, 0.15)',
+                                    backdropFilter: 'blur(2px)',
+                                    WebkitBackdropFilter: 'blur(3px)',
+                                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                                    '.MuiAlert-message': { overflow: 'hidden' }
+                                }}
+                            >
+                                Your email&nbsp;
+                                <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{verifiedEmail}</Typography>
+                                &nbsp;has been verified.<br />Now you can login to enjoy our services! Have a good day!
+                            </Alert>
+                        }
+                        {registeredEmail &&
+                            <Alert severity="info"
+                                   // sx={{ '.MuiAlert-message': { overflow: 'hidden' } }}
+                                   sx={{
+                                       background: 'rgba(255, 255, 255, 0.15)',
+                                       backdropFilter: 'blur(2px)',
+                                       WebkitBackdropFilter: 'blur(3px)',
+                                       border: '1px solid rgba(255, 255, 255, 0.3)',
+                                       boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                                       '.MuiAlert-message': { overflow: 'hidden' }
+                                   }}
+                            >
+                                An email has been sent to&nbsp;
+                                <Typography variant="span" sx={{ fontWeight: 'bold', '&:hover': { color: '#fdba26' } }}>{registeredEmail}</Typography>
+                                <br />Please check and verify your account before logging in!
+                            </Alert>
+                        }
                     </Box>
                     <Box sx={{ padding: '0 1em 1em 1em' }}>
                         <Box sx={{ marginTop: '1em' }}>
