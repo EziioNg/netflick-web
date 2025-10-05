@@ -1,6 +1,7 @@
 import { API_ROOT } from '~/utils/constants'
 import axios from 'axios'
 import {toast} from "react-toastify";
+import authorizedAxiosInstance from "~/utils/authorizeAxios.js";
 
 // Movie
 export const fetchMoviesAPI = async () => {
@@ -61,6 +62,12 @@ export const getMoviesBySeriesId = async (seriesId) => {
 export const registerUserApi = async (data) => {
   const response = await axios.post(`${API_ROOT}/v1/users/register`, data)
   toast.success('Account Created Successfuly', { theme: 'colored' })
+  return response.data
+}
+
+export const verifyUserApi = async (data) => {
+  const response = await authorizedAxiosInstance.put(`${API_ROOT}/v1/users/verify`, data)
+  toast.success('Account Verfified Successfuly', { theme: 'colored' })
   return response.data
 }
 
