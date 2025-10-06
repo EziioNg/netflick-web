@@ -97,7 +97,8 @@ const ComingSoonSection = () => {
                 >
                     {mockWorthyShows.map((item, idx) => (
                         <figure
-                            key={item.id}
+                            // key={item.id}
+                            key={item?._id || idx}
                             onClick={() => setSelectedItem(item)}
                             className={`worthy-items-section-container worthy-width group shrink-0 snap-start mb-1
                                     ${idx === 0 ? 'ml-16' : ''} ${idx === mockWorthyShows.length - 1 ? 'mr-16' : ''}`}
