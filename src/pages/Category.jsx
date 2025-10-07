@@ -5,7 +5,10 @@ import {getCategoriesByMovieId, getCategoryById, getMovieAPI, getMoviesByCategor
 import MoviesSection from "~/pages/CategoryItems/MoviesSection.jsx";
 import XenoSection from "~/pages/HomeItems/XenoSection.jsx";
 import HeroSection from "~/pages/HomeItems/HeroSection.jsx";
-import FantasySection from "~/pages/HomeItems/FantasySection/FantasySection.jsx";
+import ScifiSection from "~/pages/HomeItems/ScifiSection.jsx";
+import AdventureSection from "~/pages/HomeItems/AdventureSection.jsx";
+import FantasySection from "~/pages/HomeItems/FantasySection.jsx";
+import ActionSection from "~/pages/HomeItems/ActionSection.jsx";
 import PageLoader from "~/pages/PageLoader.jsx";
 
 const Category = () => {
@@ -45,10 +48,24 @@ const Category = () => {
 
     // Loading...
     if (loading) return <PageLoader />;
+
+    // Map ID → Component section tương ứng
+    const sectionMap = {
+        "686b74eb2b65be5c804297f2": HeroSection,
+        "6874c95c346bbf62467bee95": XenoSection,
+        "6874ca16346bbf62467bee98": ActionSection,
+        "6874c96d346bbf62467bee96": ScifiSection,
+        "6874c84d346bbf62467bee89": AdventureSection,
+        "6874c98d346bbf62467bee97": FantasySection,
+    };
+
+    // Chọn component phù hợp, nếu không có ID khớp thì dùng default
+    const SectionComponent = sectionMap[categoryId] || (() => null);
     
     return (
         <>
-            {categoryId === "6874ca16346bbf62467bee98" ? <HeroSection /> : <XenoSection />}
+            {/*{categoryId === "6874ca16346bbf62467bee98" ? <HeroSection /> : <XenoSection />}*/}
+            <SectionComponent />
             <MoviesSection movies={movies} category={category}/>
         </>
     )
