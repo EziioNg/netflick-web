@@ -29,6 +29,7 @@ import {
 } from '~/utils/validators'
 import FieldErrorAlert from '~/components/Form/FieldErrorAlert'
 import { loginUserAPI } from '~/redux/user/userSlice'
+import HomeIcon from "@mui/icons-material/Home";
 
 function LoginForm() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -244,6 +245,20 @@ function LoginForm() {
                             >
                                 Create one!
                             </Typography>
+                        </Link>
+                        <Link to="/" style={{ textDecoration: 'none', background: 'none' }}>
+                            <Button
+                                variant="outlined"
+                                startIcon={<HomeIcon />}
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    color: 'white',
+                                    borderColor: 'white',
+                                    '&:hover': { color: '#fdba26', borderColor: '#fdba26' }
+                                }}>
+                                Go Home
+                            </Button>
                         </Link>
                     </Box>
                 </MuiCard>

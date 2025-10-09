@@ -1,7 +1,9 @@
 import { useState,  useRef, useEffect } from "react"
 
-import CastIcon from '@mui/icons-material/Cast';
-import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import { Link } from "react-router-dom"
+
+import CastIcon from '@mui/icons-material/Cast'
+import BookmarksIcon from '@mui/icons-material/Bookmarks'
 
 import {
     safePolygon,
@@ -96,9 +98,9 @@ const NavBar = () => {
     return (
         <header className={`navbar font-semibold ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
             <div className="flex flex-1 items-center">
-                <a href="/home">
+                <Link to="/home">
                     <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="home-icon"/>
-                </a>
+                </Link>
                 <div className="navbar-search rounded-search">
                     <SearchBox className="navbar-search rounded-search"/>
                 </div>
@@ -127,13 +129,13 @@ const NavBar = () => {
                                 });
                             }}
                         >
-                            <a
-                                href={link}
+                            <Link
+                                to={link}
                                 className="nav-category relative rounded-search flex items-center gap-1"
                             >
                                 <Icon/>
                                 <span>{name}</span>
-                            </a>
+                            </Link>
                         </li>
                     );
                 })}
@@ -161,12 +163,12 @@ const NavBar = () => {
 
             <div className="nav-action">
                 <div className="sign-in-wrapper">
-                    <a href="" className="nav-category nav-btn rounded-search">
+                    <Link to="#" className="nav-category nav-btn rounded-search">
                         <CastIcon/>
-                    </a>
-                    <a href="" className="nav-category nav-btn rounded-search">
+                    </Link>
+                    <Link to="#" className="nav-category nav-btn rounded-search">
                         <BookmarksIcon/>
-                    </a>
+                    </Link>
                     {/*<a*/}
                     {/*    id="btn-test"*/}
                     {/*    href="/404"*/}
@@ -183,12 +185,12 @@ const NavBar = () => {
                             Log out
                         </button>
                     ) : (
-                        <a
-                            href="/login"
+                        <Link
+                            to="/login"
                             className="sign-in-btn h-10 rounded-sign-in"
                         >
                             Sign in
-                        </a>
+                        </Link>
                     )}
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 import HomeIcon from '@mui/icons-material/Home';
 import TvIcon from '@mui/icons-material/Tv';
@@ -22,18 +23,18 @@ const navLinks = [
                             <div className="pt-3">
                                 <h3 className="text-[16px] font-bold text-text-color-muted">Explore</h3>
                             </div>
-                            <a href="" className="pt-3 text-[14px] font-normal">Browse Channels</a>
+                            <Link to="#" className="pt-3 text-[14px] font-normal">Browse Channels</Link>
                         </div>
                         <div className="flex-[3] flex flex-col gap-[0.5rem]">
                             <h3 className="text-[16px] font-bold text-text-color-muted">Featured Channels</h3>
                             <div>
-                                <a href="" className="py-1 text-[14px] font-normal">Nosey</a>
+                                <Link to="#" className="py-1 text-[14px] font-normal">Nosey</Link>
                             </div>
                             <div>
-                                <a href="" className="py-1 text-[14px] font-normal">FailArmy</a>
+                                <Link to="#" className="py-1 text-[14px] font-normal">FailArmy</Link>
                             </div>
                             <div>
-                                <a href="" className="py-1 text-[14px] font-normal">Always Funny</a>
+                                <Link to="#" className="py-1 text-[14px] font-normal">Always Funny</Link>
                             </div>
                         </div>
                     </div>
@@ -54,46 +55,46 @@ const navLinks = [
                             gap-1"
                         >
                             <li className="max-w-[200px]">
-                                <a href="/category/6874ca16346bbf62467bee98" className="py-1">Action</a>
+                                <Link to="/category/6874ca16346bbf62467bee98" className="py-1">Action</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c84d346bbf62467bee89" className="py-1">Adventure</a>
+                                <Link to="/category/6874c84d346bbf62467bee89" className="py-1">Adventure</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c98d346bbf62467bee97" className="py-1">Fantasy</a>
+                                <Link to="/category/6874c98d346bbf62467bee97" className="py-1">Fantasy</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c95c346bbf62467bee95" className="py-1">Xenos</a>
+                                <Link to="/category/6874c95c346bbf62467bee95" className="py-1">Xenos</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c96d346bbf62467bee96" className="py-1">Sci-fi</a>
+                                <Link to="/category/6874c96d346bbf62467bee96" className="py-1">Sci-fi</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Mystery</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Mystery</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Historical</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Historical</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Apocalypse</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Apocalypse</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Martial arts</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Martial arts</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Drama</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Drama</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Comedy</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Comedy</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Romance</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Romance</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Western</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Western</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Sports</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Sports</Link>
                             </li>
                         </ul>
                     </div>
@@ -115,13 +116,13 @@ const navLinks = [
                             </div>
                             <div className="flex-[3] flex flex-col gap-[0.25rem]">
                                 <div>
-                                    <a href="" className="py-1 text-[14px] font-normal">Movies & TV Shows</a>
+                                    <Link to="#" className="py-1 text-[14px] font-normal">Movies & TV Shows</Link>
                                 </div>
                                 <div>
-                                    <a href="" className="py-1 text-[14px] font-normal">Most Popular</a>
+                                    <Link to="#" className="py-1 text-[14px] font-normal">Most Popular</Link>
                                 </div>
                                 <div>
-                                    <a href="" className="py-1 text-[14px] font-normal">Leaving Soon</a>
+                                    <Link to="#" className="py-1 text-[14px] font-normal">Leaving Soon</Link>
                                 </div>
                             </div>
                         </div>
@@ -142,46 +143,46 @@ const navLinks = [
                             gap-1"
                         >
                             <li className="max-w-[200px]">
-                                <a href="/category/6874ca16346bbf62467bee98" className="py-1">Action</a>
+                                <Link to="/category/6874ca16346bbf62467bee98" className="py-1">Action</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c84d346bbf62467bee89" className="py-1">Adventure</a>
+                                <Link to="/category/6874c84d346bbf62467bee89" className="py-1">Adventure</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c98d346bbf62467bee97" className="py-1">Fantasy</a>
+                                <Link to="/category/6874c98d346bbf62467bee97" className="py-1">Fantasy</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c95c346bbf62467bee95" className="py-1">Xenos</a>
+                                <Link to="/category/6874c95c346bbf62467bee95" className="py-1">Xenos</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="/category/6874c96d346bbf62467bee96" className="py-1">Sci-fi</a>
+                                <Link to="/category/6874c96d346bbf62467bee96" className="py-1">Sci-fi</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Mystery</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Mystery</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Historical</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Historical</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Apocalypse</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Apocalypse</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Martial arts</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Martial arts</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Drama</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Drama</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Comedy</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Comedy</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Romance</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Romance</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Western</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Western</Link>
                             </li>
                             <li className="max-w-[200px]">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Sports</a>
+                                <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="py-1">Sports</Link>
                             </li>
                         </ul>
                     </div>
