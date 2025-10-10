@@ -1,4 +1,4 @@
-import {Navigate, useNavigate } from 'react-router-dom'
+import {Navigate, useNavigate, Link } from 'react-router-dom'
 
 import {useSelector} from "react-redux";
 
@@ -102,13 +102,14 @@ const MovieInfoSection = ({movie, categories}) => {
                 </div>
                 <div className="flex flex-row grow-0 shrink flex-nowrap h-12 gap-1">
                     <a href="" className="relative inline-flex grow-0 shrink justify-center px-4 text-text-on-focus bg-background-focus rounded-search">
-                        <div
-                            onClick={() => navigate(`/movies/watch/${movie._id}`)}
+                        <Link
+                            // onClick={() => navigate(`/movies/watch/${movie._id}`)}
+                            to={`/movies/watch/${movie._id}`}
                             className="flex flex-row grow-0 shrink flex-nowrap justify-center items-center gap-1"
                         >
                             <PlayArrowIcon fontSize="large"/>
                             <span className="inline-block overflow-hidden text-base font-semibold">Watch Free</span>
-                        </div>
+                        </Link>
                     </a>
                     <div className="flex flex-row grow-0 shrink flex-nowrap gap-2 justify-center items-center max-h-12">
                         <div className="p-3 movie-btn rounded-search max-h-12" onClick={handleAddFavorite}>
