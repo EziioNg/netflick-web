@@ -1,20 +1,20 @@
 import {Routes, Route, Navigate, Outlet} from 'react-router-dom'
 
-import {useSelector} from "react-redux";
+import {useSelector} from "react-redux"
 
-import ScrollToTop from "~/components/ScrollToTop.jsx";
+import ScrollToTop from "~/components/ScrollToTop.jsx"
 import MainLayout from './layouts/MainLayout'
 import MovieLayout from './layouts/MovieLayout'
-import WatchLayout from "~/layouts/WatchLayout.jsx";
+import WatchLayout from "~/layouts/WatchLayout.jsx"
 import Home from './pages/Home'
 import Movie from './pages/Movie'
 import Watch from './pages/Watch'
 import Category from './pages/Category'
-import NotFound from "~/pages/404/NotFound.jsx";
-import Auth from "~/pages/Auth/Auth.jsx";
-import User from "~/pages/User/User.jsx";
-import {selectCurrentUser} from "~/redux/user/userSlice.js";
-import AccountVerification from "~/pages/Auth/AccountVerification.jsx";
+import NotFound from "~/pages/404/NotFound.jsx"
+import Auth from "~/pages/Auth/Auth.jsx"
+import User from "~/pages/User/User.jsx"
+import {selectCurrentUser} from "~/redux/user/userSlice.js"
+import AccountVerification from "~/pages/Auth/AccountVerification.jsx"
 
 const ProtectedRoute = ({user}) => {
     // console.log('user: ', user)
@@ -63,9 +63,11 @@ function App() {
                 }/>
 
                 {/* Login - Reister */}
-                <Route path='/login' element={<Auth/>}/>
-                <Route path='/register' element={<Auth/>}/>
+                <Route path='/login' element={<Auth/>} />
+                <Route path='/register' element={<Auth/>} />
                 <Route path='/account/verification' element={<AccountVerification />} />
+                <Route path='/forgot-password' element={<Auth/>} />
+                <Route path='/reset-password/:token' element={<Auth/>} />
 
                 {/* User Page */}
                 <Route element={<ProtectedRoute user={currentUser} />}>

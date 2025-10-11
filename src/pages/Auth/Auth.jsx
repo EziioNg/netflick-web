@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux'
 
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
+import ForgotPasswordForm from "./ForgotPasswordForm.jsx";
+import ResetPasswordForm from "./ResetPasswordForm.jsx";
 import { selectCurrentUser } from '~/redux/user/userSlice'
 
 function Auth() {
@@ -15,6 +17,8 @@ function Auth() {
     // console.log(location)
     const isLogin = location.pathname === '/login' // lấy param login từ url
     const isRegister = location.pathname === '/register' // lấy param register từ url
+    const isForgot = location.pathname === '/forgot-password'
+    const isReset = location.pathname.startsWith('/reset-password/')
 
     const currentUser = useSelector(selectCurrentUser) // lấy thông tin user từ kho dữ liệu redux
     console.log('currentUser: ', currentUser)
@@ -40,6 +44,8 @@ function Auth() {
             {/* render form login hoặc register tùy theo url */}
             {isLogin && <LoginForm />}
             {isRegister && <RegisterForm />}
+            {isForgot && <ForgotPasswordForm />}
+            {isReset && <ResetPasswordForm />}
         </Box>
     )
 }

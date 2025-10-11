@@ -246,6 +246,19 @@ function LoginForm() {
                                 Create one!
                             </Typography>
                         </Link>
+                        <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>Forgot Password?</Typography>
+                        <Link to="/forgot-password" style={{ textDecoration: 'none', background: 'none' }}>
+                            <Typography
+                                // sx={{ color: 'primary.main', '&:hover': { color: '#ffbb39' } }}
+                                sx={{
+                                    fontWeight: 'bold',
+                                    color: 'rgba(0,0,0,0.6)',
+                                    '&:hover': { color: 'rgba(0,0,0,0.8)' }
+                                }}
+                            >
+                                Reset your password!
+                            </Typography>
+                        </Link>
                         <Link to="/" style={{ textDecoration: 'none', background: 'none' }}>
                             <Button
                                 variant="outlined"
