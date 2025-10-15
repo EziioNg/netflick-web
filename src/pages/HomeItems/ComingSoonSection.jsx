@@ -108,6 +108,7 @@ const ComingSoonSection = () => {
                                     <img
                                         className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
                                         src={item.imageUrl}
+                                        // src={'https://res.cloudinary.com/doam999z1/image/upload/v1751638154/81_YmsWr5_L._AC_SL1500__ukp20k.jpg'}
                                         alt={item.title}
                                     />
                                 </div>

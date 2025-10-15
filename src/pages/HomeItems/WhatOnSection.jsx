@@ -136,6 +136,7 @@ const WhatOnSection = () => {
                                     <img
                                         className="what-on-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
                                         src={item.imageUrl}
+                                        // src={'https://res.cloudinary.com/doam999z1/image/upload/v1751964794/eddy-gonzalez-davila-stealth_f0f9yt.jpg'}
                                         alt={item.title}
                                     />
                                 </div>
