@@ -14,6 +14,9 @@ import ScifiSectionContainer from "~/pages/HomeItems/ScifiSection/ScifiSectionCo
 import ActionSectionContainer from "~/pages/HomeItems/ActionSection/ActionSectionContainer.jsx";
 import PageLoader from "~/pages/PageLoader.jsx";
 import MiddleEarthSectionContainer from "~/pages/Series/MiddleEarthSection/MiddleEarthSectionContainer.jsx";
+import AlienSectionContainer from "~/pages/Series/AlienSection/AlienSectionContainer.jsx";
+import JackSectionContainer from "~/pages/Series/JackSection/JackSectionContainer.jsx";
+import PredatorSectionContainer from "~/pages/Series/PredatorSection/PredatorSectionContainer.jsx";
 
 import {getCategoriesByMovieId, getMovieAPI} from "~/apis/index.js";
 
@@ -61,7 +64,17 @@ const Movie = () => {
             <MovieInfoSection movie={movie} categories={categories} />
             <Cast movie={movie}/>
             <RatingSection movie={movie}/>
+            <div className="flex flex-col flex-nowrap grow-0 shrink max-w-[850px] px-16">
+                <a className="text-white h-[32px] max-w-full overflow-hidden text-3xl font-bold cursor-pointer">
+                    <span className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
+                        You May Also Like These Series:
+                    </span>
+                </a>
+            </div>
             <MiddleEarthSectionContainer />
+            <JackSectionContainer />
+            <AlienSectionContainer />
+            <PredatorSectionContainer />
             <FeatureSectionContainer />
             <AdventureSectionContainer />
             <XenosSectionContainer />

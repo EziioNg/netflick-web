@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-// TrungQuanDev: https://youtube.com/@trungquandev
 import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 
 import { useForm } from 'react-hook-form'

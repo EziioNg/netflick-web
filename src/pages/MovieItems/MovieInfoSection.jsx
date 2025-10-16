@@ -118,9 +118,6 @@ const MovieInfoSection = ({movie, categories}) => {
                         <div className="p-3 movie-btn rounded-search max-h-12" onClick={handleDeleteFavorite}>
                             <BookmarkRemoveIcon className="translate-y-[-0.5px]"/>
                         </div>
-                        <div className="p-3 movie-btn rounded-search max-h-12">
-                            <IosShareIcon className="translate-y-[-1.5px]"/>
-                        </div>
                     </div>
                 </div>
                 <div className="flex grow-0 shrink flex-nowrap items-start max-w-[700px]">
