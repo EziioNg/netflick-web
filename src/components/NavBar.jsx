@@ -1,9 +1,10 @@
 import { useState,  useRef, useEffect } from "react"
 
-import { Link } from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 import CastIcon from '@mui/icons-material/Cast'
-import BookmarksIcon from '@mui/icons-material/Bookmarks'
+// import BookmarksIcon from '@mui/icons-material/Bookmarks'
+import PersonIcon from '@mui/icons-material/Person'
 
 import {
     safePolygon,
@@ -73,11 +74,17 @@ const NavBar = () => {
         },
     });
 
-    // Log out button:
+    const navigate = useNavigate();
     const currentUser = useSelector(selectCurrentUser)
     const dispatch = useDispatch()
+
     const handleLogout = () => {
         dispatch(logoutUserAPI())
+    }
+
+    const handleUser = () => {
+        if (!currentUser) navigate('/login')
+        navigate('/user')
     }
 
     const [scrolled, setScrolled] = useState(false)
@@ -166,9 +173,16 @@ const NavBar = () => {
                     <Link to="#" className="nav-category nav-btn rounded-search">
                         <CastIcon/>
                     </Link>
-                    <Link to="#" className="nav-category nav-btn rounded-search">
-                        <BookmarksIcon/>
-                    </Link>
+                    {/*<Link to="#" className="nav-category nav-btn rounded-search">*/}
+                    {/*    <BookmarksIcon/>*/}
+                    {/*</Link>*/}
+                    <button
+                        // to="/user"
+                        onClick={handleUser}
+                        className="sign-in-btn h-10 rounded-sign-in"
+                    >
+                        <PersonIcon/>
+                    </button>
                     {/*<a*/}
                     {/*    id="btn-test"*/}
                     {/*    href="/404"*/}
