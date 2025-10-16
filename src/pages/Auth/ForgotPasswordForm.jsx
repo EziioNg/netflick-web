@@ -46,7 +46,7 @@ function ForgotPasswordForm() {
                         />
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Forgot Password
+                        Inquisitor
                     </Box>
                     <Box sx={{ marginTop: '1em', padding: '0 1em 1em 1em' }}>
                         <TextField
