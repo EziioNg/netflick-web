@@ -141,14 +141,14 @@ const WhatOnSection = () => {
                                     />
                                 </div>
                             </div>
-                            <figcaption className="flex flex-col grow-0 shrink pointer-events-none">
-                                <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">
-                                  {item.title}
-                                </span>
-                                <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">
-                                  {item.timeLeft}
-                                </span>
-                            </figcaption>
+                            {/*<figcaption className="flex flex-col grow-0 shrink pointer-events-none">*/}
+                            {/*    <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">*/}
+                            {/*      {item.title}*/}
+                            {/*    </span>*/}
+                            {/*    <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">*/}
+                            {/*      {item.timeLeft}*/}
+                            {/*    </span>*/}
+                            {/*</figcaption>*/}
                         </figure>
                     ))}
                     {/* Modal2 */}
