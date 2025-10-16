@@ -93,7 +93,7 @@ const WhatOnSection = () => {
             <div className="what-on-text">
                 <a className="what-on-title">
                     <span className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
-                        What's On Now
+                        Something Something...
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
