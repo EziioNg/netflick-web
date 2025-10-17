@@ -20,7 +20,7 @@ function Auth() {
     const isReset = location.pathname.startsWith('/reset-password/')
 
     const currentUser = useSelector(selectCurrentUser) // lấy thông tin user từ kho dữ liệu redux
-    console.log('currentUser: ', currentUser)
+    // console.log('currentUser: ', currentUser)
     // Nếu user đã login thì chuyển tới / khi vào trang login hoặc register
     if (currentUser) {
         return <Navigate to='/user' replace={true} />
