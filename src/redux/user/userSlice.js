@@ -52,7 +52,7 @@ export const userSlice = createSlice({
             const user = action.payload
             // Update lại dữ liệu của currentUser sau khi xử lý
             state.currentUser = user
-            console.log('current user: ', state.currentUser)
+            // console.log('current user: ', state.currentUser)
         })
         builder.addCase(logoutUserAPI.fulfilled, (state) => { // xử lý api đăng xuất
             // Xóa currentUser trong redux
