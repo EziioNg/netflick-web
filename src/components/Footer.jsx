@@ -108,7 +108,7 @@ const Footer = () => {
                 <div className="flex flex-col gap-16">
                     <div className="flex flex-row grow-0 shrink justify-between items-start">
                         <div className="flex flex-col w-[105px] h-[100px] items-end gap-4">
-                            <img src="/assets/images/89y6neiw2h121.png" alt="HomeIcon" className="footer-icon" />
+                            <img src="assets/images/89y6neiw2h121.png" alt="HomeIcon" className="footer-icon" />
                             <div>
                                 <div
                                     tabIndex={0}
@@ -197,49 +197,49 @@ const Footer = () => {
                                 <h3 className="text-base font-bold">Company</h3>
                                 <ul className="flex flex-col grow-0 shrink gap-2 items-start list-none">
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">About</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Careers</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Our Culture</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Giving</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Press Room</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Partners</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plex Gear</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">The Plex Blog</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Advertise with Us</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                 </ul>
                             </div>
@@ -248,19 +248,19 @@ const Footer = () => {
                                 <h3 className="text-base font-bold">Go Premium</h3>
                                 <ul className="flex flex-col grow-0 shrink gap-2 items-start list-none">
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plans</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plex Labs</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Get Perks</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                 </ul>
                             </div>
@@ -269,34 +269,34 @@ const Footer = () => {
                                 <h3 className="text-base font-bold">Downloads</h3>
                                 <ul className="flex flex-col grow-0 shrink gap-2 items-start list-none">
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plex Media Server</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plex</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plexamp</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plex Photos</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Plex Dash</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Where to Watch</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                 </ul>
                             </div >
@@ -305,49 +305,49 @@ const Footer = () => {
                                 <h3 className="text-base font-bold">Support</h3>
                                 <ul className="flex flex-col grow-0 shrink gap-2 items-start list-none">
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Finding Help</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Support Library</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Community Forums</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Community Guidelines</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Billing Questions</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Status</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Bug Bounty</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">CordCutter</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Get in Touch</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                 </ul>
                             </div>
@@ -356,39 +356,39 @@ const Footer = () => {
                                 <h3 className="text-base font-bold">Watch Free</h3>
                                 <ul className="flex flex-col grow-0 shrink gap-2 items-start list-none text-xs">
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Discover on Plex</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">TV Channel Finder</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">What to Watch</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">What to Watch on Netflix</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">What to Watch on Hulu</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">A24 collection</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                     <li className="flex flex-col grow-0 shrink">
-                                        <a href="" className="text-text-mute text-xs">
+                                        <h1 className="text-text-mute text-xs">
                                             <span className="footer-text">Movies Database</span>
-                                        </a>
+                                        </h1>
                                     </li>
                                 </ul>
                             </div>
@@ -405,43 +405,43 @@ const Footer = () => {
                                          Plex
                                     </span>
                                 </div>
-                                <a href="" className="text-text-mute grow-0 shrink">
+                                <h1 className="text-text-mute grow-0 shrink">
                                     <span className="footer-text">Privacy & Legal</span>
-                                </a>
-                                <a href="" className="text-text-mute grow-0 shrink">
+                                </h1>
+                                <h1 className="text-text-mute grow-0 shrink">
                                     <span className="footer-text">Ad Choices</span>
-                                </a>
-                                <a href="" className="text-text-mute grow-0 shrink">
+                                </h1>
+                                <h1 className="text-text-mute grow-0 shrink">
                                     <span className="footer-text">Accessibility</span>
-                                </a>
-                                <a href="" className="text-text-mute grow-0 shrink">
+                                </h1>
+                                <h1 className="text-text-mute grow-0 shrink">
                                     <span className="footer-btn">Manage Cookies</span>
-                                </a>
+                                </h1>
                             </div>
                         </div>
 
                         <div className="flex flex-row grow-0 shrink items-center max-h-10">
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <Instagram/>
-                            </a>
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            </h1>
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <X/>
-                            </a>
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            </h1>
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <Facebook/>
-                            </a>
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            </h1>
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <LinkedIn/>
-                            </a>
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            </h1>
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <Google/>
-                            </a>
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            </h1>
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <YouTube/>
-                            </a>
-                            <a href="" className="p-3 min-h-10 footer-logos rounded-search">
+                            </h1>
+                            <h1 className="p-3 min-h-10 footer-logos rounded-search">
                                 <Reddit/>
-                            </a>
+                            </h1>
                         </div>
                     </div>
                 </div>
