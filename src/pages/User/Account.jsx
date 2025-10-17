@@ -128,9 +128,9 @@ const Account = () => {
                             Update
                         </button>
                     </div>
-                    <p className="mt-12 mb-4 text-sm font-normal text-static-grey-9">
-                        Press <a className="text-[#FFD875] cursor-pointer" href="/404"> here</a> to change your password
-                    </p>
+                    {/*<p className="mt-12 mb-4 text-sm font-normal text-static-grey-9">*/}
+                    {/*    Press <a className="text-[#FFD875] cursor-pointer" href="/404"> here</a> to change your password*/}
+                    {/*</p>*/}
                 </div>
                 <div className="text-center shrink-0">
                     <div className="relative w-[120px] h-[120px] border-2 shrink-0 overflow-hidden bg-background-user-black rounded-search cursor-pointer">
