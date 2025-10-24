@@ -7,12 +7,11 @@ import { toast } from 'react-toastify'
 import { Box, Button, CardActions, TextField, Typography, Zoom } from '@mui/material'
 import MuiCard from '@mui/material/Card'
 
+import HomeIcon from '@mui/icons-material/Home'
+
 import { forgotPasswordApi } from '~/apis'
-
 import { FIELD_REQUIRED_MESSAGE, EMAIL_RULE, EMAIL_RULE_MESSAGE } from '~/utils/validators.js'
-
-import FieldErrorAlert from "~/components/Form/FieldErrorAlert.jsx";
-import HomeIcon from "@mui/icons-material/Home";
+import FieldErrorAlert from '~/components/Form/FieldErrorAlert.jsx'
 
 function ForgotPasswordForm() {
     const { register, handleSubmit, formState: { errors } } = useForm()

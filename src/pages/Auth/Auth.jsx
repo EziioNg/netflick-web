@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux'
 
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
-import ForgotPasswordForm from "./ForgotPasswordForm.jsx";
-import ResetPasswordForm from "./ResetPasswordForm.jsx";
+import ForgotPasswordForm from './ForgotPasswordForm.jsx'
+import ResetPasswordForm from './ResetPasswordForm.jsx'
 import { selectCurrentUser } from '~/redux/user/userSlice'
 
 function Auth() {
@@ -33,7 +33,7 @@ function Auth() {
             minHeight: '100vh',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            // background: 'url("src/assets/auth/login-register-bg.jpg")',
+            // background: 'url('src/assets/auth/login-register-bg.jpg')',
             background: 'url(https://res.cloudinary.com/doam999z1/image/upload/v1752048346/eddy-gonzalez-davila-1111_c49zvs.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',

@@ -9,8 +9,6 @@ import { useDispatch } from 'react-redux'
 
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Avatar from '@mui/material/Avatar'
-import LockIcon from '@mui/icons-material/Lock'
 import Typography from '@mui/material/Typography'
 import { Card as MuiCard } from '@mui/material'
 import CardActions from '@mui/material/CardActions'
@@ -18,7 +16,8 @@ import TextField from '@mui/material/TextField'
 import Zoom from '@mui/material/Zoom'
 import Alert from '@mui/material/Alert'
 
-// import { ReactComponent as TrelloIcon } from '~/assets/trello.svg'
+import HomeIcon from '@mui/icons-material/Home'
+
 import {
     FIELD_REQUIRED_MESSAGE,
     EMAIL_RULE,
@@ -28,7 +27,6 @@ import {
 } from '~/utils/validators'
 import FieldErrorAlert from '~/components/Form/FieldErrorAlert'
 import { loginUserAPI } from '~/redux/user/userSlice'
-import HomeIcon from "@mui/icons-material/Home";
 
 function LoginForm() {
     const { register, handleSubmit, formState: { errors } } = useForm()

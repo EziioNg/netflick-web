@@ -1,8 +1,8 @@
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom'
 
-const MoviesSection = ({movies, category}) => {
+const MoviesSection = ({movies}) => {
     // Navigate
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     return (
         <div className="px-16">

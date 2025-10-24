@@ -1,7 +1,7 @@
+import {toast} from 'react-toastify'
+
+import authorizedAxiosInstance from '~/utils/authorizeAxios.js'
 import { API_ROOT } from '~/utils/constants'
-// import axios from 'axios'
-import {toast} from "react-toastify"
-import authorizedAxiosInstance from "~/utils/authorizeAxios.js"
 
 // Movie
 export const fetchMoviesAPI = async () => {
@@ -71,6 +71,11 @@ export const verifyUserApi = async (data) => {
   return response.data
 }
 
+export const refreshTokenApi = async () => {
+  const response = await authorizedAxiosInstance.put(`${API_ROOT}/v1/users/refresh_token`)
+  return response.data
+}
+
 export const forgotPasswordApi = async (data) => {
   try {
     const response = await authorizedAxiosInstance.post(`${API_ROOT}/v1/users/forgot-password`, data)
@@ -95,7 +100,10 @@ export const resetPasswordApi = async (data) => {
 
 // Favorite
 export const getFavoritesAPI = async (userId) => {
-  const response = await authorizedAxiosInstance.get(`${API_ROOT}/v1/users/${userId}/favorites`, { withCredentials: true })
+  const response = await authorizedAxiosInstance.get(
+      `${API_ROOT}/v1/users/${userId}/favorites`,
+      {withCredentials: true}
+  )
   return response.data
 }
 
@@ -128,21 +136,3 @@ export const sendMessageAPI = async (message) => {
   )
   return response.data
 }
-
-
-// export const verifyUserApi = async (data) => {
-//   const response = await authorizedAxiosInstance.put(`${API_ROOT}/v1/users/verify`, data)
-//   toast.success('Account Verfified Successfuly', { theme: 'colored' })
-//   return response.data
-// }
-//
-// export const refreshTokenApi = async () => {
-//   const response = await authorizedAxiosInstance.get(`${API_ROOT}/v1/users/refresh_token`)
-//   return response.data
-// }
-
-
-// export const fetchMoviesAPI = async (searchPath) => {
-//     const response = await authorizedAxiosInstance.get(`${API_ROOT}/v1/movies${searchPath}`)
-//     return response.data
-// }

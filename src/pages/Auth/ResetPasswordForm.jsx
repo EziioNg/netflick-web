@@ -2,16 +2,14 @@ import { useForm } from 'react-hook-form'
 
 import { toast } from 'react-toastify'
 
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { Box, Button, CardActions, TextField, Typography, Zoom } from '@mui/material'
 import MuiCard from '@mui/material/Card'
 
 import { resetPasswordApi } from '~/apis'
-
 import { FIELD_REQUIRED_MESSAGE, PASSWORD_RULE, PASSWORD_RULE_MESSAGE } from '~/utils/validators.js'
-
-import FieldErrorAlert from "~/components/Form/FieldErrorAlert.jsx";
+import FieldErrorAlert from '~/components/Form/FieldErrorAlert.jsx'
 
 function ResetPasswordForm() {
     const { token } = useParams()

@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { useSearchParams, Navigate } from 'react-router-dom'
 
-// import Loading from '~/components/Loading/Loading'
 import { verifyUserApi } from '~/apis'
-import PageLoader from "~/pages/PageLoader.jsx";
+import PageLoader from '~/pages/PageLoader.jsx'
 
 function AccountVerification() {
     // lấy email và token từ url
