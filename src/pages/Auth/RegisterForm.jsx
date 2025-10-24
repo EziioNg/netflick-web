@@ -7,16 +7,14 @@ import { toast } from 'react-toastify'
 
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import { Card as MuiCard } from '@mui/material'
 import CardActions from '@mui/material/CardActions'
 import TextField from '@mui/material/TextField'
 import Zoom from '@mui/material/Zoom'
 
-import LockIcon from '@mui/icons-material/Lock'
+import HomeIcon from '@mui/icons-material/Home'
 
-// import { ReactComponent as TrelloIcon } from '~/assets/trello.svg'
 import {
     FIELD_REQUIRED_MESSAGE,
     EMAIL_RULE,
@@ -27,7 +25,6 @@ import {
 } from '~/utils/validators'
 import FieldErrorAlert from '~/components/Form/FieldErrorAlert'
 import { registerUserApi } from '~/apis'
-import HomeIcon from "@mui/icons-material/Home";
 
 function RegisterForm() {
     const { register, handleSubmit, formState: { errors }, watch } = useForm()

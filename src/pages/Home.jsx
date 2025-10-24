@@ -1,22 +1,22 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState} from "react"
 
-import HeroSection from "~/pages/HomeItems/HeroSection.jsx";
-import WhatOnSection from "~/pages/HomeItems/WhatOnSection.jsx";
-import FeatureSection from "~/pages/HomeItems/FeatureSection/FeatureSection.jsx";
-import AdventureSection from "~/pages/HomeItems/AdventureSection/AdventureSection.jsx";
-import XenosSection from "~/pages/HomeItems/XenosSection/XenosSection.jsx";
-import ComingSoonSection from "~/pages/HomeItems/ComingSoonSection.jsx";
-import Categories from "~/pages/HomeItems/Categories.jsx";
-import ScifiSection from "~/pages/HomeItems/ScifiSection/ScifiSection.jsx";
-import FantasySection from "~/pages/HomeItems/FantasySection/FantasySection.jsx";
-import ActionSection from "~/pages/HomeItems/ActionSection/ActionSection.jsx";
-import PageLoader from "~/pages/PageLoader.jsx";
+import HeroSection from "~/pages/HomeItems/HeroSection.jsx"
+import WhatOnSection from "~/pages/HomeItems/WhatOnSection.jsx"
+import FeatureSection from "~/pages/HomeItems/FeatureSection/FeatureSection.jsx"
+import AdventureSection from "~/pages/HomeItems/AdventureSection/AdventureSection.jsx"
+import XenosSection from "~/pages/HomeItems/XenosSection/XenosSection.jsx"
+import ComingSoonSection from "~/pages/HomeItems/ComingSoonSection.jsx"
+import Categories from "~/pages/HomeItems/Categories.jsx"
+import ScifiSection from "~/pages/HomeItems/ScifiSection/ScifiSection.jsx"
+import FantasySection from "~/pages/HomeItems/FantasySection/FantasySection.jsx"
+import ActionSection from "~/pages/HomeItems/ActionSection/ActionSection.jsx"
+import PageLoader from "~/pages/PageLoader.jsx"
 
 import { getCategories, getCategoryById, getMoviesByCategoryId } from "~/apis/index.js"
 
 const Home = () => {
-    const [categories, setCategories] = useState();
-    const [loading, setLoading] = useState(true);
+    const [categories, setCategories] = useState()
+    const [loading, setLoading] = useState(true)
 
     // Dữ liệu movies theo category
     const [sectionsData, setSectionsData] = useState({
@@ -26,10 +26,10 @@ const Home = () => {
         scifi: null,
         fantasy: null,
         action: null
-    });
+    })
 
     useEffect(() => {
-        setLoading(true);
+        setLoading(true)
         Promise.all([
             getCategories(),
             getCategoryAndMovies("686b74eb2b65be5c804297f2"),
@@ -40,7 +40,7 @@ const Home = () => {
             getCategoryAndMovies("6874ca16346bbf62467bee98"),
         ])
             .then(([catData, feature, adventure, xenos, scifi, fantasy, action]) => {
-                setCategories(catData.categories);
+                setCategories(catData.categories)
                 setSectionsData({
                     feature,
                     adventure,
@@ -48,14 +48,14 @@ const Home = () => {
                     scifi,
                     fantasy,
                     action
-                });
+                })
             })
             .catch(err => console.error("Lỗi khi load trang chủ:", err))
-            .finally(() => setLoading(false));
-    }, []);
+            .finally(() => setLoading(false))
+    }, [])
 
     // Loading...
-    if (loading) return <PageLoader />;
+    if (loading) return <PageLoader />
 
     return (
         <>
@@ -78,12 +78,12 @@ async function getCategoryAndMovies(categoryId) {
     const [category, moviesRes] = await Promise.all([
         getCategoryById(categoryId),
         getMoviesByCategoryId(categoryId),
-    ]);
+    ])
 
     return {
         categoryName: category.name,
         movies: moviesRes.movies || [],
-    };
+    }
 }
 
 export default Home

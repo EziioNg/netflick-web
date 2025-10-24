@@ -5,7 +5,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 import { interceptorLoadingElements } from './formatters'
-// import { refreshTokenApi } from '~/apis'
+import { refreshTokenApi } from '~/apis'
 import { logoutUserAPI } from '~/redux/user/userSlice'
 
 // Không thể import store từ redux/store vì đây không phải file component(.jsx)
@@ -31,7 +31,7 @@ authorizedAxiosInstance.interceptors.request.use((config) => {
 })
 
 // Khởi tạo 1 promise để gọi api refresh_token
-// let refreshTokenPromise = null
+let refreshTokenPromise = null
 
 // Interceptor Response: can thiệp vào giữa các response nhận về
 authorizedAxiosInstance.interceptors.response.use((response) => {
@@ -54,36 +54,38 @@ authorizedAxiosInstance.interceptors.response.use((response) => {
     // Lấy các api đang bị lỗi thông qua error.config
     const originalRequests = error.config
     console.log('originalRequests1: ', originalRequests)
+
     if (error.response?.status === 410 && !originalRequests._retry) { // Nếu nhận mã 410 từ BE
         // Gán thêm 1 giá trị retry = true đảm bảo refresh token chỉ gọi 1 lần tại 1 thời điểm
         originalRequests._retry = true
-        console.log('đang refersh token...')
+        console.log('đang refresh token...')
 
-        // if (!refreshTokenPromise) { // Nếu chưa có refreshTokenPromise
-        //     refreshTokenPromise = refreshTokenApi() // Gọi api refresh token và gán cho refreshTokenPromise
-        //         .then(data => {
-        //             // accessToken đã nằm trong httpOnly cookie (xử lý từ BE)
-        //             return data?.accessToken
-        //         })
-        //         .catch((_error) => {
-        //             // có lỗi trong lúc refresh token thì logout
-        //             axiosReduxStore.dispatch(logoutUserAPI(false)) // dùng dispatch gọi logoutUserAPI từ redux
-        //             return Promise.reject(_error) // tránh gặp lỗi gọi api logout 2 lần
-        //         })
-        //         .finally(() => {
-        //             // Gán lại refreshTokenPromise về null
-        //             refreshTokenPromise = null
-        //         })
-        // }
-        // // return trường hợp refreshTokenPromise chạy thành công và xử lý thêm
-        // return refreshTokenPromise.then(accessToken => {
-        //     // Lưu acctessToken vào đâu đó nếu cần
-        //     //...
-        //
-        //     // return lại axiosInstance để gọi lại các originalRequests ban đầu bị lỗi
-        //     console.log('refresh token thành công!')
-        //     return authorizedAxiosInstance(originalRequests)
-        // })
+        if (!refreshTokenPromise) { // Nếu chưa có refreshTokenPromise
+            refreshTokenPromise = refreshTokenApi() // Gọi api refresh token và gán cho refreshTokenPromise
+                // BE sẽ lấy refresh token từ cookies
+                .then(data => {
+                    // accessToken đã nằm trong httpOnly cookie (xử lý từ BE)
+                    return data?.accessToken
+                })
+                .catch((_error) => {
+                    // có lỗi trong lúc refresh token thì logout
+                    axiosReduxStore.dispatch(logoutUserAPI(false))
+                    return Promise.reject(_error) // tránh gặp lỗi gọi api logout 2 lần
+                })
+                .finally(() => {
+                    // Gán lại refreshTokenPromise về null
+                    refreshTokenPromise = null
+                })
+        }
+        // return trường hợp refreshTokenPromise chạy thành công và xử lý thêm
+        return refreshTokenPromise.then(() => {
+            // Lưu acctessToken vào đâu đó nếu cần
+            //...
+
+            // return lại axiosInstance để gọi lại các originalRequests ban đầu bị lỗi
+            console.log('refresh token thành công!')
+            return authorizedAxiosInstance(originalRequests)
+        })
     }
 
     // Xử lý tập trung phần hiển thị thông báo lỗi trả về từ mọi api ở đây:
