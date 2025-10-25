@@ -53,12 +53,12 @@ authorizedAxiosInstance.interceptors.response.use((response) => {
 
     // Lấy các api đang bị lỗi thông qua error.config
     const originalRequests = error.config
-    console.log('originalRequests1: ', originalRequests)
+    // console.log('originalRequests1: ', originalRequests)
 
     if (error.response?.status === 410 && !originalRequests._retry) { // Nếu nhận mã 410 từ BE
         // Gán thêm 1 giá trị retry = true đảm bảo refresh token chỉ gọi 1 lần tại 1 thời điểm
         originalRequests._retry = true
-        console.log('đang refresh token...')
+        // console.log('đang refresh token...')
 
         if (!refreshTokenPromise) { // Nếu chưa có refreshTokenPromise
             refreshTokenPromise = refreshTokenApi() // Gọi api refresh token và gán cho refreshTokenPromise
@@ -83,7 +83,7 @@ authorizedAxiosInstance.interceptors.response.use((response) => {
             //...
 
             // return lại axiosInstance để gọi lại các originalRequests ban đầu bị lỗi
-            console.log('refresh token thành công!')
+            // console.log('refresh token thành công!')
             return authorizedAxiosInstance(originalRequests)
         })
     }

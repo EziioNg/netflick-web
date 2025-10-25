@@ -13,7 +13,7 @@ import {addFavoriteAPI, removeFavoriteAPI} from '~/apis/index.js'
 
 const MovieInfoSection = ({movie, categories}) => {
     // Navigate
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const currentUser = useSelector(selectCurrentUser)
 
     const handleAddFavorite = async () => {
@@ -27,11 +27,7 @@ const MovieInfoSection = ({movie, categories}) => {
             const res = await addFavoriteAPI(currentUser._id, movie._id)
             toast.success(res.message)
         } catch (err) {
-            if (err.response?.status === 409) {
-                toast.info('This movie is already in your favorites')
-            } else {
-                toast.error('Failed to add favorite')
-            }
+            //
         }
     }
 
@@ -46,11 +42,7 @@ const MovieInfoSection = ({movie, categories}) => {
             const res = await removeFavoriteAPI(currentUser._id, movie._id)
             toast.success(res.message)
         } catch (err) {
-            if (err.response?.status === 404) {
-                toast.info('This movie is not in your favorites')
-            } else {
-                toast.error('Failed to remove favorite')
-            }
+            //
         }
     }
 
