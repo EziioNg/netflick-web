@@ -93,11 +93,13 @@ const WhatOnSection = () => {
             <div className="what-on-text">
                 <a className="what-on-title">
                     <span className="inline-flex h-full flex-nowrap items-center flex-row gap-2">
-                        Something Something...
+                        {/*Something Something...*/}
+                        Most Anticipated
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
-                <span className="what-on-desc">Every man has 2 fantasies...</span>
+                {/*<span className="what-on-desc">Every man has 2 fantasies...</span>*/}
+                <span className="what-on-desc">Stay Tuned For More!</span>
             </div>
             <div className="relative w-full h-[199.2px] what-on-mask group/scroll">
                 {/* Buttons scroll */}
@@ -126,7 +128,7 @@ const WhatOnSection = () => {
                     {mockWhatOns.map((item, idx) => (
                         <figure
                             key={item.id}
-                            onClick={() => setSelectedItem(item)}
+                            // onClick={() => setSelectedItem(item)}
                             className={`what-on-items-section-container what-on-width group shrink-0 snap-start
                                 ${idx === 0 ? 'ml-16' : ''} ${idx === mockWhatOns.length - 1 ? 'mr-16' : ''}`}
                         >
@@ -135,41 +137,33 @@ const WhatOnSection = () => {
                                 <div className="what-on-items-bg">
                                     <img
                                         className="what-on-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.imageUrl}
-                                        // src={'https://res.cloudinary.com/doam999z1/image/upload/v1751964794/eddy-gonzalez-davila-stealth_f0f9yt.jpg'}
+                                        // src={item.imageUrl}
+                                        src={'https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F4%2Fgracenote%2F49dce0481a1cca9c378d1484ecb5b8b1.jpg'}
                                         alt={item.title}
                                     />
                                 </div>
                             </div>
-                            {/*<figcaption className="flex flex-col grow-0 shrink pointer-events-none">*/}
-                            {/*    <span className="inline-flex overflow-ellipsis whitespace-nowrap text-white text-sm font-normal">*/}
-                            {/*      {item.title}*/}
-                            {/*    </span>*/}
-                            {/*    <span className="inline-flex overflow-ellipsis whitespace-nowrap text-text-muted text-xs font-semibold min-h-4">*/}
-                            {/*      {item.timeLeft}*/}
-                            {/*    </span>*/}
-                            {/*</figcaption>*/}
                         </figure>
                     ))}
                     {/* Modal2 */}
-                    {selectedItem && (
-                        <Modal2 onClose={() => setSelectedItem(null)}>
-                            <div>
-                                {/* Hình ảnh */}
-                                <div className="max-w-[1279px] max-h-[718px]">
-                                    <img
-                                        className="w-full h-full object-cover rounded"
-                                        src={selectedItem.imageUrl}
-                                        alt="image"
-                                    />
-                                </div>
-                                {/* Mô tả bên dưới hình */}
-                                <span className="block mt-4 justify-self-center italic text-base font-normal text-text-default text-ellipsis overflow-hidden line-clamp-4">
-                                        {selectedItem.quote}
-                                </span>
-                            </div>
-                        </Modal2>
-                    )}
+                    {/*{selectedItem && (*/}
+                    {/*    <Modal2 onClose={() => setSelectedItem(null)}>*/}
+                    {/*        <div>*/}
+                    {/*            /!* Hình ảnh *!/*/}
+                    {/*            <div className="max-w-[1279px] max-h-[718px]">*/}
+                    {/*                <img*/}
+                    {/*                    className="w-full h-full object-cover rounded"*/}
+                    {/*                    src={selectedItem.imageUrl}*/}
+                    {/*                    alt="image"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            /!* Mô tả bên dưới hình *!/*/}
+                    {/*            <span className="block mt-4 justify-self-center italic text-base font-normal text-text-default text-ellipsis overflow-hidden line-clamp-4">*/}
+                    {/*                    {selectedItem.quote}*/}
+                    {/*            </span>*/}
+                    {/*        </div>*/}
+                    {/*    </Modal2>*/}
+                    {/*)}*/}
                 </div>
             </div>
         </div>
