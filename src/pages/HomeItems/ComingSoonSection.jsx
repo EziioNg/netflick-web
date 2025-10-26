@@ -66,7 +66,8 @@ const ComingSoonSection = () => {
             <div className="flex flex-col max-h-[36px] flex-nowrap grow-0 shrink max-w-[700px] px-16">
                 <a className="text-white h-full max-w-full overflow-hidden text-xl font-bold cursor-pointer">
                     <span className="inline-flex h-full text-3xl font-bold flex-nowrap items-center flex-row gap-2">
-                       ͡° ͜ʖ ͡° 🐧🐧
+                       {/*͡° ͜ʖ ͡° 🐧🐧*/}
+                       Coming Soon
                         <ArrowForwardIosIcon fontSize="small"/>
                     </span>
                 </a>
@@ -99,7 +100,7 @@ const ComingSoonSection = () => {
                         <figure
                             // key={item.id}
                             key={item?._id || idx}
-                            onClick={() => setSelectedItem(item)}
+                            // onClick={() => setSelectedItem(item)}
                             className={`worthy-items-section-container worthy-width group shrink-0 snap-start mb-1
                                     ${idx === 0 ? 'ml-16' : ''} ${idx === mockWorthyShows.length - 1 ? 'mr-16' : ''}`}
                         >
@@ -107,8 +108,8 @@ const ComingSoonSection = () => {
                                 <div className="worthy-items-bg max-h-full">
                                     <img
                                         className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        src={item.imageUrl}
-                                        // src={'https://res.cloudinary.com/doam999z1/image/upload/v1751638154/81_YmsWr5_L._AC_SL1500__ukp20k.jpg'}
+                                        // src={item.imageUrl}
+                                        src={'https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F6%2Fgracenote%2F60b1459114eda1b5ffb55434fa857500.jpg'}
                                         alt={item.title}
                                     />
                                 </div>
@@ -116,23 +117,23 @@ const ComingSoonSection = () => {
                         </figure>
                     ))}
                     {/* Modal2 */}
-                    {selectedItem && (
-                        <Modal2 onClose={() => setSelectedItem(null)}>
-                            <div>
-                                <div className="max-w-[1279px] max-h-[718px]">
-                                    <img
-                                        className="w-full h-full object-cover rounded"
-                                        src={selectedItem.imageUrl}
-                                        alt="image"
-                                    />
-                                </div>
-                                <span
-                                    className="block mt-4 justify-self-center text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">
-                                    {selectedItem.title}
-                                </span>
-                            </div>
-                        </Modal2>
-                    )}
+                    {/*{selectedItem && (*/}
+                    {/*    <Modal2 onClose={() => setSelectedItem(null)}>*/}
+                    {/*        <div>*/}
+                    {/*            <div className="max-w-[1279px] max-h-[718px]">*/}
+                    {/*                <img*/}
+                    {/*                    className="w-full h-full object-cover rounded"*/}
+                    {/*                    src={selectedItem.imageUrl}*/}
+                    {/*                    alt="image"*/}
+                    {/*                />*/}
+                    {/*            </div>*/}
+                    {/*            <span*/}
+                    {/*                className="block mt-4 justify-self-center text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">*/}
+                    {/*                {selectedItem.title}*/}
+                    {/*            </span>*/}
+                    {/*        </div>*/}
+                    {/*    </Modal2>*/}
+                    {/*)}*/}
                 </div>
             </div>
         </div>
