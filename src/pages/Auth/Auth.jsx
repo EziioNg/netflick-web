@@ -34,7 +34,7 @@ function Auth() {
             alignItems: 'center',
             justifyContent: 'flex-start',
             // background: 'url('src/assets/auth/login-register-bg.jpg')',
-            background: 'url(https://res.cloudinary.com/doam999z1/image/upload/v1752048346/eddy-gonzalez-davila-1111_c49zvs.jpg)',
+            background: 'url(https://res.cloudinary.com/doam999z1/image/upload/v1762415738/beautiful-red-green-maple-leaf-tree_y2zhoq.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',

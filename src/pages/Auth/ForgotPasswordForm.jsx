@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
 
-import { Box, Button, CardActions, TextField, Typography, Zoom } from '@mui/material'
+import {Avatar, Box, Button, CardActions, TextField, Typography, Zoom} from '@mui/material'
 import MuiCard from '@mui/material/Card'
 
 import HomeIcon from '@mui/icons-material/Home'
@@ -12,6 +12,7 @@ import HomeIcon from '@mui/icons-material/Home'
 import { forgotPasswordApi } from '~/apis'
 import { FIELD_REQUIRED_MESSAGE, EMAIL_RULE, EMAIL_RULE_MESSAGE } from '~/utils/validators.js'
 import FieldErrorAlert from '~/components/Form/FieldErrorAlert.jsx'
+import LockIcon from "@mui/icons-material/Lock";
 
 function ForgotPasswordForm() {
     const { register, handleSubmit, formState: { errors } } = useForm()
@@ -39,13 +40,14 @@ function ForgotPasswordForm() {
                     }}
                 >
                     <Box sx={{ margin: '1em', display: 'flex', justifyContent: 'center' }}>
-                        <img
-                            src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png"
-                            alt="lock-icon"
-                        />
+                        {/*<img*/}
+                        {/*    src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png"*/}
+                        {/*    alt="lock-icon"*/}
+                        {/*/>*/}
+                        <Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Inquisitor
+                        Welcome
                     </Box>
                     <Box sx={{ marginTop: '1em', padding: '0 1em 1em 1em' }}>
                         <TextField

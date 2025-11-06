@@ -10,12 +10,13 @@ import { useDispatch } from 'react-redux'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { Card as MuiCard } from '@mui/material'
+import {Avatar, Card as MuiCard} from '@mui/material'
 import CardActions from '@mui/material/CardActions'
 import TextField from '@mui/material/TextField'
 import Zoom from '@mui/material/Zoom'
 import Alert from '@mui/material/Alert'
 
+import LockIcon from '@mui/icons-material/Lock'
 import HomeIcon from '@mui/icons-material/Home'
 
 import {
@@ -66,7 +67,7 @@ function LoginForm() {
                         marginTop: '6em',
                         borderRadius: '20px',
                         background: 'rgba(255, 255, 255, 0.15)', // lớp nền mờ trong suốt
-                        backdropFilter: 'blur(2px)',            // làm mờ nền phía sau
+                        backdropFilter: 'blur(5px)',            // làm mờ nền phía sau
                         WebkitBackdropFilter: 'blur(3px)',      // cho Safari
                         border: '1px solid rgba(255, 255, 255, 0.3)', // viền mờ
                         boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)' // đổ bóng nhẹ
@@ -78,11 +79,12 @@ function LoginForm() {
                         justifyContent: 'center',
                         gap: 1
                     }}>
-                        {/*<Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>*/}
-                        <img src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png" alt="lock-icon"/>
+                        <Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>
+                        {/*<img src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png" alt="lock-icon"/>*/}
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Inquisitor
+                        {/*Inquisitor*/}
+                        Welcome
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', flexDirection: 'column', padding: '0 1em' }}>
                         {verifiedEmail &&
@@ -120,6 +122,12 @@ function LoginForm() {
                                 <br />Please check and verify your account before logging in!
                             </Alert>
                         }
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
+                        <Box>
+                            <Typography>Hint: thphong16902@gmail.com</Typography>
+                            <Typography>Pass: Aa@123456</Typography>
+                        </Box>
                     </Box>
                     <Box sx={{ padding: '0 1em 1em 1em' }}>
                         <Box sx={{ marginTop: '1em' }}>

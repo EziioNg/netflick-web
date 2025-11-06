@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { Card as MuiCard } from '@mui/material'
+import {Avatar, Card as MuiCard} from '@mui/material'
 import CardActions from '@mui/material/CardActions'
 import TextField from '@mui/material/TextField'
 import Zoom from '@mui/material/Zoom'
@@ -25,6 +25,7 @@ import {
 } from '~/utils/validators'
 import FieldErrorAlert from '~/components/Form/FieldErrorAlert'
 import { registerUserApi } from '~/apis'
+import LockIcon from "@mui/icons-material/Lock";
 
 function RegisterForm() {
     const { register, handleSubmit, formState: { errors }, watch } = useForm()
@@ -52,7 +53,7 @@ function RegisterForm() {
                         marginTop: '6em',
                         borderRadius: '20px',
                         background: 'rgba(255, 255, 255, 0.15)',
-                        backdropFilter: 'blur(2px)',
+                        backdropFilter: 'blur(5px)',
                         WebkitBackdropFilter: 'blur(3px)',
                         border: '1px solid rgba(255, 255, 255, 0.3)',
                         boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
@@ -64,11 +65,11 @@ function RegisterForm() {
                         justifyContent: 'center',
                         gap: 1
                     }}>
-                        {/*<Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>*/}
-                        <img src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png" alt="lock-icon"/>
+                        <Avatar sx={{ bgcolor: 'primary.main' }}><LockIcon /></Avatar>
+                        {/*<img src="https://res.cloudinary.com/doam999z1/image/upload/v1754643053/1290288805177200681_bwonbr.png" alt="lock-icon"/>*/}
                     </Box>
                     <Box sx={{ marginTop: '1em', display: 'flex', justifyContent: 'center', color: theme => theme.palette.grey[500] }}>
-                        Inquisitor
+                        Welcome
                     </Box>
                     <Box sx={{ padding: '0 1em 1em 1em' }}>
                         <Box sx={{ marginTop: '1em' }}>
