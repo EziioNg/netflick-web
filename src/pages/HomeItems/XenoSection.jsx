@@ -7,7 +7,7 @@ const XenoSection = () => {
                 <div className="hero hero-height">
                     <div className="hero-video hero-mask">
                         <video className="video" autoPlay={true} loop={true} playsInline={true} muted={true}
-                               src="https://netflick1.b-cdn.net/SM.mp4">
+                               src="https://netflick1.b-cdn.net/SM123.mp4">
                         </video>
                     </div>
 
