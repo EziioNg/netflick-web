@@ -1,5 +1,3 @@
-import React from "react";
-
 const ActionSection = () => {
   return (
     <main className="hero-section-container">

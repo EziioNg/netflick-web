@@ -1,10 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const WatchLayout = ({children}) => {
-    return (
-        <div className="">
-            {children}
-        </div>
-    )
-}
-export default WatchLayout
+const WatchLayout = ({ children }) => {
+  return <div>{children}</div>;
+};
+export default WatchLayout;
