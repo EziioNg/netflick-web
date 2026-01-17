@@ -1,5 +1,6 @@
 {
-  "name": "net-flick",
+  "name": "net-flick-fe",
+  "author": "Eziio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -23,7 +24,7 @@
     "cross-env": "^7.0.3",
     "material-ui-confirm": "^4.0.0",
     "material-ui-popup-state": "^5.3.6",
-    "motion": "^12.12.2",
+    "motion": "^12.26.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.56.3",

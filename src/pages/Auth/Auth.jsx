@@ -1,52 +1,54 @@
-/* eslint-disable no-console */
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate, useLocation } from "react-router-dom";
 
-import Box from '@mui/material/Box'
+import Box from "@mui/material/Box";
 
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
-import ForgotPasswordForm from './ForgotPasswordForm.jsx'
-import ResetPasswordForm from './ResetPasswordForm.jsx'
-import { selectCurrentUser } from '~/redux/user/userSlice'
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
+import ForgotPasswordForm from "./ForgotPasswordForm.jsx";
+import ResetPasswordForm from "./ResetPasswordForm.jsx";
+import { selectCurrentUser } from "~/redux/user/userSlice";
 
 function Auth() {
-    const location = useLocation()
-    // console.log(location)
-    const isLogin = location.pathname === '/login' // lấy param login từ url
-    const isRegister = location.pathname === '/register' // lấy param register từ url
-    const isForgot = location.pathname === '/forgot-password'
-    const isReset = location.pathname.startsWith('/reset-password/')
+  const location = useLocation();
+  // console.log(location)
+  const isLogin = location.pathname === "/login"; // lấy param login từ url
+  const isRegister = location.pathname === "/register"; // lấy param register từ url
+  const isForgot = location.pathname === "/forgot-password";
+  const isReset = location.pathname.startsWith("/reset-password/");
 
-    const currentUser = useSelector(selectCurrentUser) // lấy thông tin user từ kho dữ liệu redux
-    // console.log('currentUser: ', currentUser)
-    // Nếu user đã login thì chuyển tới / khi vào trang login hoặc register
-    if (currentUser) {
-        return <Navigate to='/user' replace={true} />
-    }
+  const currentUser = useSelector(selectCurrentUser); // lấy thông tin user từ kho dữ liệu redux
+  // console.log('currentUser: ', currentUser)
+  // Nếu user đã login thì chuyển tới / khi vào trang login hoặc register
+  if (currentUser) {
+    return <Navigate to="/user" replace={true} />;
+  }
 
-    return (
-        <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '100vh',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-            // background: 'url('src/assets/auth/login-register-bg.jpg')',
-            background: 'url(https://res.cloudinary.com/doam999z1/image/upload/v1762415738/beautiful-red-green-maple-leaf-tree_y2zhoq.jpg)',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            boxShadow: 'inset 0 0 0 2000px rgba(0, 0, 0, 0.2)'
-        }}>
-            {/* render form login hoặc register tùy theo url */}
-            {isLogin && <LoginForm />}
-            {isRegister && <RegisterForm />}
-            {isForgot && <ForgotPasswordForm />}
-            {isReset && <ResetPasswordForm />}
-        </Box>
-    )
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        // background: 'url('src/assets/auth/login-register-bg.jpg')',
+        background:
+          "url(https://res.cloudinary.com/doam999z1/image/upload/v1762415738/beautiful-red-green-maple-leaf-tree_y2zhoq.jpg)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        boxShadow: "inset 0 0 0 2000px rgba(0, 0, 0, 0.2)",
+      }}
+    >
+      {/* render form login hoặc register tùy theo url */}
+      {isLogin && <LoginForm />}
+      {isRegister && <RegisterForm />}
+      {isForgot && <ForgotPasswordForm />}
+      {isReset && <ResetPasswordForm />}
+    </Box>
+  );
 }
 
-export default Auth
+export default Auth;

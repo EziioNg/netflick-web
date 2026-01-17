@@ -1,5 +1,3 @@
-import React from "react";
-
 const AdventureSection = () => {
   return (
     <main className="hero-section-container">

@@ -1,5 +1,3 @@
-import React from "react";
-
 const FantasySection = () => {
   return (
     <main className="hero-section-container">

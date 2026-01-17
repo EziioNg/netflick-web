@@ -1,143 +1,152 @@
-import {useRef, useState, useEffect} from "react";
+import { useRef, useState, useEffect } from "react";
 
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 import mockWorthyShows from "~/constants/HomeMockDatas/mockWorthyShows.js";
-import Modal2 from "~/pages/Modal2.jsx";
+// import Modal2 from "~/pages/Modal2.jsx";
 
 const ComingSoonSection = () => {
-    const scrollRef = useRef(null);
-    const [showLeft, setShowLeft] = useState(false);
-    const [showRight, setShowRight] = useState(false);
+  const scrollRef = useRef(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(false);
 
-    const checkScroll = () => {
-        const el = scrollRef.current;
-        if (!el) return;
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
 
-        setShowLeft(el.scrollLeft > 0);
-        setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+    setShowLeft(el.scrollLeft > 0);
+    setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    checkScroll(); // Check ban đầu
+
+    const el = scrollRef.current;
+    if (!el) return;
+
+    el.addEventListener("scroll", checkScroll);
+    window.addEventListener("resize", checkScroll); // Responsive check
+
+    return () => {
+      el.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
     };
+  }, []);
 
-    useEffect(() => {
-        checkScroll(); // Check ban đầu
+  const scrollLeft = () => {
+    const el = scrollRef.current;
+    el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
+  };
 
-        const el = scrollRef.current;
-        if (!el) return;
+  const scrollRight = () => {
+    const el = scrollRef.current;
+    el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
+  };
 
-        el.addEventListener("scroll", checkScroll);
-        window.addEventListener("resize", checkScroll); // Responsive check
+  // Modal2
+  const [selectedItem, setSelectedItem] = useState(null);
+  useEffect(() => {
+    if (selectedItem) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+    }
 
-        return () => {
-            el.removeEventListener("scroll", checkScroll);
-            window.removeEventListener("resize", checkScroll);
-        };
-    }, []);
-
-    const scrollLeft = () => {
-        const el = scrollRef.current;
-        el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
+    return () => {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
     };
+  }, [selectedItem]);
 
-    const scrollRight = () => {
-        const el = scrollRef.current;
-        el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
-    };
+  return (
+    <div className="worthy-section-container">
+      <div className="flex flex-col max-h-[36px] flex-nowrap grow-0 shrink max-w-[700px] px-16">
+        <a className="text-white h-full max-w-full overflow-hidden text-xl font-bold cursor-pointer">
+          <span className="inline-flex h-full text-3xl font-bold flex-nowrap items-center flex-row gap-2">
+            {/*͡° ͜ʖ ͡° 🐧🐧*/}
+            Coming Soon
+            <ArrowForwardIosIcon fontSize="small" />
+          </span>
+        </a>
+      </div>
+      <div className="relative w-full h-[376px] what-on-mask group/scroll">
+        {/* Buttons scroll */}
+        {showLeft && (
+          <div className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
+            <button
+              onClick={scrollLeft}
+              className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black"
+            >
+              <ArrowBackIosIcon
+                className="translate-x-[3.5px]"
+                fontSize="small"
+              />
+            </button>
+          </div>
+        )}
+        {showRight && (
+          <div className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
+            <button
+              onClick={scrollRight}
+              className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black"
+            >
+              <ArrowForwardIosIcon fontSize="small" />
+            </button>
+          </div>
+        )}
 
-    // Modal2
-    const [selectedItem, setSelectedItem] = useState(null);
-    useEffect(() => {
-        if (selectedItem) {
-            document.body.style.overflow = "hidden";
-            document.documentElement.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-            document.documentElement.style.overflow = "auto";
-        }
-
-        return () => {
-            document.body.style.overflow = "auto";
-            document.documentElement.style.overflow = "auto";
-        };
-    }, [selectedItem]);
-
-    return (
-        <div className="worthy-section-container">
-            <div className="flex flex-col max-h-[36px] flex-nowrap grow-0 shrink max-w-[700px] px-16">
-                <a className="text-white h-full max-w-full overflow-hidden text-xl font-bold cursor-pointer">
-                    <span className="inline-flex h-full text-3xl font-bold flex-nowrap items-center flex-row gap-2">
-                       {/*͡° ͜ʖ ͡° 🐧🐧*/}
-                       Coming Soon
-                        <ArrowForwardIosIcon fontSize="small"/>
-                    </span>
-                </a>
-            </div>
-            <div className="relative w-full h-[376px] what-on-mask group/scroll">
-                {/* Buttons scroll */}
-                {showLeft && (
-                    <div
-                        className="absolute left-0 top-0 bottom-0 z-20 ml-2 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollLeft} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
-                            <ArrowBackIosIcon className="translate-x-[3.5px]" fontSize="small"/>
-                        </button>
-                    </div>
-                )}
-                {showRight && (
-                    <div
-                        className="absolute right-0 top-0 bottom-0 z-20 mr-5 mb-9 hidden group-hover/scroll:flex items-center justify-center bg-transparent px-2">
-                        <button onClick={scrollRight} className="px-2 py-[7px] ml-[1px] mb-[1px] bg-black text-white inline-block rounded-full cursor-pointer hover:bg-white hover:text-black">
-                            <ArrowForwardIosIcon fontSize="small"/>
-                        </button>
-                    </div>
-                )}
-
-                {/* Scrollable content */}
-                <div
-                    ref={scrollRef}
-                    className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
-                >
-                    {mockWorthyShows.map((item, idx) => (
-                        <figure
-                            // key={item.id}
-                            key={item?._id || idx}
-                            // onClick={() => setSelectedItem(item)}
-                            className={`worthy-items-section-container worthy-width group shrink-0 snap-start mb-1
-                                    ${idx === 0 ? 'ml-16' : ''} ${idx === mockWorthyShows.length - 1 ? 'mr-16' : ''}`}
-                        >
-                            <div className="worthy-items-section flex-1 worthy-width worthy-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
-                                <div className="worthy-items-bg max-h-full">
-                                    <img
-                                        className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
-                                        // src={item.imageUrl}
-                                        src={'https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F6%2Fgracenote%2F60b1459114eda1b5ffb55434fa857500.jpg'}
-                                        alt={item.title}
-                                    />
-                                </div>
-                            </div>
-                        </figure>
-                    ))}
-                    {/* Modal2 */}
-                    {/*{selectedItem && (*/}
-                    {/*    <Modal2 onClose={() => setSelectedItem(null)}>*/}
-                    {/*        <div>*/}
-                    {/*            <div className="max-w-[1279px] max-h-[718px]">*/}
-                    {/*                <img*/}
-                    {/*                    className="w-full h-full object-cover rounded"*/}
-                    {/*                    src={selectedItem.imageUrl}*/}
-                    {/*                    alt="image"*/}
-                    {/*                />*/}
-                    {/*            </div>*/}
-                    {/*            <span*/}
-                    {/*                className="block mt-4 justify-self-center text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">*/}
-                    {/*                {selectedItem.title}*/}
-                    {/*            </span>*/}
-                    {/*        </div>*/}
-                    {/*    </Modal2>*/}
-                    {/*)}*/}
+        {/* Scrollable content */}
+        <div
+          ref={scrollRef}
+          className="flex h-full gap-4 overflow-x-scroll scroll-smooth no-scrollbar scroll-snap-x snap-mandatory"
+        >
+          {mockWorthyShows.map((item, idx) => (
+            <figure
+              // key={item.id}
+              key={item?._id || idx}
+              // onClick={() => setSelectedItem(item)}
+              className={`worthy-items-section-container worthy-width group shrink-0 snap-start mb-1
+                                    ${idx === 0 ? "ml-16" : ""} ${idx === mockWorthyShows.length - 1 ? "mr-16" : ""}`}
+            >
+              <div className="worthy-items-section flex-1 worthy-width worthy-height rounded-lg group-hover:shadow-[0_0_0_2px_white]">
+                <div className="worthy-items-bg max-h-full">
+                  <img
+                    className="worthy-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
+                    // src={item.imageUrl}
+                    src={
+                      "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F6%2Fgracenote%2F60b1459114eda1b5ffb55434fa857500.jpg"
+                    }
+                    alt={item.title}
+                  />
                 </div>
-            </div>
+              </div>
+            </figure>
+          ))}
+          {/* Modal2 */}
+          {/*{selectedItem && (*/}
+          {/*    <Modal2 onClose={() => setSelectedItem(null)}>*/}
+          {/*        <div>*/}
+          {/*            <div className="max-w-[1279px] max-h-[718px]">*/}
+          {/*                <img*/}
+          {/*                    className="w-full h-full object-cover rounded"*/}
+          {/*                    src={selectedItem.imageUrl}*/}
+          {/*                    alt="image"*/}
+          {/*                />*/}
+          {/*            </div>*/}
+          {/*            <span*/}
+          {/*                className="block mt-4 justify-self-center text-base font-bold text-text-default text-ellipsis overflow-hidden line-clamp-4">*/}
+          {/*                {selectedItem.title}*/}
+          {/*            </span>*/}
+          {/*        </div>*/}
+          {/*    </Modal2>*/}
+          {/*)}*/}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default ComingSoonSection;
