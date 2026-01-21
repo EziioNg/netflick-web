@@ -148,7 +148,7 @@ const WhatOnSection = () => {
                     className="what-on-items-bg-image transition-transform duration-[var(--duration-slow)] group-hover:scale-[1.03]"
                     // src={item.imageUrl}
                     src={
-                      "https://images.plex.tv/photo?size=medium-360&scale=1&url=https%3A%2F%2Fmetadata-static.plex.tv%2F4%2Fgracenote%2F49dce0481a1cca9c378d1484ecb5b8b1.jpg"
+                      "https://res.cloudinary.com/doam999z1/image/upload/v1760615285/eddy-gonzalez-davila-1st-person_efttd2.jpg"
                     }
                     alt={item.title}
                   />
