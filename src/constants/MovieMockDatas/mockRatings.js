@@ -96,7 +96,7 @@ const mockRatings = [
     quote: "Carcharodons Astra",
     symbol:
       "https://res.cloudinary.com/doam999z1/image/upload/v1752402190/1325757315953070193_khhmww.png",
-    battleCry: "YOU!...DO NOT SEE TYBEROS!!!",
+    battleCry: ".....",
   },
   {
     id: 12,

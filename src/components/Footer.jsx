@@ -107,7 +107,7 @@ const Footer = () => {
           <div className="flex flex-row grow-0 shrink justify-between items-start">
             <div className="flex flex-col w-[105px] h-[100px] items-end gap-4">
               <img
-                src="assets/images/89y6neiw2h121.png"
+                src="/assets/images/89y6neiw2h121.png"
                 alt="HomeIcon"
                 className="footer-icon"
               />

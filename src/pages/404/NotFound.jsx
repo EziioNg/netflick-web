@@ -51,7 +51,8 @@ function NotFound() {
             textAlign: "center",
           }}
         >
-          Yo Bro Wtf&nbsp;
+          {/* Yo Bro Wtf&nbsp; */}
+          PAGE NOT FOUND&nbsp;
           <br />
           <Typography
             variant="span"
@@ -68,20 +69,22 @@ function NotFound() {
             //}}
           >
             {/*&nbsp;SPACE&nbsp;*/}
-            Lost in the{" "}
+            {/* Lost in the{" "} */}
+            Are you{" "}
             <Typography
               variant="span"
               sx={{ color: "#E90239", fontWeight: 500 }}
             >
-              Warp
+              {/* Warp */}
+              Lost
             </Typography>
           </Typography>
           &nbsp;
-          <Typography variant="span" sx={{ fontWeight: 500 }}>
+          {/* <Typography variant="span" sx={{ fontWeight: 500 }}>
             Bro
-          </Typography>
+          </Typography> */}
           ?<br />
-          Better go back...
+          {/* Better go back... */}
         </Typography>
         <Box sx={{ width: "390px", height: "390px", position: "relative" }}>
           <img

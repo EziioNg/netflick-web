@@ -1,9 +1,9 @@
 import React from "react";
 
-import NavBar from "~/components/NavBar.jsx";
-import Take from "~/components/Take.jsx";
-import Footer from "~/components/Footer.jsx";
-import ChatBox from "~/components/ChatBox.jsx";
+import NavBar from "~/components/NavBar";
+import Take from "~/components/Take";
+import Footer from "~/components/Footer";
+import ChatBox from "~/components/ChatBox";
 
 const MovieLayout = ({ children }) => {
   return (
