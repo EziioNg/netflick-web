@@ -145,7 +145,8 @@ const Account = () => {
                 className="inline-block text-sm font-normal text-static-grey-9"
                 htmlFor=""
               >
-                🤨🔥?
+                {/* 🤨🔥? */}
+                other
               </label>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import CastIcon from "@mui/icons-material/Cast";
 // import BookmarksIcon from '@mui/icons-material/Bookmarks'
@@ -83,10 +83,11 @@ const NavBar = () => {
     dispatch(logoutUserAPI());
   };
 
+  const navigate = useNavigate();
   const handleUser = () => {
-    if (!currentUser) {
+    if (!currentUser)
       toast.error("You have to login first to perform this action");
-    }
+    if (currentUser) navigate("/user", { replace: true });
   };
 
   const [scrolled, setScrolled] = useState(false);
