@@ -20,8 +20,10 @@ const User = () => {
 
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogout = () => {
     dispatch(logoutUserAPI());
+    if (!currentUser) navigate("/login", { replace: true });
   };
 
   const renderContent = () => {
@@ -101,10 +103,10 @@ const User = () => {
                 <AllInclusiveIcon />
               </div>
               <div className="user-subname">{currentUser?.email}</div>
-              <a className="user-logout" href="/home" onClick={handleLogout}>
+              <button className="user-logout" onClick={handleLogout}>
                 <LogoutIcon />
                 <span>Log Out</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
